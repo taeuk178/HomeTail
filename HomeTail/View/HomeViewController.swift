@@ -18,12 +18,12 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController {
-    
+
     override func configuration() {
-        
+
     }
-    
+
     override func constraints() {
-        
+
     }
 }

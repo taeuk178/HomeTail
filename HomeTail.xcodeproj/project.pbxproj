@@ -15,6 +15,7 @@
 		A9667827266A4AAB002684BC /* HomeTailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667826266A4AAB002684BC /* HomeTailTests.swift */; };
 		A9667832266A4AAB002684BC /* HomeTailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667831266A4AAB002684BC /* HomeTailUITests.swift */; };
 		A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667941266BCCA7002684BC /* HomeViewController.swift */; };
+		A9667952266BCE09002684BC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9667951266BCE09002684BC /* .swiftlint.yml */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -58,6 +59,7 @@
 		A9667831266A4AAB002684BC /* HomeTailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTailUITests.swift; sourceTree = "<group>"; };
 		A9667833266A4AAB002684BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9667941266BCCA7002684BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A9667951266BCE09002684BC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		A9667803266A4AA9002684BC = {
 			isa = PBXGroup;
 			children = (
+				A9667951266BCE09002684BC /* .swiftlint.yml */,
 				A966780E266A4AA9002684BC /* HomeTail */,
 				A9667825266A4AAB002684BC /* HomeTailTests */,
 				A9667830266A4AAB002684BC /* HomeTailUITests */,
@@ -220,6 +223,7 @@
 				A9667809266A4AA9002684BC /* Frameworks */,
 				A966780A266A4AA9002684BC /* Resources */,
 				2AAA18B0F0393FBB10FF8123 /* [CP] Embed Pods Frameworks */,
+				A966794A266BCD96002684BC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9667952266BCE09002684BC /* .swiftlint.yml in Resources */,
 				A966781C266A4AAB002684BC /* LaunchScreen.storyboard in Resources */,
 				A9667819266A4AAB002684BC /* Assets.xcassets in Resources */,
 			);
@@ -415,6 +420,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A966794A266BCD96002684BC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		D305F7431B910B32912E3B2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
