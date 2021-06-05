@@ -8,6 +8,9 @@
 - test: 테스트 코드 작성, 수정
 - chore: 패키지 매니저 수정 ( cocoapods )
 
+## Code Convention
+[Swift-Style-Guide](https://github.com/StyleShare/swift-style-guide)
+
 ## Project Info
 - Deployment Target: iOS13+
 - Architecture:
