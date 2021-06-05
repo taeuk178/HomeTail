@@ -15,6 +15,9 @@
 		A966781C266A4AAB002684BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A966781A266A4AAB002684BC /* LaunchScreen.storyboard */; };
 		A9667827266A4AAB002684BC /* HomeTailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667826266A4AAB002684BC /* HomeTailTests.swift */; };
 		A9667832266A4AAB002684BC /* HomeTailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667831266A4AAB002684BC /* HomeTailUITests.swift */; };
+		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
+		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
+		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTailTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4627F2182C98C8C14AB772 /* Pods-HomeTail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.debug.xcconfig"; sourceTree = "<group>"; };
+		7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail_HomeTailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73DBA9942D11BCAC2123D83B /* Pods-HomeTailTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTailTests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTailTests/Pods-HomeTailTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C7E7F108B93F5C8F14AB56D /* Pods-HomeTailTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTailTests.release.xcconfig"; path = "Target Support Files/Pods-HomeTailTests/Pods-HomeTailTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E2D9AF9333BC6F275C035A4 /* Pods-HomeTail-HomeTailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.release.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A966780C266A4AA9002684BC /* HomeTail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A966780F266A4AA9002684BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9667811266A4AA9002684BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +58,9 @@
 		A966782D266A4AAB002684BC /* HomeTailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9667831266A4AAB002684BC /* HomeTailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTailUITests.swift; sourceTree = "<group>"; };
 		A9667833266A4AAB002684BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1394648416BC31D06A3567BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */,
+				7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */,
+				3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A9667803266A4AA9002684BC = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				A9667825266A4AAB002684BC /* HomeTailTests */,
 				A9667830266A4AAB002684BC /* HomeTailUITests */,
 				A966780D266A4AA9002684BC /* Products */,
+				FBF5080502C3E8540F8C15F2 /* Pods */,
+				1394648416BC31D06A3567BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,20 @@
 			path = HomeTailUITests;
 			sourceTree = "<group>";
 		};
+		FBF5080502C3E8540F8C15F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F4627F2182C98C8C14AB772 /* Pods-HomeTail.debug.xcconfig */,
+				E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */,
+				B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */,
+				9E2D9AF9333BC6F275C035A4 /* Pods-HomeTail-HomeTailUITests.release.xcconfig */,
+				73DBA9942D11BCAC2123D83B /* Pods-HomeTailTests.debug.xcconfig */,
+				9C7E7F108B93F5C8F14AB56D /* Pods-HomeTailTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9667836266A4AAB002684BC /* Build configuration list for PBXNativeTarget "HomeTail" */;
 			buildPhases = (
+				427B67E108F0E99CE5A868AF /* [CP] Check Pods Manifest.lock */,
 				A9667808266A4AA9002684BC /* Sources */,
 				A9667809266A4AA9002684BC /* Frameworks */,
 				A966780A266A4AA9002684BC /* Resources */,
+				2AAA18B0F0393FBB10FF8123 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9667839266A4AAB002684BC /* Build configuration list for PBXNativeTarget "HomeTailTests" */;
 			buildPhases = (
+				D305F7431B910B32912E3B2B /* [CP] Check Pods Manifest.lock */,
 				A966781E266A4AAB002684BC /* Sources */,
 				A966781F266A4AAB002684BC /* Frameworks */,
 				A9667820266A4AAB002684BC /* Resources */,
@@ -170,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A966783C266A4AAB002684BC /* Build configuration list for PBXNativeTarget "HomeTailUITests" */;
 			buildPhases = (
+				20631FC4CD8AC7E2C159E47D /* [CP] Check Pods Manifest.lock */,
 				A9667829266A4AAB002684BC /* Sources */,
 				A966782A266A4AAB002684BC /* Frameworks */,
 				A966782B266A4AAB002684BC /* Resources */,
+				04149B08EB3353592E568AC5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04149B08EB3353592E568AC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20631FC4CD8AC7E2C159E47D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeTail-HomeTailUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AAA18B0F0393FBB10FF8123 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeTail/Pods-HomeTail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeTail/Pods-HomeTail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeTail/Pods-HomeTail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		427B67E108F0E99CE5A868AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeTail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D305F7431B910B32912E3B2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeTailTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9667808266A4AA9002684BC /* Sources */ = {
@@ -366,7 +515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,11 +582,13 @@
 		};
 		A9667837266A4AAB002684BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F4627F2182C98C8C14AB772 /* Pods-HomeTail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HomeTail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,17 +596,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeTail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		A9667838266A4AAB002684BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HomeTail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,12 +616,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeTail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		A966783A266A4AAB002684BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73DBA9942D11BCAC2123D83B /* Pods-HomeTailTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +644,7 @@
 		};
 		A966783B266A4AAB002684BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C7E7F108B93F5C8F14AB56D /* Pods-HomeTailTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +666,7 @@
 		};
 		A966783D266A4AAB002684BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +686,7 @@
 		};
 		A966783E266A4AAB002684BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E2D9AF9333BC6F275C035A4 /* Pods-HomeTail-HomeTailUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

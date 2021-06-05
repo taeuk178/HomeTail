@@ -1,0 +1,6 @@
+framework module Pods_HomeTail_HomeTailUITests {
+  umbrella header "Pods-HomeTail-HomeTailUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
