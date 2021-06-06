@@ -17,6 +17,9 @@
 		A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667941266BCCA7002684BC /* HomeViewController.swift */; };
 		A9667952266BCE09002684BC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9667951266BCE09002684BC /* .swiftlint.yml */; };
 		A966795C266BD737002684BC /* SetUpClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966795B266BD737002684BC /* SetUpClosure.swift */; };
+		A9667961266BEE43002684BC /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667960266BEE43002684BC /* Extension+UITableView.swift */; };
+		A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */; };
+		A966796F266BF047002684BC /* Protocol+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966796E266BF047002684BC /* Protocol+ReusableCell.swift */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -62,6 +65,9 @@
 		A9667941266BCCA7002684BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9667951266BCE09002684BC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A966795B266BD737002684BC /* SetUpClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpClosure.swift; sourceTree = "<group>"; };
+		A9667960266BEE43002684BC /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
+		A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
+		A966796E266BF047002684BC /* Protocol+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+ReusableCell.swift"; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 		A966793D266BCC6A002684BC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A966795B266BD737002684BC /* SetUpClosure.swift */,
 				A9667813266A4AA9002684BC /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -204,8 +211,8 @@
 		A9667959266BD6DD002684BC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				A966796D266BF02E002684BC /* Protocol */,
 				A966795A266BD6E6002684BC /* Extension */,
-				A966795B266BD737002684BC /* SetUpClosure.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -213,8 +220,18 @@
 		A966795A266BD6E6002684BC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A9667960266BEE43002684BC /* Extension+UITableView.swift */,
+				A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A966796D266BF02E002684BC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A966796E266BF047002684BC /* Protocol+ReusableCell.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		FBF5080502C3E8540F8C15F2 /* Pods */ = {
@@ -486,11 +503,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A966796F266BF047002684BC /* Protocol+ReusableCell.swift in Sources */,
 				A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */,
+				A9667961266BEE43002684BC /* Extension+UITableView.swift in Sources */,
 				A966795C266BD737002684BC /* SetUpClosure.swift in Sources */,
 				A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */,
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
 				A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */,
+				A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
