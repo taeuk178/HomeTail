@@ -14,18 +14,17 @@ class BaseViewController: UIViewController {
 
         view.backgroundColor = .white
 
-        configuration()
-        constraints()
+        setupConfiguration()
+        setupConstraints()
 
     }
 
+    // 바인딩
+    @objc dynamic func setupBinding() {}
+    
     // 설정
-    @objc dynamic func configuration() {
-
-    }
+    @objc dynamic func setupConfiguration() {}
 
     // 제약
-    @objc dynamic func constraints() {
-
-    }
+    @objc dynamic func setupConstraints() {}
 }
