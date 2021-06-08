@@ -18,6 +18,7 @@ final class HomeViewController: BaseViewController {
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
     }
     
+    // test
     let cockList = CockTailListModel(id: 1,
                                      name: "1",
                                      source: "2",
@@ -29,15 +30,44 @@ final class HomeViewController: BaseViewController {
                                      amount: [0],
                                      recipe: [""],
                                      cocktailimageurl: "")
+    // test
+    var context: NSManagedObjectContext? {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return nil
+            }
+            
+            return appDelegate.persistentContainer.viewContext
+        }
     
     // MARK: - LifeCycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        let vm = HomeViewModel()
+        vm.readService()
+        
+        // fetch test
+        guard let context = context else { return }
+        
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "CockTailList")
+        do {
+            let contact = try context.fetch(fetch)
+            
+//            print(contact[0].value(forKey: "source"))
+        }catch{
+            print("err")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let context = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "List", in: context) else { return }
+        // test
+        guard let context = context else { return }
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "CockTailList", in: context) else { return }
         
         let person = NSManagedObject(entity: entity,
                                      insertInto: context)
@@ -56,13 +86,13 @@ final class HomeViewController: BaseViewController {
         person.setValue(cockList.recipe, forKey: "recipe")
         person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
         
-        do {
-            try context.save()
-            
-        } catch {
-            print(error.localizedDescription)
-            
-        }
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print(error.localizedDescription)
+//
+//        }
         
     }
 }
