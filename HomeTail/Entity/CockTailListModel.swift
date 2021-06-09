@@ -9,16 +9,17 @@ import Foundation
 
 struct CockTailListModel {
     
-    public let id: Int16
-    public let name: String
-    public let source: String
-    public let base: String
-    public let taste: String
-    public let technique: String
-    public let glass: String
-    public let explain: String
-    public let amount: [Int]
-    public let recipe: [String]
-    public let cocktailimageurl: String
+    let cockID: Int16
+    let name: String
+    let source: String
+    let base: String
+    let taste: String
+    let technique: String
+    let glass: String
+    let explain: String
+    let amount: [Int]
+    let recipe: [String]
+    let cocktailimageurl: String
+    let alcohol: String
     
 }

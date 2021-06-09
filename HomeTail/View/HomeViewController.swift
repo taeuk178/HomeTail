@@ -9,6 +9,21 @@ import SnapKit
 import UIKit
 import CoreData
 
+/*
+ 진 = 1000
+ 보드카 = 2000
+ 럼 = 3000
+ 데낄라 = 4000
+ 리큐르 = 5000
+ 위스키 = 6000
+ 브랜디 = 7000
+ 논알콜 = 8000
+ 기타 = 9000
+ 몰라요 = 10000
+ 
+ source = "출처" -> 변수명 변경 필요
+ */
+
 final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
@@ -17,19 +32,20 @@ final class HomeViewController: BaseViewController {
         $0.text = "Home Tail"
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
     }
-    
+
     // test
-    let cockList = CockTailListModel(id: 1,
-                                     name: "1",
-                                     source: "2",
-                                     base: "3",
-                                     taste: "4",
-                                     technique: "5",
-                                     glass: "6",
-                                     explain: "7",
-                                     amount: [0],
-                                     recipe: [""],
-                                     cocktailimageurl: "")
+    let cockList = CockTailListModel(cockID: 5000,
+                                     name: "피치 크러쉬",
+                                     source: "2", // source -> 다른 변수명 변경필요
+                                     base: "피치 리큐르",
+                                     taste: "달콤",
+                                     technique: "쉐이크",
+                                     glass: "하이볼 잔",
+                                     explain: "피치 리큐르와 스윗앤사워, 크렌베리 주스를 쉐이커에 넣고 하이볼 잔에 따릅니다.",
+                                     amount: [30, 60, 60], // 0 = full
+                                     recipe: ["피치 리큐르", "레모네이드", "크렌베리주스"],
+                                     cocktailimageurl: "https://image",
+                                     alcohol: "3.4")
     // test
     var context: NSManagedObjectContext? {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -44,21 +60,9 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let homeVM = HomeViewModel()
+        homeVM.readService()
         
-        let vm = HomeViewModel()
-        vm.readService()
-        
-        // fetch test
-        guard let context = context else { return }
-        
-        let fetch = NSFetchRequest<NSManagedObject>(entityName: "CockTailList")
-        do {
-            let contact = try context.fetch(fetch)
-            
-//            print(contact[0].value(forKey: "source"))
-        }catch{
-            print("err")
-        }
     }
     
     override func viewDidLoad() {
@@ -73,8 +77,7 @@ final class HomeViewController: BaseViewController {
                                      insertInto: context)
         
         // 3
-        //        person.setValue(name, forKeyPath: "name")
-        person.setValue(cockList.id, forKey: "id")
+        person.setValue(cockList.cockID, forKey: "cockID")
         person.setValue(cockList.name, forKey: "name")
         person.setValue(cockList.source, forKey: "source")
         person.setValue(cockList.base, forKey: "base")
@@ -85,15 +88,15 @@ final class HomeViewController: BaseViewController {
         person.setValue(cockList.amount, forKey: "amount")
         person.setValue(cockList.recipe, forKey: "recipe")
         person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
+        person.setValue(cockList.alcohol, forKey: "alcohol")
         
-//        do {
-//            try context.save()
-//
-//        } catch {
-//            print(error.localizedDescription)
-//
-//        }
-        
+        do {
+            try context.save()
+
+        } catch {
+            print(error.localizedDescription)
+
+        }
     }
 }
 
