@@ -24,10 +24,11 @@ import CoreData
  source = "출처" -> 변수명 변경 필요
  */
 
-final class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
+    let homeVM = HomeViewModel()
     let textLabel: UILabel = create {
         $0.text = "Home Tail"
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
@@ -60,7 +61,7 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let homeVM = HomeViewModel()
+        
         homeVM.readService()
         
     }
@@ -106,16 +107,16 @@ extension HomeViewController {
     
     override func setupConfiguration() {
         
-        
-        
         let iconViewController = HomeIconViewController()
         let selectViewController = HomeSelectViewController()
 
         iconViewController.customView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         
         selectViewController.customview.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
+    
+        iconViewController.customViewModel = homeVM
+        selectViewController.customViewModel = homeVM
         
-
         self.addChild(iconViewController)
         self.addChild(selectViewController)
         
@@ -128,11 +129,6 @@ extension HomeViewController {
     }
     
     override func setupConstraints() {
-        
-        textLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-            $0.width.equalTo(100)
-        }
         
     }
 }
