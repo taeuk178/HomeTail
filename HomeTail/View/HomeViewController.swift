@@ -90,13 +90,13 @@ final class HomeViewController: BaseViewController {
         person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
         person.setValue(cockList.alcohol, forKey: "alcohol")
         
-        do {
-            try context.save()
-
-        } catch {
-            print(error.localizedDescription)
-
-        }
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print(error.localizedDescription)
+//
+//        }
     }
 }
 
@@ -106,7 +106,25 @@ extension HomeViewController {
     
     override func setupConfiguration() {
         
-        view.addSubview(textLabel)
+        
+        
+        let iconViewController = HomeIconViewController()
+        let selectViewController = HomeSelectViewController()
+
+        iconViewController.customView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
+        
+        selectViewController.customview.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
+        
+
+        self.addChild(iconViewController)
+        self.addChild(selectViewController)
+        
+        self.view.addSubview(iconViewController.customView)
+        self.view.addSubview(selectViewController.customview)
+        
+        iconViewController.didMove(toParent: self)
+        selectViewController.didMove(toParent: self)
+        
     }
     
     override func setupConstraints() {
@@ -115,5 +133,6 @@ extension HomeViewController {
             $0.centerX.centerY.equalToSuperview()
             $0.width.equalTo(100)
         }
+        
     }
 }
