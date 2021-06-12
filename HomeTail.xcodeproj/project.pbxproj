@@ -28,6 +28,11 @@
 		A96679A8266F828E002684BC /* CockTailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679A7266F828E002684BC /* CockTailRepository.swift */; };
 		A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679AC266F848E002684BC /* HomeViewModel.swift */; };
 		A96679B2266F8677002684BC /* CockTailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B1266F8677002684BC /* CockTailModel.swift */; };
+		A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B626710AFD002684BC /* Extension+UIcolor.swift */; };
+		A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */; };
+		A9C1AAC72675003A00156AF6 /* SelectedTaste.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC62675003A00156AF6 /* SelectedTaste.swift */; };
+		A9C1AAC92675008400156AF6 /* SelectedBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC82675008400156AF6 /* SelectedBase.swift */; };
+		A9C1AACB2675021800156AF6 /* SelectedAlcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACA2675021800156AF6 /* SelectedAlcohol.swift */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -84,6 +89,11 @@
 		A96679A7266F828E002684BC /* CockTailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailRepository.swift; sourceTree = "<group>"; };
 		A96679AC266F848E002684BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A96679B1266F8677002684BC /* CockTailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailModel.swift; sourceTree = "<group>"; };
+		A96679B626710AFD002684BC /* Extension+UIcolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIcolor.swift"; sourceTree = "<group>"; };
+		A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+CoreData.swift"; sourceTree = "<group>"; };
+		A9C1AAC62675003A00156AF6 /* SelectedTaste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTaste.swift; sourceTree = "<group>"; };
+		A9C1AAC82675008400156AF6 /* SelectedBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBase.swift; sourceTree = "<group>"; };
+		A9C1AACA2675021800156AF6 /* SelectedAlcohol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAlcohol.swift; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +243,7 @@
 		A9667959266BD6DD002684BC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				A9C1AAC32674FE6100156AF6 /* Enum */,
 				A966796D266BF02E002684BC /* Protocol */,
 				A966795A266BD6E6002684BC /* Extension */,
 			);
@@ -244,6 +255,7 @@
 			children = (
 				A9667960266BEE43002684BC /* Extension+UITableView.swift */,
 				A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */,
+				A96679B626710AFD002684BC /* Extension+UIcolor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -280,6 +292,17 @@
 				A96679A7266F828E002684BC /* CockTailRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		A9C1AAC32674FE6100156AF6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */,
+				A9C1AAC62675003A00156AF6 /* SelectedTaste.swift */,
+				A9C1AAC82675008400156AF6 /* SelectedBase.swift */,
+				A9C1AACA2675021800156AF6 /* SelectedAlcohol.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		FBF5080502C3E8540F8C15F2 /* Pods */ = {
@@ -559,9 +582,14 @@
 				A9667996266E6526002684BC /* List+CoreDataClass.swift in Sources */,
 				A966795C266BD737002684BC /* SetUpClosure.swift in Sources */,
 				A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */,
+				A9C1AAC72675003A00156AF6 /* SelectedTaste.swift in Sources */,
+				A9C1AACB2675021800156AF6 /* SelectedAlcohol.swift in Sources */,
+				A9C1AAC92675008400156AF6 /* SelectedBase.swift in Sources */,
 				A96679A3266F80AE002684BC /* CockTailService.swift in Sources */,
 				A96679B2266F8677002684BC /* CockTailModel.swift in Sources */,
+				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
 				A9667997266E6526002684BC /* List+CoreDataProperties.swift in Sources */,
+				A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */,
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
 				A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */,
 				A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */,

@@ -17,11 +17,8 @@ class CockTailService {
         
         repository.fetchList { [weak self] object in
         
-            
             let model = CockTailModel(base: object[0].value(forKey: "base") as? String ?? "")
-//            let model = Model(currentDateTime: now)
             self?.currentModel = model
-//
             onCompleted(model)
             
         }
