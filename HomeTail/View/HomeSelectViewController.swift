@@ -27,13 +27,15 @@ class HomeSelectViewController: BaseViewController {
         
         button = UIButton(type: .custom, primaryAction: UIAction(handler: { _ in
 //                self.customViewModel.bindData("hello ViewModel")
-            self.customViewModel?.dateTest = "hello"
+//            self.customViewModel?.dateTest = "hello"
+            self.customViewModel?.name.value = "hello"
         }))
         
         button.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
         button.setTitle("ㄷㅅㄴㅅ", for: .normal)
         button.center = customview.center
         customview.addSubview(button)
+        
     }
     
 }

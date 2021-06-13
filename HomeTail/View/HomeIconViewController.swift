@@ -22,11 +22,16 @@ class HomeIconViewController: UIViewController {
         super.viewDidLoad()
 
         customViewModel?.onUpdated = { [weak self] in
-//            self?.button.setTitle(self?.customViewModel.dateTest, for: .normal)
-            self?.testLabel.text = self?.customViewModel?.dateTest
+//            self?.button.setTitle(self?.customViewModel.dateTest, for: .normal)   // 1
+//            self?.testLabel.text = self?.customViewModel?.dateTest    // 2
+            
         }
         
-        testLabel.text = "1"
+        customViewModel?.name.bindAndFire(listener: { [weak self] test in
+            self?.testLabel.text = test
+        })
+        
+//        testLabel.text 
         testLabel.center = customView.center
         testLabel.textAlignment = .center
         customView.addSubview(testLabel)
