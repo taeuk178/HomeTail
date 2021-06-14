@@ -13,7 +13,7 @@ extension UICollectionView {
         register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
     
-    func dequeueTableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
+    func dequeueCollectionCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         guard let cell: T = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else { fatalError("Generic UITableViewCell is Error") }
         
         return cell
