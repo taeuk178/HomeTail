@@ -5,6 +5,13 @@
 //  Created by taeuk on 2021/06/13.
 //
 
+/*
+ 
+ addChild시 생명주기
+ BaseViewController override 메소드 -> viewdidLoad -> didMove
+ 
+ */
+
 import UIKit
 import SnapKit
 
@@ -37,12 +44,11 @@ class HomeSelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("A")
     }
     
 }
 
-// MARK: - CollectionView
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -60,6 +66,8 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -71,6 +79,7 @@ extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 60, height: 60)
     }
 }
+
 // MARK: - UI
 
 extension HomeSelectViewController {

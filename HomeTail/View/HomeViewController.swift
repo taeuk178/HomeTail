@@ -126,6 +126,7 @@ extension HomeViewController {
         self.addChild(iconViewController)
         self.addChild(selectViewController)
 
+        // view를 생성해야 ViewController 생명주기 불림
         self.topView.addSubview(iconViewController.view)
         self.bottomView.addSubview(selectViewController.view)
         

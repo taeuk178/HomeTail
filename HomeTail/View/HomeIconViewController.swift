@@ -9,9 +9,14 @@ import UIKit
 
 class HomeIconViewController: BaseViewController {
 
+    // MARK: - Properties
+    
     let customView = UIView()
     let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     var customViewModel: HomeViewModel?
+    
+    
+    // MARK: - LifeCycle
     
     override func didMove(toParent parent: UIViewController?) {
         view.backgroundColor = .blue
@@ -32,6 +37,8 @@ class HomeIconViewController: BaseViewController {
     }
     
 }
+
+// MARK: - UI
 
 extension HomeIconViewController {
     
