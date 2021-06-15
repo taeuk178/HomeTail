@@ -12,9 +12,7 @@ class HomeSelectViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let customview = UIView()
     var customViewModel: HomeViewModel?
-    var button = UIButton()
     
     lazy var collectionView: UICollectionView = {
         let rect = CGRect(x: 0, y: 0,
@@ -34,27 +32,12 @@ class HomeSelectViewController: BaseViewController {
     
     override func didMove(toParent parent: UIViewController?) {
         
-        collectionView.frame = CGRect(x: 0, y: customview.frame.size.height / 3,
-                                      width: customview.frame.size.width,
-                                      height: customview.frame.size.height / 2)
-
-        customview.addSubview(collectionView)
-        customview.backgroundColor = .white
-        collectionView.backgroundColor = .brown
-        
-        collectionView.snp.makeConstraints {
-            $0.top.equalTo(customview).offset(30)
-            $0.leading.trailing.bottom.equalTo(customview)
-        }
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerCell(HomeSelectCell.self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("A")
     }
     
 }
@@ -71,7 +54,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell: HomeSelectCell = collectionView.dequeueCollectionCell(for: indexPath)
         
         cell.setUpText("1")
-        cell.backgroundColor = .white
+        cell.backgroundColor = .orange
         
         return cell
     }
@@ -94,6 +77,20 @@ extension HomeSelectViewController {
     
     override func setupConfiguration() {
         
+        view.backgroundColor = .white
+        view.addSubview(collectionView)
+        
+        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(HomeSelectCell.self)
+    }
+    
+    override func setupConstraints() {
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalTo(view)
+        }
     }
     
 }

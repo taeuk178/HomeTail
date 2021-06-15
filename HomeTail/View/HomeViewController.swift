@@ -29,6 +29,15 @@ class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     let homeVM = HomeViewModel()
+    
+    let topView: UIView = create {
+        $0.backgroundColor = .white
+    }
+    
+    let bottomView: UIView = create {
+        $0.backgroundColor = .white
+    }
+    
     let textLabel: UILabel = create {
         $0.text = "Home Tail"
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
@@ -60,7 +69,6 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         
         homeVM.readService()
         
@@ -106,29 +114,42 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     
     override func setupConfiguration() {
-        
+
+        // Child ViewController 생성
         let iconViewController = HomeIconViewController()
         let selectViewController = HomeSelectViewController()
 
-        iconViewController.customView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
-        
-        selectViewController.customview.frame = CGRect(x: 0, y: self.view.frame.size.height / 2, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
-    
+        // ViewModel 주소 전달
         iconViewController.customViewModel = homeVM
         selectViewController.customViewModel = homeVM
-        
+
         self.addChild(iconViewController)
         self.addChild(selectViewController)
+
+        self.topView.addSubview(iconViewController.view)
+        self.bottomView.addSubview(selectViewController.view)
         
-        self.view.addSubview(iconViewController.customView)
-        self.view.addSubview(selectViewController.customview)
+        iconViewController.view.frame = topView.bounds
+        selectViewController.view.frame = bottomView.bounds
         
         iconViewController.didMove(toParent: self)
         selectViewController.didMove(toParent: self)
         
+        view.addSubview(topView)
+        view.addSubview(bottomView)
+    
     }
     
     override func setupConstraints() {
         
+        topView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view)
+            $0.bottom.equalTo(view).offset(-view.frame.size.height / 2)
+        }
+        
+        bottomView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalTo(view)
+            $0.top.equalTo(topView.snp.bottom)
+        }
     }
 }
