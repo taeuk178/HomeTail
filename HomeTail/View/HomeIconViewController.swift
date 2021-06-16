@@ -23,12 +23,6 @@ class HomeIconViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        customViewModel?.onUpdated = { [weak self] in
-//            self?.button.setTitle(self?.customViewModel.dateTest, for: .normal)   // 1
-//            self?.testLabel.text = self?.customViewModel?.dateTest    // 2
-            
-        }
         
         customViewModel?.name.bindAndFire(listener: { [weak self] test in
             self?.selectHelpLabel.text = test
@@ -42,13 +36,17 @@ class HomeIconViewController: BaseViewController {
 extension HomeIconViewController {
     
     override func setupConfiguration() {
-        
-        selectHelpLabel.textAlignment = .center
-        selectHelpLabel.font = .systemFont(ofSize: 28)
-        
+                    
         view.addSubview(selectHelpLabel)
         view.addSubview(customView)
         
+    }
+    
+    override func setupProperties() {
+        
+        selectHelpLabel.textAlignment = .center
+        selectHelpLabel.font = .systemFont(ofSize: 28)
+
     }
     
     override func setupConstraints() {

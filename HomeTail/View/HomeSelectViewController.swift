@@ -97,6 +97,10 @@ extension HomeSelectViewController {
         collectionView.registerCell(HomeSelectCell.self)
     }
     
+    override func setupProperties() {
+        
+    }
+    
     override func setupConstraints() {
         
         collectionView.snp.makeConstraints {

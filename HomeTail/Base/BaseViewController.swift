@@ -19,12 +19,15 @@ class BaseViewController: UIViewController {
 
     }
 
-    // 바인딩
+    /// 프로퍼티
+    @objc dynamic func setupProperties() {}
+    
+    /// 바인딩
     @objc dynamic func setupBinding() {}
     
-    // 설정
+    /// 설정
     @objc dynamic func setupConfiguration() {}
 
-    // 제약
+    /// 제약
     @objc dynamic func setupConstraints() {}
 }
