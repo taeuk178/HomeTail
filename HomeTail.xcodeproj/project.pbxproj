@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A913A308267A4C7700D22236 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A307267A4C7700D22236 /* Dynamic.swift */; };
+		A913A30A267A4D1B00D22236 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A309267A4D1B00D22236 /* Extension+UIFont.swift */; };
 		A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966780F266A4AA9002684BC /* AppDelegate.swift */; };
 		A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667811266A4AA9002684BC /* SceneDelegate.swift */; };
 		A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667813266A4AA9002684BC /* BaseViewController.swift */; };
@@ -65,6 +67,8 @@
 		73DBA9942D11BCAC2123D83B /* Pods-HomeTailTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTailTests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTailTests/Pods-HomeTailTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C7E7F108B93F5C8F14AB56D /* Pods-HomeTailTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTailTests.release.xcconfig"; path = "Target Support Files/Pods-HomeTailTests/Pods-HomeTailTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E2D9AF9333BC6F275C035A4 /* Pods-HomeTail-HomeTailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.release.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A913A307267A4C7700D22236 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		A913A309267A4D1B00D22236 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		A966780C266A4AA9002684BC /* HomeTail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A966780F266A4AA9002684BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9667811266A4AA9002684BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			children = (
 				A966795B266BD737002684BC /* SetUpClosure.swift */,
 				A9667813266A4AA9002684BC /* BaseViewController.swift */,
+				A913A307267A4C7700D22236 /* Dynamic.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				A9667960266BEE43002684BC /* Extension+UITableView.swift */,
 				A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */,
 				A96679B626710AFD002684BC /* Extension+UIcolor.swift */,
+				A913A309267A4D1B00D22236 /* Extension+UIFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				A9C1AAC72675003A00156AF6 /* SelectedTaste.swift in Sources */,
 				A9C1AACB2675021800156AF6 /* SelectedAlcohol.swift in Sources */,
 				A9C1AAC92675008400156AF6 /* SelectedBase.swift in Sources */,
+				A913A308267A4C7700D22236 /* Dynamic.swift in Sources */,
 				A96679A3266F80AE002684BC /* CockTailService.swift in Sources */,
 				A96679B2266F8677002684BC /* CockTailModel.swift in Sources */,
 				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
@@ -604,6 +611,7 @@
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
 				A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */,
 				A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */,
+				A913A30A267A4D1B00D22236 /* Extension+UIFont.swift in Sources */,
 				A9C1AACF2675341B00156AF6 /* HomeIconViewController.swift in Sources */,
 				A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */,
 				A9667989266E5A0F002684BC /* CockTailListModel.swift in Sources */,
