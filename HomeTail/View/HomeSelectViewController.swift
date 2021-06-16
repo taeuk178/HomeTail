@@ -27,11 +27,12 @@ class HomeSelectViewController: BaseViewController {
                           height: view.frame.size.height)
 
         let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.scrollDirection = .horizontal
+        flowlayout.scrollDirection = .vertical
         flowlayout.itemSize = CGSize(width: 60, height: 60)
         flowlayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let collection = UICollectionView(frame: rect, collectionViewLayout: flowlayout)
-        
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
         return collection
     }()
     
@@ -53,7 +54,7 @@ class HomeSelectViewController: BaseViewController {
 extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,7 +62,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
         
         cell.setUpText("1")
         cell.backgroundColor = .orange
-        
+        cell.layer.cornerRadius = 15 // 고민중 cell.frame.size.height / 2
         return cell
     }
 }
@@ -76,7 +77,8 @@ extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
+        
+        return CGSize(width: 100, height: 100)
     }
 }
 

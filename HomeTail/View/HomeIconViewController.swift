@@ -12,14 +12,13 @@ class HomeIconViewController: BaseViewController {
     // MARK: - Properties
     
     let customView = UIView()
-    let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    let selectHelpLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     var customViewModel: HomeViewModel?
-    
-    
+
     // MARK: - LifeCycle
     
     override func didMove(toParent parent: UIViewController?) {
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
     }
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class HomeIconViewController: BaseViewController {
         }
         
         customViewModel?.name.bindAndFire(listener: { [weak self] test in
-            self?.testLabel.text = test
+            self?.selectHelpLabel.text = test
         })
     }
     
@@ -44,10 +43,10 @@ extension HomeIconViewController {
     
     override func setupConfiguration() {
         
-        testLabel.text = "A"
-        testLabel.textAlignment = .center
+        selectHelpLabel.textAlignment = .center
+        selectHelpLabel.font = .systemFont(ofSize: 28)
         
-        view.addSubview(testLabel)
+        view.addSubview(selectHelpLabel)
         view.addSubview(customView)
         
     }
@@ -59,9 +58,11 @@ extension HomeIconViewController {
             $0.leading.equalTo(view).offset(20)
             $0.width.equalTo(100)
         }
-        testLabel.snp.makeConstraints {
-            $0.centerY.centerX.equalTo(view)
-            $0.width.equalTo(50)
+        
+        selectHelpLabel.snp.makeConstraints {
+            $0.top.equalTo(view).offset(view.frame.size.height / 5)
+            $0.centerX.equalTo(view)
+            $0.width.greaterThanOrEqualTo(50)
         }
     }
 }

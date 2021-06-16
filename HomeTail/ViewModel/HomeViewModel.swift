@@ -32,10 +32,9 @@ class HomeViewModel {
     //
     
     // 3
-//    var ttss: Dynamic<String?> = Dynamic(nil)
-    let name: Dynamic<String> = Dynamic("init")
+    let name: Dynamic<String> = Dynamic("맛을 선택해 주세용")
     
-    //
+    
     func readService() {
         service.fetchRepository { [weak self] model in
             print(model)
@@ -66,4 +65,3 @@ class Dynamic<T> {
         value = varible
     }
 }
-
