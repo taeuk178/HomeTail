@@ -13,5 +13,5 @@
 
 ## Project Info
 - Deployment Target: iOS13+
-- Architecture:
+- Architecture: MVVM
 - Code Base ( No Story board, No Xib )
