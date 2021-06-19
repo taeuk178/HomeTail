@@ -10,10 +10,14 @@ import SnapKit
 
 class HomeSelectCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     private let textLabel: UILabel = create {
         $0.textAlignment = .center
         $0.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
     }
+    
+    // MARK: - LifeCycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +28,8 @@ class HomeSelectCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - setUp
     
     func setUpText(_ text: String) {
         textLabel.text = text

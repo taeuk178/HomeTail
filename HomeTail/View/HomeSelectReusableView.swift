@@ -10,6 +10,8 @@ import SnapKit
 
 class HomeSelectReusableView: UICollectionReusableView {
     
+    // MARK: - properties
+    
     private let headerView: UIView = create {
         $0.backgroundColor = .white
     }
@@ -19,6 +21,8 @@ class HomeSelectReusableView: UICollectionReusableView {
         $0.font = .systemFont(ofSize: 20)
     }
     
+    // MARK: - LifeCycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -27,6 +31,8 @@ class HomeSelectReusableView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("HomeSelectReusableView not")
     }
+    
+    // MARK: - setUp
     
     func headerLabelText(_ text: String) {
         headerLabel.text = text
