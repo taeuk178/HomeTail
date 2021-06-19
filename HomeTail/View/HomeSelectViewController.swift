@@ -51,10 +51,25 @@ class HomeSelectViewController: BaseViewController {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
+/*
+ 
+ */
 extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header: HomeSelectReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
+        
+        header.setConfigure()
+        
+        return header
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 11
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,6 +110,8 @@ extension HomeSelectViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(HomeSelectCell.self)
+        collectionView.registerHeader(HomeSelectReusableView.self)
+        
     }
     
     override func setupProperties() {
