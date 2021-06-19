@@ -36,7 +36,11 @@ class HomeSelectViewController: BaseViewController {
         return collection
     }()
     
-    var selectCase: SelectedCases?
+    var selectCase: SelectedCases?{
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
     
     // MARK: - LifeCycle
     
@@ -47,7 +51,7 @@ class HomeSelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectCase = .taste
+        selectCase = .alcohol
         print(SelectedCases.taste.texture)
         print(SelectedCases.taste.allCount)
         print(SelectedCases.taste.rawValues)
@@ -70,22 +74,55 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
         let header: HomeSelectReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
         
         header.setConfigure()
-        header.headerLabelText(SelectedCases.taste.texture)
+        switch selectCase {
+        case .taste:
+            header.headerLabelText(SelectedCases.taste.texture)
+        case .base:
+            header.headerLabelText(SelectedCases.base.texture)
+        case .alcohol:
+            header.headerLabelText(SelectedCases.alcohol.texture)
+        case .none:
+            return header
+        }
         
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SelectedCases.taste.allCount
+        switch selectCase {
+        case .taste:
+            return SelectedCases.taste.allCount
+        case .base:
+            return SelectedCases.base.allCount
+        case .alcohol:
+            return SelectedCases.alcohol.allCount
+        case .none:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomeSelectCell = collectionView.dequeueCollectionCell(for: indexPath)
         
-        cell.setUpText(SelectedCases.taste.rawValues[indexPath.row])
+        switch selectCase {
+        case .taste:
+            cell.setUpText(SelectedCases.taste.rawValues[indexPath.row])
+        case .base:
+            cell.setUpText(SelectedCases.base.rawValues[indexPath.row])
+        case .alcohol:
+            cell.setUpText(SelectedCases.alcohol.rawValues[indexPath.row])
+        case .none:
+            return cell
+        }
+        
         cell.backgroundColor = .orange
         cell.layer.cornerRadius = 15 // 고민중 cell.frame.size.height / 2
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectCase = .taste
     }
 }
 
