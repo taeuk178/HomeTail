@@ -8,18 +8,58 @@
 import Foundation
 
 /// 선택 경우의 수
-enum SeletedCases {
+enum SelectedCases {
     case taste
     case base
     case alcohol
+    
+    var texture: String {
+        switch self {
+        case .taste:
+            return "맛"
+        case .base:
+            return "기주"
+        case .alcohol:
+            return "도수"
+        }
+    }
+    
+    var allCount: Int {
+        switch self {
+        case .taste:
+            return SelectedTaste.allCases.count
+        case .base:
+            return SelectedBase.allCases.count
+        case .alcohol:
+            return SelectedAlcohol.allCases.count
+        }
+    }
+    
+    var rawValues: [String] {
+        switch self {
+        case .taste:
+            return SelectedTaste.allValues
+        case .base:
+            return SelectedBase.allValues
+        case .alcohol:
+            return SelectedAlcohol.allValues
+        }
+    }
+}
+
+extension CaseIterable where Self: RawRepresentable {
+    static var allValues: [RawValue] {
+        return allCases.map { $0.rawValue }
+    }
 }
 
 /// 맛 선택
-enum SelectedTaste {
-    case sweet
-    case sour
-    case dry
-    case all
+enum SelectedTaste: String, CaseIterable {
+    case sweet = "달콤"
+    case sour = "새콤"
+    case dry = "담백"
+    case all = "모두"
+    
 }
 
 /*
@@ -39,7 +79,7 @@ enum SelectedTaste {
  */
 
 /// 기주 선택
-enum SelectedBase {
+enum SelectedBase: String, CaseIterable {
     case nonAlcohol
     case gin
     case vodka
@@ -66,7 +106,7 @@ enum SelectedBase {
  */
 
 /// 도수 선택
-enum SelectedAlcohol {
+enum SelectedAlcohol: String, CaseIterable {
     case nonAlcohol
     case five
     case ten

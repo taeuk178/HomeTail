@@ -36,6 +36,8 @@ class HomeSelectViewController: BaseViewController {
         return collection
     }()
     
+    var selectCase: SelectedCases?
+    
     // MARK: - LifeCycle
     
     override func didMove(toParent parent: UIViewController?) {
@@ -45,6 +47,10 @@ class HomeSelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectCase = .taste
+        print(SelectedCases.taste.texture)
+        print(SelectedCases.taste.allCount)
+        print(SelectedCases.taste.rawValues)
     }
     
 }
@@ -64,18 +70,19 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
         let header: HomeSelectReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
         
         header.setConfigure()
+        header.headerLabelText(SelectedCases.taste.texture)
         
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return SelectedCases.taste.allCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomeSelectCell = collectionView.dequeueCollectionCell(for: indexPath)
         
-        cell.setUpText("1")
+        cell.setUpText(SelectedCases.taste.rawValues[indexPath.row])
         cell.backgroundColor = .orange
         cell.layer.cornerRadius = 15 // 고민중 cell.frame.size.height / 2
         return cell
@@ -88,7 +95,17 @@ extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        switch selectCase {
+        case .taste:
+            return UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50)
+        case .base:
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        case .alcohol:
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        default:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

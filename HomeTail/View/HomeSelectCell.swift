@@ -11,7 +11,6 @@ import SnapKit
 class HomeSelectCell: UICollectionViewCell {
     
     private let textLabel: UILabel = create {
-        $0.text = "test"
         $0.textAlignment = .center
         $0.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
     }
@@ -31,14 +30,11 @@ class HomeSelectCell: UICollectionViewCell {
     }
     
     func setUp() {
+        contentView.addSubview(textLabel)
         
-//        textLabel.snp.makeConstraints {
-//            $0.centerX.centerY.equalTo(contentView)
-//            $0.width.equalTo(50)
-//        }
-//        textLabel.translatesAutoresizingMaskIntoConstraints = false
-//        textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-//        textLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-//        textLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        textLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalTo(contentView)
+            $0.width.lessThanOrEqualTo(50)
+        }
     }
 }
