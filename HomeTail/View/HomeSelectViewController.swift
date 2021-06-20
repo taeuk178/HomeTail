@@ -36,12 +36,6 @@ class HomeSelectViewController: BaseViewController {
         return collection
     }()
     
-    var selectCase: SelectedCases?{
-        didSet{
-            self.collectionView.reloadData()
-        }
-    }
-    
     // MARK: - LifeCycle
     
     override func didMove(toParent parent: UIViewController?) {
@@ -51,10 +45,6 @@ class HomeSelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectCase = .alcohol
-        print(SelectedCases.taste.texture)
-        print(SelectedCases.taste.allCount)
-        print(SelectedCases.taste.rawValues)
     }
     
 }
@@ -74,7 +64,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
         let header: HomeSelectReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
         
         header.setConfigure()
-        switch selectCase {
+        switch customViewModel?.connectCase.value {
         case .taste:
             header.headerLabelText(SelectedCases.taste.texture)
         case .base:
@@ -89,7 +79,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch selectCase {
+        switch customViewModel?.connectCase.value {
         case .taste:
             return SelectedCases.taste.allCount
         case .base:
@@ -105,7 +95,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomeSelectCell = collectionView.dequeueCollectionCell(for: indexPath)
         
-        switch selectCase {
+        switch customViewModel?.connectCase.value {
         case .taste:
             cell.setUpText(SelectedCases.taste.rawValues[indexPath.row])
         case .base:
@@ -122,7 +112,8 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectCase = .taste
+        customViewModel?.connectCase.value = .base
+        collectionView.reloadData()
     }
 }
 
@@ -132,7 +123,7 @@ extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        switch selectCase {
+        switch customViewModel?.connectCase.value {
         case .taste:
             return UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50)
         case .base:

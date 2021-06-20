@@ -27,6 +27,16 @@ class HomeIconViewController: BaseViewController {
         customViewModel?.name.bindAndFire(listener: { [weak self] test in
             self?.selectHelpLabel.text = test
         })
+        
+        customViewModel?.connectCase.bindAndFire(listener: { [weak self] test in
+            switch test {
+            case .taste:
+                self?.selectHelpLabel.text = "\(test.texture)을 선택해 주세요."
+            case .base, .alcohol:
+                self?.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
+            }
+            
+        })
     }
     
 }
