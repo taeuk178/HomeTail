@@ -57,18 +57,19 @@ extension HomeIconViewController {
         selectHelpLabel.textAlignment = .center
         selectHelpLabel.font = .systemFont(ofSize: 28)
 
+        customView.backgroundColor = .blue
     }
     
     override func setupConstraints() {
         
         customView.snp.makeConstraints {
-            $0.top.equalTo(view).offset(20)
-            $0.leading.equalTo(view).offset(20)
-            $0.width.equalTo(100)
+            $0.bottom.equalTo(view).offset(-20)
+            $0.centerX.equalTo(view)
+            $0.width.height.equalTo(200)
         }
         
         selectHelpLabel.snp.makeConstraints {
-            $0.top.equalTo(view).offset(view.frame.size.height / 5)
+            $0.top.equalTo(view).offset(view.frame.size.height * 0.15)
             $0.centerX.equalTo(view)
             $0.width.greaterThanOrEqualTo(50)
         }

@@ -16,6 +16,8 @@ class BaseViewController: UIViewController {
 
         setupConfiguration()
         setupConstraints()
+        setupProperties()
+        setupBinding()
 
     }
 
