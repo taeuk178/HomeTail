@@ -94,28 +94,17 @@ enum SelectedBase: String, CaseIterable {
 
 /*
  case nonAlcohol = 0
- case five = 1 ~ 5
- case ten = 6 ~ 10
- case fifteen = 11 ~ 15
- case twenty = 16 ~ 20
- case twentyfive = 21 ~ 25
- case thirty = 26 ~ 30
- case thirtyfive = 31 ~ 35
- case fortyplus = 35 ~ 40
- case alpha = 40
+ case low
+ case medium
+ case high
+ case all
  */
 
 /// 도수 선택
 enum SelectedAlcohol: String, CaseIterable {
     case nonAlcohol
-    case five
-    case ten
-    case fifteen
-    case twenty
-    case twentyfive
-    case thirty
-    case thirtyfive
-    case forty
-    case alpha
+    case low
+    case medium
+    case high
     case all
 }

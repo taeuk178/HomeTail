@@ -112,7 +112,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        customViewModel?.connectCase.value = .base
+        customViewModel?.connectCase.value = .alcohol
         collectionView.reloadData()
     }
 }
