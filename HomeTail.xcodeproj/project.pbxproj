@@ -13,6 +13,7 @@
 		A913A30E267E091F00D22236 /* SelectedItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A30D267E091F00D22236 /* SelectedItemList.swift */; };
 		A913A31626868DEE00D22236 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31526868DEE00D22236 /* ListViewController.swift */; };
 		A913A31826868E0200D22236 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31726868E0200D22236 /* ListTableCell.swift */; };
+		A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31A268705C300D22236 /* RecipeViewController.swift */; };
 		A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966780F266A4AA9002684BC /* AppDelegate.swift */; };
 		A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667811266A4AA9002684BC /* SceneDelegate.swift */; };
 		A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667813266A4AA9002684BC /* BaseViewController.swift */; };
@@ -74,6 +75,7 @@
 		A913A30D267E091F00D22236 /* SelectedItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemList.swift; sourceTree = "<group>"; };
 		A913A31526868DEE00D22236 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A913A31726868E0200D22236 /* ListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCell.swift; sourceTree = "<group>"; };
+		A913A31A268705C300D22236 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		A966780C266A4AA9002684BC /* HomeTail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A966780F266A4AA9002684BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9667811266A4AA9002684BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 			path = ../List;
 			sourceTree = "<group>";
 		};
+		A913A3192687049500D22236 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				A913A31A268705C300D22236 /* RecipeViewController.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
 		A9667803266A4AA9002684BC = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 		A966793E266BCC73002684BC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A913A3192687049500D22236 /* Recipe */,
 				A913A31426868C2E00D22236 /* List */,
 				A9667941266BCCA7002684BC /* HomeViewController.swift */,
 				A9C1AACE2675341B00156AF6 /* HomeIconViewController.swift */,
@@ -617,6 +628,7 @@
 				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
 				A9C1AACD26752B6F00156AF6 /* HomeSelectViewController.swift in Sources */,
 				A9667997266E6526002684BC /* List+CoreDataProperties.swift in Sources */,
+				A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */,
 				A9C1AADD26779C1500156AF6 /* HomeSelectCell.swift in Sources */,
 				A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */,
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
