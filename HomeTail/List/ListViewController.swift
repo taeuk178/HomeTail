@@ -13,6 +13,7 @@ class ListViewController: BaseViewController {
     // MARK: - Properties
     private let tableView: UITableView = create {
         $0.separatorStyle = .none
+        $0.backgroundColor = .lightGray
     }
     
     // MARK: - LifeCycle
@@ -20,7 +21,7 @@ class ListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
 }
@@ -29,13 +30,19 @@ class ListViewController: BaseViewController {
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableCell = tableView.dequeueTableCell(for: indexPath)
-        cell.textLabel?.text = "A"
+        
+        cell.setUpCell(mainString: "main", subString: "sub")
+        
         return cell
     }
 }
