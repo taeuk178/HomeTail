@@ -50,7 +50,6 @@ class RecipeViewController: BaseViewController {
         $0.backgroundColor = .systemIndigo
     }
     
-    
     private let cockNameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .systemFont(ofSize: 20)
@@ -86,6 +85,9 @@ class RecipeViewController: BaseViewController {
 
     }
     
+    deinit {
+        print("Recipe Deinit")
+    }
 }
 
 // MARK: - UI

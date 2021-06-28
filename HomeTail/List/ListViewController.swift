@@ -7,8 +7,9 @@
 
 import UIKit
 import SnapKit
+import FloatingPanel
 
-class ListViewController: BaseViewController {
+class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
 
     // MARK: - Properties
     private let tableView: UITableView = create {
@@ -16,11 +17,28 @@ class ListViewController: BaseViewController {
         $0.backgroundColor = .lightGray
     }
     
+    var fpc: FloatingPanelController!
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fpc = FloatingPanelController()
+        fpc.surfaceView.layer.cornerRadius = 15
+        fpc.surfaceView.clipsToBounds = true
+        fpc.surfaceView.backgroundColor = .clear
+        // Assign self as the delegate of the controller.
+        fpc.delegate = self // Optional
+        
+        // Set a content view controller.
+        let contentVC = FilteringViewController()
+        fpc.set(contentViewController: contentVC)
+
+        // Track a scroll view(or the siblings) in the content view controller.
+//        fpc.track(scrollView: contentVC.tableView)
+        
+        // Add and show the views managed by the `FloatingPanelController` object to self.view.
+        fpc.addPanel(toParent: self)
         
     }
 
@@ -42,8 +60,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell: ListTableCell = tableView.dequeueTableCell(for: indexPath)
         
         cell.setUpCell(mainString: "main", subString: "sub")
-        
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeVC = RecipeViewController()
+        self.present(recipeVC, animated: true, completion: nil)
     }
 }
 
