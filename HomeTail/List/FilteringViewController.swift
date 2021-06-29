@@ -18,7 +18,7 @@ class FilteringViewController: BaseViewController, FloatingPanelLayout {
         $0.textAlignment = .left
     }
     
-    private let tableView: UITableView = create {
+    let tableView: UITableView = create {
         $0.separatorStyle = .none
     }
     

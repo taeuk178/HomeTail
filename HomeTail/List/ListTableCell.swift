@@ -19,12 +19,13 @@ class ListTableCell: UITableViewCell {
     
     private let nameLabel: UILabel = create {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 16)
+//        $0.font = .systemFont(ofSize: 16)
+        $0.font = .appSansFont(.sansHWRegular, size: 16)
     }
     
     private let subNameLabel: UILabel = create {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 12)
+        $0.font = .apphelveticaFont(.helveticaMedium, size: 12)
     }
     
     private let labelStack: UIStackView = create {
@@ -63,13 +64,11 @@ extension ListTableCell {
     
     func setConfigure() {
 
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        contentView.layer.shadowOpacity = 0.3
-        contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 15
-        contentView.backgroundColor = .orange
+//        contentView.backgroundColor = .appMainColor(.subWhiteColor)
+        contentView.backgroundColor = .white
         
-        backgroundColor = .lightGray
+        backgroundColor = .appMainColor(.subSkyBlueColor)
         infoGraphicImage.layer.cornerRadius = 8
         
         labelStack.addArrangedSubview(nameLabel)

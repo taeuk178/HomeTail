@@ -14,7 +14,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     // MARK: - Properties
     private let tableView: UITableView = create {
         $0.separatorStyle = .none
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = .appMainColor(.subSkyBlueColor)
     }
     
     var fpc: FloatingPanelController!
@@ -35,7 +35,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         fpc.set(contentViewController: contentVC)
 
         // Track a scroll view(or the siblings) in the content view controller.
-//        fpc.track(scrollView: contentVC.tableView)
+        fpc.track(scrollView: contentVC.tableView)
         
         // Add and show the views managed by the `FloatingPanelController` object to self.view.
         fpc.addPanel(toParent: self)
@@ -59,7 +59,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableCell = tableView.dequeueTableCell(for: indexPath)
         
-        cell.setUpCell(mainString: "main", subString: "sub")
+        cell.setUpCell(mainString: "가나다라마바사", subString: "sub")
         cell.selectionStyle = .none
         return cell
     }

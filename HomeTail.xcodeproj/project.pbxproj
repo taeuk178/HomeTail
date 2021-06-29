@@ -42,6 +42,8 @@
 		A9C1AADD26779C1500156AF6 /* HomeSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AADC26779C1500156AF6 /* HomeSelectCell.swift */; };
 		A9CD5FA82689393900FE11B2 /* FilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FA72689393900FE11B2 /* FilteringViewController.swift */; };
 		A9CD5FAA2689F50D00FE11B2 /* FilteringTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FA92689F50D00FE11B2 /* FilteringTableCell.swift */; };
+		A9CD5FAD268B3CCA00FE11B2 /* SourceHanSansHWK-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */; };
+		A9CD5FAE268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -112,6 +114,8 @@
 		A9C1AADC26779C1500156AF6 /* HomeSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectCell.swift; sourceTree = "<group>"; };
 		A9CD5FA72689393900FE11B2 /* FilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringViewController.swift; sourceTree = "<group>"; };
 		A9CD5FA92689F50D00FE11B2 /* FilteringTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringTableCell.swift; sourceTree = "<group>"; };
+		A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansHWK-Bold.otf"; sourceTree = "<group>"; };
+		A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansHWK-Regular.otf"; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		A9667928266BCB0E002684BC /* Configure */ = {
 			isa = PBXGroup;
 			children = (
+				A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */,
+				A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */,
 				A966780F266A4AA9002684BC /* AppDelegate.swift */,
 				A9667811266A4AA9002684BC /* SceneDelegate.swift */,
 				A9667818266A4AAB002684BC /* Assets.xcassets */,
@@ -472,6 +478,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9667952266BCE09002684BC /* .swiftlint.yml in Resources */,
+				A9CD5FAE268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf in Resources */,
+				A9CD5FAD268B3CCA00FE11B2 /* SourceHanSansHWK-Bold.otf in Resources */,
 				A966781C266A4AAB002684BC /* LaunchScreen.storyboard in Resources */,
 				A9667819266A4AAB002684BC /* Assets.xcassets in Resources */,
 			);
