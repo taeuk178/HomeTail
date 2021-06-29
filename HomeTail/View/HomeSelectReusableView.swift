@@ -18,7 +18,7 @@ class HomeSelectReusableView: UICollectionReusableView {
     
     private let headerLabel: UILabel = create {
         $0.textAlignment = .center
-        $0.font = .systemFont(ofSize: 20)
+        $0.font = .appSansFont(.sansHWBold, size: 28)
     }
     
     // MARK: - LifeCycle

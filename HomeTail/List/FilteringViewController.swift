@@ -14,7 +14,7 @@ class FilteringViewController: BaseViewController, FloatingPanelLayout {
     
     private let filteringLabel: UILabel = create {
         $0.text = "필터링"
-        $0.font = .systemFont(ofSize: 30)
+        $0.font = .appSansFont(.sansHWBold, size: 30)
         $0.textAlignment = .left
     }
     
@@ -74,7 +74,7 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
         
         let headerTitle: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        headerTitle.font = .systemFont(ofSize: 28, weight: .medium)
+        headerTitle.font = .appSansFont(.sansHWBold, size: 28)
         headerTitle.textAlignment = .left
         
         header.addSubview(headerTitle)

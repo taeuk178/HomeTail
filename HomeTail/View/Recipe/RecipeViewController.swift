@@ -20,7 +20,7 @@ class RecipeViewController: BaseViewController {
     }
     
     private let recipeView: UIView = create {
-        $0.backgroundColor = .white
+        $0.backgroundColor = .appMainColor(.subWhiteColor)
     }
     
     // 라벨스택뷰, 출처, 텍스트뷰
@@ -46,33 +46,36 @@ class RecipeViewController: BaseViewController {
     
     // 칵테일 인포그래픽이미지
     private let infoGraphicImage: UIImageView = create {
+        $0.image = UIImage(named: "exImage") // png
+//        $0.image = UIImage(named: "InfoImage") // jpg
         $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .systemIndigo
+        $0.backgroundColor = .appMainColor(.subWhiteColor)
     }
     
     private let cockNameLabel: UILabel = create {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 20)
+        $0.font = .appSansFont(.sansHWRegular, size: 20)
         $0.text = "스크류 드라이버"
     }
     
     private let cockSubnameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 12)
+        $0.font = .apphelveticaFont(.helveticaLight, size: 14)
         $0.text = "Screw Driver"
     }
     
     private let resourceLabel: UILabel = create {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .appSansFont(.sansHWRegular, size: 12)
         $0.text = "출처: IBA"
     }
     
     private let descriptionTextView: UITextView = create {
+        $0.backgroundColor = .appMainColor(.subWhiteColor)
         $0.isEditable = false
         $0.isScrollEnabled = false
-        $0.font = .systemFont(ofSize: 16)
+        $0.font = .appSansFont(.sansHWRegular, size: 16)
         $0.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         $0.text = "1. asd\n2. fds\n3. 123"
         $0.setContentHuggingPriority(.defaultLow - 1, for: .vertical)

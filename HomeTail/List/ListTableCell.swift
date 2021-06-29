@@ -13,19 +13,19 @@ class ListTableCell: UITableViewCell {
     // MARK: - Properties
     
     private let infoGraphicImage: UIImageView = create {
-        $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .blue
+//        $0.image = UIImage(named: "exImage")
+        $0.image = UIImage(named: "InfoImage")
+        $0.contentMode = .scaleAspectFill
     }
     
     private let nameLabel: UILabel = create {
         $0.textAlignment = .left
-//        $0.font = .systemFont(ofSize: 16)
         $0.font = .appSansFont(.sansHWRegular, size: 16)
     }
     
     private let subNameLabel: UILabel = create {
         $0.textAlignment = .left
-        $0.font = .apphelveticaFont(.helveticaMedium, size: 12)
+        $0.font = .apphelveticaFont(.helveticaLight, size: 12)
     }
     
     private let labelStack: UIStackView = create {
