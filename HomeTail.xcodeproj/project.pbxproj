@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A913A308267A4C7700D22236 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A307267A4C7700D22236 /* Dynamic.swift */; };
 		A913A30A267A4D1B00D22236 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A309267A4D1B00D22236 /* Extension+UIFont.swift */; };
-		A913A30C267E053C00D22236 /* HomeSelectReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A30B267E053C00D22236 /* HomeSelectReusableView.swift */; };
+		A913A30C267E053C00D22236 /* HomeBottomReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */; };
 		A913A30E267E091F00D22236 /* SelectedItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A30D267E091F00D22236 /* SelectedItemList.swift */; };
 		A913A31626868DEE00D22236 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31526868DEE00D22236 /* ListViewController.swift */; };
 		A913A31826868E0200D22236 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31726868E0200D22236 /* ListTableCell.swift */; };
@@ -37,9 +37,9 @@
 		A96679B2266F8677002684BC /* CockTailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B1266F8677002684BC /* CockTailModel.swift */; };
 		A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B626710AFD002684BC /* Extension+UIcolor.swift */; };
 		A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */; };
-		A9C1AACD26752B6F00156AF6 /* HomeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACC26752B6F00156AF6 /* HomeSelectViewController.swift */; };
-		A9C1AACF2675341B00156AF6 /* HomeIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACE2675341B00156AF6 /* HomeIconViewController.swift */; };
-		A9C1AADD26779C1500156AF6 /* HomeSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AADC26779C1500156AF6 /* HomeSelectCell.swift */; };
+		A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */; };
+		A9C1AACF2675341B00156AF6 /* HomeTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */; };
+		A9C1AADD26779C1500156AF6 /* HomeBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */; };
 		A9CD5FA82689393900FE11B2 /* FilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FA72689393900FE11B2 /* FilteringViewController.swift */; };
 		A9CD5FAA2689F50D00FE11B2 /* FilteringTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FA92689F50D00FE11B2 /* FilteringTableCell.swift */; };
 		A9CD5FAD268B3CCA00FE11B2 /* SourceHanSansHWK-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */; };
@@ -75,7 +75,7 @@
 		9E2D9AF9333BC6F275C035A4 /* Pods-HomeTail-HomeTailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.release.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A913A307267A4C7700D22236 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		A913A309267A4D1B00D22236 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
-		A913A30B267E053C00D22236 /* HomeSelectReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectReusableView.swift; sourceTree = "<group>"; };
+		A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomReusableView.swift; sourceTree = "<group>"; };
 		A913A30D267E091F00D22236 /* SelectedItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemList.swift; sourceTree = "<group>"; };
 		A913A31526868DEE00D22236 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A913A31726868E0200D22236 /* ListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCell.swift; sourceTree = "<group>"; };
@@ -109,9 +109,9 @@
 		A96679B1266F8677002684BC /* CockTailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailModel.swift; sourceTree = "<group>"; };
 		A96679B626710AFD002684BC /* Extension+UIcolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIcolor.swift"; sourceTree = "<group>"; };
 		A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+CoreData.swift"; sourceTree = "<group>"; };
-		A9C1AACC26752B6F00156AF6 /* HomeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectViewController.swift; sourceTree = "<group>"; };
-		A9C1AACE2675341B00156AF6 /* HomeIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIconViewController.swift; sourceTree = "<group>"; };
-		A9C1AADC26779C1500156AF6 /* HomeSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectCell.swift; sourceTree = "<group>"; };
+		A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomViewController.swift; sourceTree = "<group>"; };
+		A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopViewController.swift; sourceTree = "<group>"; };
+		A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomCell.swift; sourceTree = "<group>"; };
 		A9CD5FA72689393900FE11B2 /* FilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringViewController.swift; sourceTree = "<group>"; };
 		A9CD5FA92689F50D00FE11B2 /* FilteringTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringTableCell.swift; sourceTree = "<group>"; };
 		A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansHWK-Bold.otf"; sourceTree = "<group>"; };
@@ -267,10 +267,10 @@
 				A913A3192687049500D22236 /* Recipe */,
 				A913A31426868C2E00D22236 /* List */,
 				A9667941266BCCA7002684BC /* HomeViewController.swift */,
-				A9C1AACE2675341B00156AF6 /* HomeIconViewController.swift */,
-				A9C1AACC26752B6F00156AF6 /* HomeSelectViewController.swift */,
-				A913A30B267E053C00D22236 /* HomeSelectReusableView.swift */,
-				A9C1AADC26779C1500156AF6 /* HomeSelectCell.swift */,
+				A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */,
+				A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */,
+				A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */,
+				A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,7 +628,7 @@
 			files = (
 				A966796F266BF047002684BC /* Protocol+ReusableCell.swift in Sources */,
 				A913A30E267E091F00D22236 /* SelectedItemList.swift in Sources */,
-				A913A30C267E053C00D22236 /* HomeSelectReusableView.swift in Sources */,
+				A913A30C267E053C00D22236 /* HomeBottomReusableView.swift in Sources */,
 				A96679A8266F828E002684BC /* CockTailRepository.swift in Sources */,
 				A9667984266E343C002684BC /* CockTailList.xcdatamodeld in Sources */,
 				A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */,
@@ -642,17 +642,17 @@
 				A96679A3266F80AE002684BC /* CockTailService.swift in Sources */,
 				A96679B2266F8677002684BC /* CockTailModel.swift in Sources */,
 				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
-				A9C1AACD26752B6F00156AF6 /* HomeSelectViewController.swift in Sources */,
+				A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */,
 				A9667997266E6526002684BC /* List+CoreDataProperties.swift in Sources */,
 				A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */,
-				A9C1AADD26779C1500156AF6 /* HomeSelectCell.swift in Sources */,
+				A9C1AADD26779C1500156AF6 /* HomeBottomCell.swift in Sources */,
 				A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */,
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
 				A913A31826868E0200D22236 /* ListTableCell.swift in Sources */,
 				A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */,
 				A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */,
 				A913A30A267A4D1B00D22236 /* Extension+UIFont.swift in Sources */,
-				A9C1AACF2675341B00156AF6 /* HomeIconViewController.swift in Sources */,
+				A9C1AACF2675341B00156AF6 /* HomeTopViewController.swift in Sources */,
 				A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */,
 				A913A31626868DEE00D22236 /* ListViewController.swift in Sources */,
 				A9667989266E5A0F002684BC /* CockTailListModel.swift in Sources */,

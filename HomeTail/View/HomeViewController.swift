@@ -116,8 +116,8 @@ extension HomeViewController {
     override func setupConfiguration() {
 
         // Child ViewController 생성
-        let iconViewController = HomeIconViewController()
-        let selectViewController = HomeSelectViewController()
+        let iconViewController = HomeTopViewController()
+        let selectViewController = HomeBottomViewController()
 
         // ViewModel 주소 전달
         iconViewController.customViewModel = homeVM

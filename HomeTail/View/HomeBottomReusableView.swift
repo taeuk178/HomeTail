@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HomeSelectReusableView: UICollectionReusableView {
+class HomeBottomReusableView: UICollectionReusableView {
     
     // MARK: - properties
     

@@ -15,7 +15,7 @@
 import UIKit
 import SnapKit
 
-class HomeSelectViewController: BaseViewController {
+class HomeBottomViewController: BaseViewController {
 
     // MARK: - Properties
     
@@ -54,14 +54,14 @@ class HomeSelectViewController: BaseViewController {
 /*
  
  */
-extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeBottomViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header: HomeSelectReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
+        let header: HomeBottomReusableView = collectionView.dequeueCollectionHeader(for: indexPath)
         
         header.setConfigure()
         switch customViewModel?.connectCase.value {
@@ -93,7 +93,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HomeSelectCell = collectionView.dequeueCollectionCell(for: indexPath)
+        let cell: HomeBottomCell = collectionView.dequeueCollectionCell(for: indexPath)
         
         switch customViewModel?.connectCase.value {
         case .taste:
@@ -119,7 +119,7 @@ extension HomeSelectViewController: UICollectionViewDelegate, UICollectionViewDa
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
+extension HomeBottomViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
@@ -144,7 +144,7 @@ extension HomeSelectViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UI
 
-extension HomeSelectViewController {
+extension HomeBottomViewController {
     
     override func setupConfiguration() {
         
@@ -154,8 +154,8 @@ extension HomeSelectViewController {
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(HomeSelectCell.self)
-        collectionView.registerHeader(HomeSelectReusableView.self)
+        collectionView.registerCell(HomeBottomCell.self)
+        collectionView.registerHeader(HomeBottomReusableView.self)
         
     }
     

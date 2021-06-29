@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeIconViewController: BaseViewController {
+class HomeTopViewController: BaseViewController {
 
     // MARK: - Properties
     
@@ -43,7 +43,7 @@ class HomeIconViewController: BaseViewController {
 
 // MARK: - UI
 
-extension HomeIconViewController {
+extension HomeTopViewController {
     
     override func setupConfiguration() {
                     
