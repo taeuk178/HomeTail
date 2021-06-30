@@ -106,14 +106,18 @@ extension HomeBottomViewController: UICollectionViewDelegate, UICollectionViewDa
             return cell
         }
         
-        cell.backgroundColor = .orange
+        cell.backgroundColor = .appMainColor(.subOrangeColor)
         cell.layer.cornerRadius = 15 // 고민중 cell.frame.size.height / 2
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        customViewModel?.connectCase.value = .alcohol
-        collectionView.reloadData()
+//        customViewModel?.connectCase.value = .alcohol
+//        collectionView.reloadData()
+        
+        let vc = ListViewController()
+        self.present(vc, animated: true, completion: nil)
+        
     }
 }
 
