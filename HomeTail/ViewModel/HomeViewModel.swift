@@ -31,11 +31,18 @@ class HomeViewModel {
         case .alcohol:
             print("end")
             print(SelectedCases.alcohol.rawValues[index])
+            testService()
         }
     }
     
     func readService() {
         service.fetchRepository { [weak self] model in
+            print(model)
+        }
+    }
+    
+    func testService() {
+        service.fetchFiltering { [weak self] model in
             print(model)
         }
     }

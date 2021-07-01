@@ -12,14 +12,11 @@ struct CockTailListModel {
     let cockID: Int16
     let name: String
     let source: String
-    let base: String
     let taste: String
-    let technique: String
-    let glass: String
+    let base: String
+    let alcohol: String
     let explain: String
-    let amount: [Int]
     let recipe: [String]
     let cocktailimageurl: String
-    let alcohol: String
     
 }

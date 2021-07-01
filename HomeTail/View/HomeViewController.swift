@@ -45,17 +45,14 @@ class HomeViewController: BaseViewController {
 
     // test
     let cockList = CockTailListModel(cockID: 5000,
-                                     name: "피치 크러쉬",
+                                     name: "스크류 드라이버",
                                      source: "2", // source -> 다른 변수명 변경필요
-                                     base: "피치 리큐르",
-                                     taste: "달콤",
-                                     technique: "쉐이크",
-                                     glass: "하이볼 잔",
-                                     explain: "피치 리큐르와 스윗앤사워, 크렌베리 주스를 쉐이커에 넣고 하이볼 잔에 따릅니다.",
-                                     amount: [30, 60, 60], // 0 = full
-                                     recipe: ["피치 리큐르", "레모네이드", "크렌베리주스"],
-                                     cocktailimageurl: "https://image",
-                                     alcohol: "3.4")
+                                     taste: "달다",
+                                     base: "보드카",
+                                     alcohol: "5.5",
+                                     explain: "스크류 드라이버 설명.",
+                                     recipe: ["보드카", "오렌지 주스"],
+                                     cocktailimageurl: "https://image")
     // test
     var context: NSManagedObjectContext? {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -91,21 +88,18 @@ class HomeViewController: BaseViewController {
         person.setValue(cockList.source, forKey: "source")
         person.setValue(cockList.base, forKey: "base")
         person.setValue(cockList.taste, forKey: "taste")
-        person.setValue(cockList.technique, forKey: "technique")
-        person.setValue(cockList.glass, forKey: "glass")
+        person.setValue(cockList.alcohol, forKey: "alcohol")
         person.setValue(cockList.explain, forKey: "explain")
-        person.setValue(cockList.amount, forKey: "amount")
         person.setValue(cockList.recipe, forKey: "recipe")
         person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
-        person.setValue(cockList.alcohol, forKey: "alcohol")
         
-//        do {
-//            try context.save()
-//
-//        } catch {
-//            print(error.localizedDescription)
-//
-//        }
+        do {
+            try context.save()
+
+        } catch {
+            print(error.localizedDescription)
+
+        }
     }
 }
 

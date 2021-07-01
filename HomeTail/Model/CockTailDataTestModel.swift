@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct CockTailModel {
+struct CockTailDataTestModel {
     var base: String
+}
+
+struct CockTailModel {
+    let taste: String
+    let base: String
+    let alcohol: String
 }

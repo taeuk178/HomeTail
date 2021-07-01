@@ -11,16 +11,25 @@ import CoreData
 class CockTailService {
     let repository = CockTailRepository()
     
-    var currentModel = CockTailModel(base: "")
+    var currentModel = CockTailDataTestModel(base: "")
     
-    func fetchRepository(onCompleted: @escaping (CockTailModel) -> Void ) {
+    func fetchRepository(onCompleted: @escaping (CockTailDataTestModel) -> Void ) {
         
         repository.fetchList { [weak self] object in
         
-            let model = CockTailModel(base: object[0].value(forKey: "base") as? String ?? "")
+            let model = CockTailDataTestModel(base: object[0].value(forKey: "base") as? String ?? "")
             self?.currentModel = model
             onCompleted(model)
             
+        }
+    }
+    
+    func fetchFiltering(onCompleted: @escaping (CockTailDataTestModel) -> Void) {
+        
+        repository.fetchList { [weak self] object in
+            let tts = object.filter{ $0.value(forKey: "base") as? String != "진" }
+            let model = CockTailDataTestModel(base: tts[0].value(forKey: "base") as? String ?? "")
+            onCompleted(model)
         }
     }
 }
