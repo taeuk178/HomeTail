@@ -34,7 +34,7 @@
 		A96679A3266F80AE002684BC /* CockTailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679A2266F80AE002684BC /* CockTailService.swift */; };
 		A96679A8266F828E002684BC /* CockTailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679A7266F828E002684BC /* CockTailRepository.swift */; };
 		A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679AC266F848E002684BC /* HomeViewModel.swift */; };
-		A96679B2266F8677002684BC /* CockTailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B1266F8677002684BC /* CockTailModel.swift */; };
+		A96679B2266F8677002684BC /* CockTailDataTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B1266F8677002684BC /* CockTailDataTestModel.swift */; };
 		A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B626710AFD002684BC /* Extension+UIcolor.swift */; };
 		A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */; };
 		A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */; };
@@ -106,7 +106,7 @@
 		A96679A2266F80AE002684BC /* CockTailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailService.swift; sourceTree = "<group>"; };
 		A96679A7266F828E002684BC /* CockTailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailRepository.swift; sourceTree = "<group>"; };
 		A96679AC266F848E002684BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		A96679B1266F8677002684BC /* CockTailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailModel.swift; sourceTree = "<group>"; };
+		A96679B1266F8677002684BC /* CockTailDataTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailDataTestModel.swift; sourceTree = "<group>"; };
 		A96679B626710AFD002684BC /* Extension+UIcolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIcolor.swift"; sourceTree = "<group>"; };
 		A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+CoreData.swift"; sourceTree = "<group>"; };
 		A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomViewController.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		A966793F266BCC7A002684BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A96679B1266F8677002684BC /* CockTailModel.swift */,
+				A96679B1266F8677002684BC /* CockTailDataTestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -640,7 +640,7 @@
 				A9CD5FAA2689F50D00FE11B2 /* FilteringTableCell.swift in Sources */,
 				A913A308267A4C7700D22236 /* Dynamic.swift in Sources */,
 				A96679A3266F80AE002684BC /* CockTailService.swift in Sources */,
-				A96679B2266F8677002684BC /* CockTailModel.swift in Sources */,
+				A96679B2266F8677002684BC /* CockTailDataTestModel.swift in Sources */,
 				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
 				A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */,
 				A9667997266E6526002684BC /* List+CoreDataProperties.swift in Sources */,

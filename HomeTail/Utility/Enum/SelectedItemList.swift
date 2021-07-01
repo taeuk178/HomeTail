@@ -80,16 +80,16 @@ enum SelectedTaste: String, CaseIterable {
 
 /// 기주 선택
 enum SelectedBase: String, CaseIterable {
-    case nonAlcohol
-    case gin
-    case vodka
-    case rum
-    case tequila
-    case liqueur
-    case whisky
-    case brandy
-    case others
-    case all
+    case nonAlcohol = "무알콜"
+    case gin = "진"
+    case vodka = "보드카"
+    case rum = "럼"
+    case tequila = "데낄라"
+    case liqueur = "리큐르"
+    case whisky = "위스키"
+    case brandy = "브랜디"
+    case others = "기타"
+    case all = "모두 선택"
 }
 
 /*
@@ -102,9 +102,9 @@ enum SelectedBase: String, CaseIterable {
 
 /// 도수 선택
 enum SelectedAlcohol: String, CaseIterable {
-    case nonAlcohol
-    case low
-    case medium
-    case high
-    case all
+    case nonAlcohol = "무알콜"
+    case low = "낮은 도수"
+    case medium = "중간 도수"
+    case high = "높은 도수"
+    case all = "모두 선택"
 }

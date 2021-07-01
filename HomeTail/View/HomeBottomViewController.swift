@@ -112,11 +112,12 @@ extension HomeBottomViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        customViewModel?.connectCase.value = .alcohol
-//        collectionView.reloadData()
+        customViewModel?.nextCase(index: indexPath.row)
         
-        let vc = ListViewController()
-        self.present(vc, animated: true, completion: nil)
+        collectionView.reloadData()
+        
+//        let vc = ListViewController()
+//        self.present(vc, animated: true, completion: nil)
         
     }
 }
