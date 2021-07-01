@@ -46,6 +46,8 @@
 		A9CD5FAE268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */; };
 		A9CD5FB0268E793100FE11B2 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FAF268E793100FE11B2 /* PersistenceManager.swift */; };
 		A9CD5FB2268E848D00FE11B2 /* SelectedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FB1268E848D00FE11B2 /* SelectedItems.swift */; };
+		A9CD5FB4268E864800FE11B2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */; };
+		A9CD5FB6268E88B600FE11B2 /* SubCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FB5268E88B600FE11B2 /* SubCoordinator.swift */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -120,6 +122,8 @@
 		A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansHWK-Regular.otf"; sourceTree = "<group>"; };
 		A9CD5FAF268E793100FE11B2 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		A9CD5FB1268E848D00FE11B2 /* SelectedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItems.swift; sourceTree = "<group>"; };
+		A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A9CD5FB5268E88B600FE11B2 /* SubCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCoordinator.swift; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				A96679AC266F848E002684BC /* HomeViewModel.swift */,
+				A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				A966796E266BF047002684BC /* Protocol+ReusableCell.swift */,
+				A9CD5FB5268E88B600FE11B2 /* SubCoordinator.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -664,6 +670,8 @@
 				A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */,
 				A913A31626868DEE00D22236 /* ListViewController.swift in Sources */,
 				A9667989266E5A0F002684BC /* CockTailListModel.swift in Sources */,
+				A9CD5FB4268E864800FE11B2 /* ListViewModel.swift in Sources */,
+				A9CD5FB6268E88B600FE11B2 /* SubCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

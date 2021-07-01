@@ -14,6 +14,9 @@ class HomeViewModel {
     let name: Dynamic<String> = Dynamic("맛을 선택해 주세용")
     let connectCase: Dynamic<SelectedCases> = Dynamic(.taste)
     
+    // 화면 전환
+    weak var delegateCoordinator: SubCoordinator?
+    
     /* ** 기능 구현
      
      다음, 이전 기능
@@ -33,7 +36,7 @@ class HomeViewModel {
         case .alcohol:
             selectedShared.alcohol = SelectedCases.alcohol.rawValues[index]
             print(selectedShared.taste, selectedShared.base, selectedShared.alcohol)
-            testService()
+            delegateCoordinator?.presenter()
         }
     }
     
@@ -43,12 +46,6 @@ class HomeViewModel {
     
     func readService() {
         service.fetchRepository { [weak self] model in
-            print(model)
-        }
-    }
-    
-    func testService() {
-        service.fetchFiltering { [weak self] model in
             print(model)
         }
     }

@@ -45,6 +45,7 @@ class HomeBottomViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        customViewModel?.delegateCoordinator = self
     }
     
 }
@@ -174,5 +175,12 @@ extension HomeBottomViewController {
             $0.edges.equalTo(view)
         }
     }
+}
+
+extension HomeBottomViewController: SubCoordinator {
     
+    func presenter() {
+        let listVC = ListViewController()
+        self.present(listVC, animated: true, completion: nil)
+    }
 }
