@@ -36,7 +36,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
 
         // Track a scroll view(or the siblings) in the content view controller.
         fpc.track(scrollView: contentVC.tableView)
-        
+        fpc.layout = contentVC
         // Add and show the views managed by the `FloatingPanelController` object to self.view.
         fpc.addPanel(toParent: self)
         

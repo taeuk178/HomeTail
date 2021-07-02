@@ -11,7 +11,7 @@ import SnapKit
 class FilteringTableCell: UITableViewCell {
 
     private let textureLabel: UILabel = create {
-        $0.font = .appSansFont(.sansHWRegular, size: 15)
+        $0.font = .appSansFont(.sansHWRegular, size: 17)
         $0.textAlignment = .left
     }
     

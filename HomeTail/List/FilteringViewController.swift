@@ -8,7 +8,7 @@
 import UIKit
 import FloatingPanel
 
-class FilteringViewController: BaseViewController, FloatingPanelLayout {
+class FilteringViewController: BaseViewController {
     
     // MARK: - Properties
     
@@ -22,21 +22,8 @@ class FilteringViewController: BaseViewController, FloatingPanelLayout {
         $0.separatorStyle = .none
     }
     
-    // FloatingPannel
-    var position: FloatingPanelPosition = .bottom
-    
-    var initialState: FloatingPanelState = .tip
-    
-    var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
-        return [
-            .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
-            .half: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea),
-            .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea)
-        ]
-    }
-    //
-    
     // MARK: - LifeCycle
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -60,11 +47,11 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return SelectedCases.taste.allCount
         case 1:
-            return 4
+            return SelectedCases.base.allCount
         case 2:
-            return 5
+            return SelectedCases.alcohol.allCount
         default:
             return 0
         }
@@ -98,22 +85,26 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
         return header
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 46
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
         case 0:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
-            cell.textShow("abc")
+            cell.textShow(SelectedCases.taste.rawValues[indexPath.row])
             cell.selectionStyle = .none
             return cell
         case 1:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
-            cell.textShow("123")
+            cell.textShow(SelectedCases.base.rawValues[indexPath.row])
             cell.selectionStyle = .none
             return cell
         case 2:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
-            cell.textShow("ABC")
+            cell.textShow(SelectedCases.alcohol.rawValues[indexPath.row])
             cell.selectionStyle = .none
             return cell
         default:
@@ -121,6 +112,8 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+// MARK: - UI
 
 extension FilteringViewController {
     
@@ -146,4 +139,25 @@ extension FilteringViewController {
             $0.leading.trailing.bottom.equalTo(view)
         }
     }
+}
+
+// MARK: - FloatingPanelLayout
+
+extension FilteringViewController: FloatingPanelLayout {
+    
+    var position: FloatingPanelPosition {
+        .bottom
+    }
+    
+    var initialState: FloatingPanelState {
+        .tip
+    }
+    
+    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
+        [
+            .full: FloatingPanelLayoutAnchor(absoluteInset: 30.0, edge: .top, referenceGuide: .safeArea),
+            .tip: FloatingPanelLayoutAnchor(absoluteInset: 60.0, edge: .bottom, referenceGuide: .safeArea)
+        ]
+    }
+    
 }
