@@ -16,6 +16,7 @@ struct CockTailListModel {
     let taste: String
     let base: String
     let alcohol: String
+    let alcoholkind: String
     let explain: String
     let recipe: [String]
     let cocktailimageurl: String

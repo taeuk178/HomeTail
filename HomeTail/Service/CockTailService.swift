@@ -31,7 +31,14 @@ class CockTailService {
         
         repository.fetchList { [weak self] object in
             self?.objectData = object
-            self?.objectData = self?.objectData?.filter{ $0.value(forKey: "base") as? String != "진" }
+            self?.objectData = self?.objectData?.filter{ $0.value(forKey: "base") as? String == "진" }
+//            self?.objectData = self?.objectData?.filter{ $0.value(forKey: "alcohol") as? Double == 5.5 }
+//            self?.objectData = self?.objectData?.filter{
+//                $0.value(forKey: "taste") as? String == SelectedItems.shared.taste! &&
+//                $0.value(forKey: "base") as? String == SelectedItems.shared.base! &&
+//                $0.value(forKey: "alcoholkind") as? String == SelectedItems.shared.alcohol!
+//            }
+            
             self?.objectData?.forEach({
                 
                 let cockTailList = CockTailModel(cocktailImage: $0.value(forKey: "base") as? String ?? "",

@@ -58,24 +58,17 @@ class HomeViewController: BaseViewController {
      source = "출처" -> 변수명 변경 필요
      */
     // test
-    let cockList = CockTailListModel(cockID: 3002,
-                                     name: "코스모 폴리탄",
-                                     subname: "Cosmoplitan",
+    let cockList = CockTailListModel(cockID: 3000,
+                                     name: "스크류 드라이버",
+                                     subname: "Screw Driver",
                                      source: "IBA", // source -> 다른 변수명 변경필요
-                                     taste: "달다",
+                                     taste: "달콤",
                                      base: "보드카",
-                                     alcohol: "4.2",
-                                     explain: "코스코 폴리탄 설명.",
-                                     recipe: ["보드카", "트리플섹", "라임주스", "크랜베리주스"],
+                                     alcohol: "5.6",
+                                     alcoholkind: "낮은 도수",
+                                     explain: "스크류 드라이버 설명.",
+                                     recipe: ["보드카", "오렌지 주스"],
                                      cocktailimageurl: "https://image")
-    // test
-    var context: NSManagedObjectContext? {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return nil
-            }
-            
-            return appDelegate.persistentContainer.viewContext
-        }
     
     // MARK: - LifeCycle
     
@@ -90,7 +83,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         // test
-        guard let context = context else { return }
+        let context = PersistenceManager.shared.context
         
         guard let entity = NSEntityDescription.entity(forEntityName: "CockTailList", in: context) else { return }
         
@@ -105,17 +98,18 @@ class HomeViewController: BaseViewController {
         person.setValue(cockList.base, forKey: "base")
         person.setValue(cockList.taste, forKey: "taste")
         person.setValue(cockList.alcohol, forKey: "alcohol")
+        person.setValue(cockList.alcoholkind, forKey: "alcoholkind")
         person.setValue(cockList.explain, forKey: "explain")
         person.setValue(cockList.recipe, forKey: "recipe")
         person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
         
-        do {
-            try context.save()
-
-        } catch {
-            print(error.localizedDescription)
-
-        }
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print(error.localizedDescription)
+//
+//        }
     }
 }
 

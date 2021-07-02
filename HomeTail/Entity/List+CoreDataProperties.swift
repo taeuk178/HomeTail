@@ -25,5 +25,5 @@ extension CockTailList {
     @NSManaged var recipe: [String]
     @NSManaged var cocktailimageurl: String
     @NSManaged var cockID: Int16
-    
+    @NSManaged var alcoholkind: String
 }
