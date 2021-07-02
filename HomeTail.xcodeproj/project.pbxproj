@@ -274,11 +274,7 @@
 			children = (
 				A913A3192687049500D22236 /* Recipe */,
 				A913A31426868C2E00D22236 /* List */,
-				A9667941266BCCA7002684BC /* HomeViewController.swift */,
-				A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */,
-				A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */,
-				A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */,
-				A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */,
+				A9CD5FB7268E90AB00FE11B2 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +361,18 @@
 				A913A30D267E091F00D22236 /* SelectedItemList.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		A9CD5FB7268E90AB00FE11B2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A9667941266BCCA7002684BC /* HomeViewController.swift */,
+				A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */,
+				A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */,
+				A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */,
+				A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FBF5080502C3E8540F8C15F2 /* Pods */ = {
