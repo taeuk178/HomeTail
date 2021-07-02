@@ -12,7 +12,7 @@ struct CockTailDataTestModel {
 }
 
 struct CockTailModel {
-    let taste: String
-    let base: String
-    let alcohol: String
+    let cocktailImage: String
+    let name: String
+    let subName: String
 }

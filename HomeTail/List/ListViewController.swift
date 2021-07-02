@@ -18,6 +18,9 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     }
     
     var fpc: FloatingPanelController!
+    
+    let listViewModel = ListViewModel()
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -40,6 +43,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         // Add and show the views managed by the `FloatingPanelController` object to self.view.
         fpc.addPanel(toParent: self)
         
+        listViewModel.readCockTailList()
     }
 
 }
@@ -53,13 +57,15 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return listViewModel.cockList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableCell = tableView.dequeueTableCell(for: indexPath)
         
-        cell.setUpCell(mainString: "가나다라마바사", subString: "sub")
+        guard let datas = listViewModel.cockList?[indexPath.row] else { fatalError() }
+        
+        cell.setUpCell(mainString: datas.name, subString: datas.subName)
         cell.selectionStyle = .none
         return cell
     }

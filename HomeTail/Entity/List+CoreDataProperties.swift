@@ -16,12 +16,12 @@ extension CockTailList {
     }
 
     @NSManaged var name: String
+    @NSManaged var subname: Int16
     @NSManaged var source: String
     @NSManaged var taste: String
     @NSManaged var base: String
     @NSManaged var alcohol: String
     @NSManaged var explain: String
-    @NSManaged var amount: [Int]
     @NSManaged var recipe: [String]
     @NSManaged var cocktailimageurl: String
     @NSManaged var cockID: Int16

@@ -11,6 +11,7 @@ struct CockTailListModel {
     
     let cockID: Int16
     let name: String
+    let subname: String
     let source: String
     let taste: String
     let base: String

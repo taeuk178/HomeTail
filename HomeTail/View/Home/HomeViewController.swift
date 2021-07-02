@@ -42,16 +42,31 @@ class HomeViewController: BaseViewController {
         $0.text = "Home Tail"
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
     }
-
+    /*
+    # 0619 Data 수정예정
+     논알콜 = 1000
+     진 = 2000
+     보드카 = 3000
+     럼 = 4000
+     데낄라 = 5000
+     리큐르 = 6000
+     위스키 = 7000
+     브랜디 = 8000
+     기타 = 9000 ( 맥주, 와인 등 )
+     몰라요 = 10000
+     
+     source = "출처" -> 변수명 변경 필요
+     */
     // test
-    let cockList = CockTailListModel(cockID: 5000,
-                                     name: "스크류 드라이버",
-                                     source: "2", // source -> 다른 변수명 변경필요
+    let cockList = CockTailListModel(cockID: 3002,
+                                     name: "코스모 폴리탄",
+                                     subname: "Cosmoplitan",
+                                     source: "IBA", // source -> 다른 변수명 변경필요
                                      taste: "달다",
                                      base: "보드카",
-                                     alcohol: "5.5",
-                                     explain: "스크류 드라이버 설명.",
-                                     recipe: ["보드카", "오렌지 주스"],
+                                     alcohol: "4.2",
+                                     explain: "코스코 폴리탄 설명.",
+                                     recipe: ["보드카", "트리플섹", "라임주스", "크랜베리주스"],
                                      cocktailimageurl: "https://image")
     // test
     var context: NSManagedObjectContext? {
@@ -85,6 +100,7 @@ class HomeViewController: BaseViewController {
         // 3
         person.setValue(cockList.cockID, forKey: "cockID")
         person.setValue(cockList.name, forKey: "name")
+        person.setValue(cockList.subname, forKey: "subname")
         person.setValue(cockList.source, forKey: "source")
         person.setValue(cockList.base, forKey: "base")
         person.setValue(cockList.taste, forKey: "taste")

@@ -9,9 +9,10 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="recipe" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="source" attributeType="String"/>
+        <attribute name="subname" optional="YES" attributeType="String"/>
         <attribute name="taste" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CockTailList" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="CockTailList" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>

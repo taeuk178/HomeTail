@@ -11,9 +11,11 @@ class ListViewModel {
     
     let service = CockTailService()
     
+    var cockList: [CockTailModel]?
+    
     func readCockTailList() {
         service.fetchFiltering { [weak self] model in
-            print(model)
+            self?.cockList = model
         }
     }
 }
