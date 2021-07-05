@@ -45,7 +45,6 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         
         listViewModel.readCockTailList()
     }
-
 }
 
 // MARK: - Table
@@ -88,6 +87,8 @@ extension ListViewController {
     
     override func setupConfiguration() {
         
+        navigationSetUp()
+        
         view.addSubview(tableView)
 
         tableView.delegate = self
@@ -101,5 +102,23 @@ extension ListViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalTo(view)
         }
+    }
+    
+    func navigationSetUp() {
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "back"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonAction(_:)))
+        
+        self.navigationItem.leftBarButtonItem = backButton
+        
+    }
+    
+    @objc func backButtonAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
