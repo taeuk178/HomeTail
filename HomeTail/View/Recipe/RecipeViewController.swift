@@ -15,12 +15,12 @@ class RecipeViewController: BaseViewController {
     private let scrollView: UIScrollView = create {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = .white
         $0.isScrollEnabled = true
     }
     
     private let recipeView: UIView = create {
-        $0.backgroundColor = .appMainColor(.subWhiteColor)
+        $0.backgroundColor = .white
     }
     
     // 라벨스택뷰, 출처, 텍스트뷰
@@ -39,7 +39,7 @@ class RecipeViewController: BaseViewController {
         $0.addArrangedSubview(cockNameLabel)
         $0.addArrangedSubview(cockSubnameLabel)
         $0.alignment = .fill
-        $0.distribution = .fill
+        $0.distribution = .fillProportionally
         $0.axis = .vertical
         $0.spacing = 3
     }
@@ -49,43 +49,61 @@ class RecipeViewController: BaseViewController {
         $0.image = UIImage(named: "exImage") // png
 //        $0.image = UIImage(named: "InfoImage") // jpg
         $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .appMainColor(.subWhiteColor)
+        $0.backgroundColor = .white
     }
     
     private let cockNameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 20)
-        $0.text = "스크류 드라이버"
     }
     
     private let cockSubnameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.textColor = .lightGray
         $0.font = .apphelveticaFont(.helveticaLight, size: 14)
-        $0.text = "Screw Driver"
     }
     
     private let resourceLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 12)
-        $0.text = "출처: IBA"
     }
     
     private let descriptionTextView: UITextView = create {
         $0.backgroundColor = .appMainColor(.subWhiteColor)
         $0.isEditable = false
         $0.isScrollEnabled = false
+        $0.sizeToFit()
         $0.font = .appSansFont(.sansHWRegular, size: 16)
-        $0.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        $0.text = "1. asd\n2. fds\n3. 123"
-        $0.setContentHuggingPriority(.defaultLow - 1, for: .vertical)
+        $0.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
+        $0.setContentHuggingPriority(.defaultLow - 1, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultHigh - 1, for: .vertical)
     }
+    
+    private let alcoholLabel: UILabel = create {
+        $0.textColor = .customRGB(red: 40, green: 180, blue: 180, alpha: 1)
+        $0.font = .apphelveticaFont(.helveticaLight, size: 18)
+        $0.textAlignment = .center
+    }
+    
+    let recipeViewModel = RecipeViewModel()
+    
+    var cockTailListIndex = 0
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        recipeViewModel.showList()
+        setRecipe()
+    }
+    
+    func setRecipe() {
+        cockNameLabel.text = recipeViewModel.cockRecipe?.name
+        cockSubnameLabel.text = recipeViewModel.cockRecipe?.subname
+        resourceLabel.text = "출처: \(recipeViewModel.cockRecipe?.source ?? "")"
+        descriptionTextView.text = recipeViewModel.cockRecipe?.explain
+        alcoholLabel.text = "도수: \(recipeViewModel.cockRecipe?.alcohol ?? "")%"
     }
     
     deinit {
@@ -103,6 +121,7 @@ extension RecipeViewController {
         scrollView.addSubview(recipeView)
         recipeView.addSubview(infoGraphicImage)
         recipeView.addSubview(recipeStackView)
+        recipeView.addSubview(alcoholLabel)
         infoGraphicImage.frame = CGRect(x: 0, y: 0, width: recipeView.frame.size.width, height: recipeView.frame.size.height / 2)
     }
     
@@ -127,7 +146,14 @@ extension RecipeViewController {
             $0.top.equalTo(infoGraphicImage.snp.bottom).offset(20)
             $0.leading.equalTo(recipeView).offset(20)
             $0.trailing.equalTo(recipeView).offset(-20)
-            $0.bottom.equalTo(recipeView)
+        }
+        
+        alcoholLabel.snp.makeConstraints {
+            $0.top.equalTo(recipeStackView.snp.bottom).offset(20)
+            $0.centerX.equalTo(view)
+            $0.width.greaterThanOrEqualTo(50)
+            $0.height.equalTo(30)
+            $0.bottom.lessThanOrEqualTo(recipeView).offset(-20)
         }
     }
 }

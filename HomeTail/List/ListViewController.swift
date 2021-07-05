@@ -72,6 +72,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeVC = RecipeViewController()
+        recipeVC.recipeViewModel.service = listViewModel.service
+        recipeVC.recipeViewModel.cockTailIndex.value = indexPath.row
         self.present(recipeVC, animated: true, completion: nil)
     }
 }

@@ -36,6 +36,7 @@
 		A96679AD266F848E002684BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679AC266F848E002684BC /* HomeViewModel.swift */; };
 		A96679B2266F8677002684BC /* CockTailDataTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B1266F8677002684BC /* CockTailDataTestModel.swift */; };
 		A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96679B626710AFD002684BC /* Extension+UIcolor.swift */; };
+		A99ECDED2691D5270059F956 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99ECDEC2691D5270059F956 /* RecipeViewModel.swift */; };
 		A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */; };
 		A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */; };
 		A9C1AACF2675341B00156AF6 /* HomeTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */; };
@@ -112,6 +113,7 @@
 		A96679AC266F848E002684BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A96679B1266F8677002684BC /* CockTailDataTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailDataTestModel.swift; sourceTree = "<group>"; };
 		A96679B626710AFD002684BC /* Extension+UIcolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIcolor.swift"; sourceTree = "<group>"; };
+		A99ECDEC2691D5270059F956 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		A9C1AAC42674FF8E00156AF6 /* NSError+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+CoreData.swift"; sourceTree = "<group>"; };
 		A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomViewController.swift; sourceTree = "<group>"; };
 		A9C1AACE2675341B00156AF6 /* HomeTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				A96679AC266F848E002684BC /* HomeViewModel.swift */,
 				A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */,
+				A99ECDEC2691D5270059F956 /* RecipeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				A966796F266BF047002684BC /* Protocol+ReusableCell.swift in Sources */,
 				A913A30E267E091F00D22236 /* SelectedItemList.swift in Sources */,
 				A913A30C267E053C00D22236 /* HomeBottomReusableView.swift in Sources */,
+				A99ECDED2691D5270059F956 /* RecipeViewModel.swift in Sources */,
 				A96679A8266F828E002684BC /* CockTailRepository.swift in Sources */,
 				A9667984266E343C002684BC /* CockTailList.xcdatamodeld in Sources */,
 				A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */,
@@ -849,6 +853,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HomeTail/Configure/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -869,6 +874,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HomeTail/Configure/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -96,16 +96,19 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
             cell.textShow(SelectedCases.taste.rawValues[indexPath.row])
             cell.selectionStyle = .none
+            cell.checkBox.tag = indexPath.row
             return cell
         case 1:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
             cell.textShow(SelectedCases.base.rawValues[indexPath.row])
             cell.selectionStyle = .none
+            cell.checkBox.tag = indexPath.row
             return cell
         case 2:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
             cell.textShow(SelectedCases.alcohol.rawValues[indexPath.row])
             cell.selectionStyle = .none
+            cell.checkBox.tag = indexPath.row
             return cell
         default:
             return UITableViewCell()

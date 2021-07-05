@@ -15,7 +15,18 @@ class FilteringTableCell: UITableViewCell {
         $0.textAlignment = .left
     }
     
-    private let checkBox: UIButton = create {
+    private let selecteImage: String = "stop.fill"
+    private let nonSelectImage: String = "stop"
+    
+    var isSelectState: Bool = false {
+        didSet {
+            let symbolConfigure = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .default)
+            let buttonSymbol = UIImage(systemName: isSelectState ? selecteImage : nonSelectImage, withConfiguration: symbolConfigure)
+            checkBox.setImage(buttonSymbol, for: .normal)
+        }
+    }
+    
+    let checkBox: UIButton = create {
         $0.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let symbolConfigure = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .default)
         let buttonSymbol = UIImage(systemName: "stop", withConfiguration: symbolConfigure)
@@ -31,7 +42,9 @@ class FilteringTableCell: UITableViewCell {
     }
     
     @objc func isCheckAction(_ sender: UIButton) {
-        print("test tag", sender.tag)
+        
+        isSelectState = !isSelectState
+        
     }
     
     required init?(coder: NSCoder) {
