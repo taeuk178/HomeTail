@@ -74,7 +74,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let recipeVC = RecipeViewController()
         recipeVC.recipeViewModel.service = listViewModel.service
         recipeVC.recipeViewModel.cockTailIndex.value = indexPath.row
-        self.present(recipeVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(recipeVC, animated: true)
     }
 }
 

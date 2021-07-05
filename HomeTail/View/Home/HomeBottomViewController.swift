@@ -181,6 +181,8 @@ extension HomeBottomViewController: SubCoordinator {
     
     func presenter() {
         let listVC = ListViewController()
-        self.present(listVC, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: listVC)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
 }
