@@ -12,6 +12,10 @@ class RecipeViewController: BaseViewController {
 
     // MARK: - Properties
     
+    private let dismissButton: UIButton = create {
+        $0.setImage(UIImage(named: "back"), for: .normal)
+    }
+    
     private let scrollView: UIScrollView = create {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
@@ -45,7 +49,7 @@ class RecipeViewController: BaseViewController {
     }
     
     // 칵테일 인포그래픽이미지
-    private let infoGraphicImage: UIImageView = create {
+    let infoGraphicImage: UIImageView = create {
         $0.image = UIImage(named: "exImage") // png
 //        $0.image = UIImage(named: "InfoImage") // jpg
         $0.contentMode = .scaleAspectFit
@@ -96,6 +100,8 @@ class RecipeViewController: BaseViewController {
 
         recipeViewModel.showList()
         setRecipe()
+        
+        dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
     }
     
     func setRecipe() {
@@ -104,6 +110,10 @@ class RecipeViewController: BaseViewController {
         resourceLabel.text = "출처: \(recipeViewModel.cockRecipe?.source ?? "")"
         descriptionTextView.text = recipeViewModel.cockRecipe?.explain
         alcoholLabel.text = "도수: \(recipeViewModel.cockRecipe?.alcohol ?? "")%"
+    }
+    
+    @objc func dismissAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     deinit {
@@ -119,6 +129,7 @@ extension RecipeViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(recipeView)
+        recipeView.addSubview(dismissButton)
         recipeView.addSubview(infoGraphicImage)
         recipeView.addSubview(recipeStackView)
         recipeView.addSubview(alcoholLabel)
@@ -134,11 +145,18 @@ extension RecipeViewController {
         recipeView.snp.makeConstraints {
             $0.width.equalTo(scrollView)
             $0.edges.equalTo(scrollView)
-            $0.height.equalTo(800)
+            $0.height.equalTo(1000)
+        }
+        
+        dismissButton.snp.makeConstraints {
+            $0.top.equalTo(recipeView.safeAreaLayoutGuide).offset(20)
+            $0.leading.equalTo(recipeView).offset(20)
+            $0.width.equalTo(40)
         }
         
         infoGraphicImage.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(recipeView)
+            $0.top.equalTo(dismissButton.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(recipeView)
             $0.height.equalTo(view.frame.size.height / 2)
         }
         

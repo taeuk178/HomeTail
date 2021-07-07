@@ -12,7 +12,7 @@ class ListTableCell: UITableViewCell {
 
     // MARK: - Properties
     
-    private let infoGraphicImage: UIImageView = create {
+    let infoGraphicImage: UIImageView = create {
 //        $0.image = UIImage(named: "exImage")
         $0.image = UIImage(named: "InfoImage")
         $0.contentMode = .scaleAspectFill
