@@ -32,7 +32,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     var tableCell: ListTableCell?
     var selectedCellImageViewSnapshot: UIView?
     
-    var animator: PresentAnimator?
+    var animator: CustomAnimator?
     
     // MARK: - LifeCycle
     
@@ -155,7 +155,7 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
               let secondVC = presented as? RecipeViewController,
               let selectedCellImageSnapshot = selectedCellImageViewSnapshot else { return nil}
         
-        animator = PresentAnimator(type: .present,
+        animator = CustomAnimator(type: .present,
                                    firstViewController: firstVC,
                                    secondViewController: secondVC,
                                    selectedCellImageViewSnapshot: selectedCellImageSnapshot)
@@ -169,7 +169,7 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
                 let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
                 else { return nil }
 
-            animator = PresentAnimator(type: .dismiss,
+            animator = CustomAnimator(type: .dismiss,
                                        firstViewController: self,
                                        secondViewController: secondViewController,
                                        selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
