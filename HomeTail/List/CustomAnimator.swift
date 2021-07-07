@@ -24,15 +24,19 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     static let duration: TimeInterval = 0.8
     
     private let type: PresentationType
-    private let firstViewController: ListViewController
-    private let secondViewController: RecipeViewController
+    private let listViewController: ListViewController
+    private let recipeViewController: RecipeViewController
     private let selectedCellImageViewSnapshot: UIView
     private let cellImageViewRect: CGRect
     
-    init?(type: PresentationType, firstViewController: ListViewController, secondViewController: RecipeViewController, selectedCellImageViewSnapshot: UIView) {
+    init?(type: PresentationType,
+          firstViewController: ListViewController,
+          secondViewController: RecipeViewController,
+          selectedCellImageViewSnapshot: UIView) {
+        
         self.type = type
-        self.firstViewController = firstViewController
-        self.secondViewController = secondViewController
+        self.listViewController = firstViewController
+        self.recipeViewController = secondViewController
         self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         
         guard let window = firstViewController.view.window ?? secondViewController.view.window,
@@ -53,16 +57,16 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let containerView = transitionContext.containerView
         
-        guard let toView = secondViewController.view else {
+        guard let toView = recipeViewController.view else {
             transitionContext.completeTransition(false)
             return
         }
         containerView.addSubview(toView)
         
-        guard let selectedCell = firstViewController.tableCell,
-              let window = firstViewController.view.window ?? secondViewController.view.window,
+        guard let selectedCell = listViewController.tableCell,
+              let window = listViewController.view.window ?? recipeViewController.view.window,
               let cellImageSnapshot = selectedCell.infoGraphicImage.snapshotView(afterScreenUpdates: true),
-              let controllerImageShapshot = secondViewController.infoGraphicImage.snapshotView(afterScreenUpdates: true)
+              let recipeInfoImageSnapshot = recipeViewController.infoGraphicImage.snapshotView(afterScreenUpdates: true)
         else {
             transitionContext.completeTransition(true)
             return
@@ -70,23 +74,23 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let isPresenting = type.isPresenting
         
-        let imageViewSnapshot: UIView
+        let infoImageViewSnapshot: UIView
         
         if isPresenting {
-            imageViewSnapshot = cellImageSnapshot
+            infoImageViewSnapshot = cellImageSnapshot
         } else {
-            imageViewSnapshot = controllerImageShapshot
+            infoImageViewSnapshot = recipeInfoImageSnapshot
         }
         
         toView.alpha = 0
         
-        [imageViewSnapshot].forEach {
+        [infoImageViewSnapshot].forEach {
             containerView.addSubview($0)
         }
         
-        let controllerImageViewRect = secondViewController.infoGraphicImage.convert(secondViewController.infoGraphicImage.bounds, to: window)
+        let controllerImageViewRect = recipeViewController.infoGraphicImage.convert(recipeViewController.infoGraphicImage.bounds, to: window)
         
-        [imageViewSnapshot].forEach {
+        [infoImageViewSnapshot].forEach {
             $0.frame = isPresenting ? cellImageViewRect : controllerImageViewRect
         }
         
@@ -94,10 +98,10 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                 delay: 0,
                                 options: .calculationModeCubic) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                imageViewSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
+                infoImageViewSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
             }
         } completion: { _ in
-            imageViewSnapshot.removeFromSuperview()
+            infoImageViewSnapshot.removeFromSuperview()
             
             toView.alpha = 1
             
