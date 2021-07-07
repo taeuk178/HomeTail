@@ -12,38 +12,41 @@ import FloatingPanel
 class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
 
     // MARK: - Properties
+    
+    // 뒤로가기 버튼
+    private let dismissButton: UIButton = create {
+        $0.setImage(UIImage(named: "back"), for: .normal)
+    }
+    
     private let tableView: UITableView = create {
         $0.separatorStyle = .none
         $0.backgroundColor = .appMainColor(.subSkyBlueColor)
     }
     
-    var fpc: FloatingPanelController!
+    var floatingPanelController: FloatingPanelController!
     
     let listViewModel = ListViewModel()
+    
+    // transition
+    
+    var tableCell: ListTableCell?
+    var selectedCellImageViewSnapshot: UIView?
+    
+    var animator: CustomAnimator?
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fpc = FloatingPanelController()
-        fpc.surfaceView.layer.cornerRadius = 15
-        fpc.surfaceView.clipsToBounds = true
-        fpc.surfaceView.backgroundColor = .clear
-        // Assign self as the delegate of the controller.
-        fpc.delegate = self // Optional
         
-        // Set a content view controller.
-        let contentVC = FilteringViewController()
-        fpc.set(contentViewController: contentVC)
-
-        // Track a scroll view(or the siblings) in the content view controller.
-        fpc.track(scrollView: contentVC.tableView)
-        fpc.layout = contentVC
-        // Add and show the views managed by the `FloatingPanelController` object to self.view.
-        fpc.addPanel(toParent: self)
-        
+        setUpFloatingPanel()
         listViewModel.readCockTailList()
+        
+    }
+    
+    @objc func dismissAction(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -66,6 +69,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.setUpCell(mainString: datas.name, subString: datas.subName)
         cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -73,7 +77,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let recipeVC = RecipeViewController()
         recipeVC.recipeViewModel.service = listViewModel.service
         recipeVC.recipeViewModel.cockTailIndex.value = indexPath.row
-        self.navigationController?.pushViewController(recipeVC, animated: true)
+        recipeVC.transitioningDelegate = self
+        recipeVC.modalPresentationStyle = .custom
+        
+        tableCell = tableView.cellForRow(at: indexPath) as? ListTableCell
+        selectedCellImageViewSnapshot = tableCell?.infoGraphicImage.snapshotView(afterScreenUpdates: false)
+        
+        self.present(recipeVC, animated: true, completion: nil)
     }
 }
 
@@ -83,14 +93,15 @@ extension ListViewController {
     
     override func setupProperties() {
         
+        self.dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
     }
     
     override func setupConfiguration() {
         
-        navigationSetUp()
-        
+        view.backgroundColor = .appMainColor(.subSkyBlueColor)
         view.addSubview(tableView)
-
+        view.addSubview(dismissButton)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCell(ListTableCell.self)
@@ -99,26 +110,69 @@ extension ListViewController {
     
     override func setupConstraints() {
         
+        dismissButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.leading.equalTo(view).offset(20)
+            $0.width.equalTo(40)
+        }
+        
         tableView.snp.makeConstraints {
-            $0.edges.equalTo(view)
+            $0.top.equalTo(dismissButton.snp.bottom).offset(20)
+            $0.leading.trailing.bottom.equalTo(view)
         }
     }
     
-    func navigationSetUp() {
+    func setUpFloatingPanel() {
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        floatingPanelController = FloatingPanelController()
+        floatingPanelController.surfaceView.layer.cornerRadius = 15
+        floatingPanelController.surfaceView.clipsToBounds = true
+        floatingPanelController.surfaceView.backgroundColor = .clear
+        // Assign self as the delegate of the controller.
+        floatingPanelController.delegate = self // Optional
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back"),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(backButtonAction(_:)))
+        // Set a content view controller.
+        let contentVC = FilteringViewController()
+        floatingPanelController.set(contentViewController: contentVC)
+
+        // Track a scroll view(or the siblings) in the content view controller.
+        floatingPanelController.track(scrollView: contentVC.tableView)
+        floatingPanelController.layout = contentVC
+        // Add and show the views managed by the `FloatingPanelController` object to self.view.
+        floatingPanelController.addPanel(toParent: self)
+    }
+    
+}
+
+// MARK: - TransitionDelegate
+
+extension ListViewController: UIViewControllerTransitioningDelegate {
+    
+    // Present
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        self.navigationItem.leftBarButtonItem = backButton
+        guard let firstVC = presenting as? ListViewController,
+              let secondVC = presented as? RecipeViewController,
+              let selectedCellImageSnapshot = selectedCellImageViewSnapshot else { return nil}
+        
+        animator = CustomAnimator(type: .present,
+                                   firstViewController: firstVC,
+                                   secondViewController: secondVC,
+                                   selectedCellImageViewSnapshot: selectedCellImageSnapshot)
+        return animator
         
     }
     
-    @objc func backButtonAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    // Dismiss
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let secondViewController = dismissed as? RecipeViewController,
+                let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
+                else { return nil }
+
+            animator = CustomAnimator(type: .dismiss,
+                                       firstViewController: self,
+                                       secondViewController: secondViewController,
+                                       selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+            return animator
     }
 }
