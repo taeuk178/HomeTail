@@ -22,7 +22,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         $0.backgroundColor = .appMainColor(.subSkyBlueColor)
     }
     
-    var fpc: FloatingPanelController!
+    var floatingPanelController: FloatingPanelController!
     
     let listViewModel = ListViewModel()
     
@@ -37,26 +37,10 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fpc = FloatingPanelController()
-        fpc.surfaceView.layer.cornerRadius = 15
-        fpc.surfaceView.clipsToBounds = true
-        fpc.surfaceView.backgroundColor = .clear
-        // Assign self as the delegate of the controller.
-        fpc.delegate = self // Optional
         
-        // Set a content view controller.
-        let contentVC = FilteringViewController()
-        fpc.set(contentViewController: contentVC)
-
-        // Track a scroll view(or the siblings) in the content view controller.
-        fpc.track(scrollView: contentVC.tableView)
-        fpc.layout = contentVC
-        // Add and show the views managed by the `FloatingPanelController` object to self.view.
-        fpc.addPanel(toParent: self)
-        
+        setUpFloatingPanel()
         listViewModel.readCockTailList()
-        dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
+        
     }
     
     @objc func dismissAction(_ sender: UIButton) {
@@ -108,11 +92,10 @@ extension ListViewController {
     
     override func setupProperties() {
         
+        self.dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
     }
     
     override func setupConfiguration() {
-        
-        navigationSetUp()
         
         view.backgroundColor = .appMainColor(.subSkyBlueColor)
         view.addSubview(tableView)
@@ -138,27 +121,33 @@ extension ListViewController {
         }
     }
     
-    func navigationSetUp() {
+    func setUpFloatingPanel() {
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        floatingPanelController = FloatingPanelController()
+        floatingPanelController.surfaceView.layer.cornerRadius = 15
+        floatingPanelController.surfaceView.clipsToBounds = true
+        floatingPanelController.surfaceView.backgroundColor = .clear
+        // Assign self as the delegate of the controller.
+        floatingPanelController.delegate = self // Optional
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back"),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(backButtonAction(_:)))
-        
-        self.navigationItem.leftBarButtonItem = backButton
-        
+        // Set a content view controller.
+        let contentVC = FilteringViewController()
+        floatingPanelController.set(contentViewController: contentVC)
+
+        // Track a scroll view(or the siblings) in the content view controller.
+        floatingPanelController.track(scrollView: contentVC.tableView)
+        floatingPanelController.layout = contentVC
+        // Add and show the views managed by the `FloatingPanelController` object to self.view.
+        floatingPanelController.addPanel(toParent: self)
     }
     
-    @objc func backButtonAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
+
+// MARK: - TransitionDelegate
 
 extension ListViewController: UIViewControllerTransitioningDelegate {
     
+    // Present
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let firstVC = presenting as? ListViewController,
@@ -173,6 +162,7 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
         
     }
     
+    // Dismiss
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let secondViewController = dismissed as? RecipeViewController,
                 let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
@@ -183,104 +173,5 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
                                        secondViewController: secondViewController,
                                        selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
             return animator
-    }
-}
-
-final class PresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
-    var selectedCellImage: UIView?
-    
-    static let duration: TimeInterval = 1.25
-    
-    private let type: PresentationType
-    private let firstViewController: ListViewController
-    private let secondViewController: RecipeViewController
-    private let selectedCellImageViewSnapshot: UIView
-    private let cellImageViewRect: CGRect
-    
-    init?(type: PresentationType, firstViewController: ListViewController, secondViewController: RecipeViewController, selectedCellImageViewSnapshot: UIView) {
-        self.type = type
-        self.firstViewController = firstViewController
-        self.secondViewController = secondViewController
-        self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
-        
-        guard let window = firstViewController.view.window ?? secondViewController.view.window,
-              let selectedCell = firstViewController.tableCell
-        else { return nil }
-        
-        // B2 - 11
-        self.cellImageViewRect = selectedCell.infoGraphicImage.convert(selectedCell.infoGraphicImage.bounds, to: window)
-    }
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Self.duration
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
-        let containerView = transitionContext.containerView
-        
-        guard let toView = secondViewController.view else {
-            transitionContext.completeTransition(false)
-            return
-        }
-        containerView.addSubview(toView)
-        
-        guard let selectedCell = firstViewController.tableCell,
-              let window = firstViewController.view.window ?? secondViewController.view.window,
-              let cellImageSnapshot = selectedCell.infoGraphicImage.snapshotView(afterScreenUpdates: true),
-              let controllerImageShapshot = secondViewController.infoGraphicImage.snapshotView(afterScreenUpdates: true)
-        else {
-            transitionContext.completeTransition(true)
-            return
-        }
-        
-        let isPresenting = type.isPresenting
-        
-        let imageViewSnapshot: UIView
-        
-        if isPresenting {
-            imageViewSnapshot = cellImageSnapshot
-        } else {
-            imageViewSnapshot = controllerImageShapshot
-        }
-        
-        toView.alpha = 0
-        
-        [imageViewSnapshot].forEach {
-            containerView.addSubview($0)
-        }
-        
-        let controllerImageViewRect = secondViewController.infoGraphicImage.convert(secondViewController.infoGraphicImage.bounds, to: window)
-        
-        [imageViewSnapshot].forEach {
-            $0.frame = isPresenting ? cellImageViewRect : controllerImageViewRect
-        }
-        
-        UIView.animateKeyframes(withDuration: Self.duration,
-                                delay: 0,
-                                options: .calculationModeCubic) {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                imageViewSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
-            }
-        } completion: { _ in
-            imageViewSnapshot.removeFromSuperview()
-            
-            toView.alpha = 1
-            
-            transitionContext.completeTransition(true)
-        }
-
-    }
-
-}
-
-enum PresentationType {
-
-    case present
-    case dismiss
-
-    var isPresenting: Bool {
-        return self == .present
     }
 }
