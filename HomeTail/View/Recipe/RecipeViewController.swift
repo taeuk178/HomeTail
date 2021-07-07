@@ -12,10 +12,7 @@ class RecipeViewController: BaseViewController {
 
     // MARK: - Properties
     
-    private let dismissButton: UIButton = create {
-        $0.setImage(UIImage(named: "back"), for: .normal)
-    }
-    
+    // 스크롤 뷰
     private let scrollView: UIScrollView = create {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
@@ -23,8 +20,14 @@ class RecipeViewController: BaseViewController {
         $0.isScrollEnabled = true
     }
     
+    // 레시피 뷰
     private let recipeView: UIView = create {
         $0.backgroundColor = .white
+    }
+    
+    // 뒤로가기 버튼
+    private let dismissButton: UIButton = create {
+        $0.setImage(UIImage(named: "back"), for: .normal)
     }
     
     // 라벨스택뷰, 출처, 텍스트뷰
@@ -55,22 +58,26 @@ class RecipeViewController: BaseViewController {
         $0.backgroundColor = .white
     }
     
+    // 한글이름
     private let cockNameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 20)
     }
     
+    // 영어이름
     private let cockSubnameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.textColor = .lightGray
         $0.font = .apphelveticaFont(.helveticaLight, size: 14)
     }
     
+    // 출처
     private let resourceLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 12)
     }
     
+    // 설명
     private let descriptionTextView: UITextView = create {
         $0.backgroundColor = .appMainColor(.subWhiteColor)
         $0.isEditable = false
@@ -82,6 +89,7 @@ class RecipeViewController: BaseViewController {
         $0.setContentCompressionResistancePriority(.defaultHigh - 1, for: .vertical)
     }
     
+    // 도수
     private let alcoholLabel: UILabel = create {
         $0.textColor = .customRGB(red: 40, green: 180, blue: 180, alpha: 1)
         $0.font = .apphelveticaFont(.helveticaLight, size: 18)
@@ -132,39 +140,46 @@ extension RecipeViewController {
         recipeView.addSubview(infoGraphicImage)
         recipeView.addSubview(recipeStackView)
         recipeView.addSubview(alcoholLabel)
+        
         infoGraphicImage.frame = CGRect(x: 0, y: 0, width: recipeView.frame.size.width, height: recipeView.frame.size.height / 2)
     }
     
     override func setupConstraints() {
         
+        // 스크롤뷰
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view)
         }
         
+        // 레시피 뷰. on Scroll
         recipeView.snp.makeConstraints {
             $0.width.equalTo(scrollView)
             $0.edges.equalTo(scrollView)
             $0.height.equalTo(1000)
         }
         
+        // 뒤로가기 버튼
         dismissButton.snp.makeConstraints {
             $0.top.equalTo(recipeView.safeAreaLayoutGuide).offset(20)
             $0.leading.equalTo(recipeView).offset(20)
             $0.width.equalTo(40)
         }
         
+        // 칵테일 이미지
         infoGraphicImage.snp.makeConstraints {
             $0.top.equalTo(dismissButton.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(recipeView)
             $0.height.equalTo(view.frame.size.height / 2)
         }
         
+        // 칵테일 name, description 가진 스택뷰
         recipeStackView.snp.makeConstraints {
             $0.top.equalTo(infoGraphicImage.snp.bottom).offset(20)
             $0.leading.equalTo(recipeView).offset(20)
             $0.trailing.equalTo(recipeView).offset(-20)
         }
         
+        // 도수
         alcoholLabel.snp.makeConstraints {
             $0.top.equalTo(recipeStackView.snp.bottom).offset(20)
             $0.centerX.equalTo(view)

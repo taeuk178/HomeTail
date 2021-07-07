@@ -13,6 +13,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
 
     // MARK: - Properties
     
+    // 뒤로가기 버튼
     private let dismissButton: UIButton = create {
         $0.setImage(UIImage(named: "back"), for: .normal)
     }
