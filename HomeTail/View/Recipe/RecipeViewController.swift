@@ -53,7 +53,8 @@ class RecipeViewController: BaseViewController {
     
     // 칵테일 인포그래픽이미지
     let infoGraphicImage: UIImageView = create {
-        $0.image = UIImage(named: "exImage") // png
+//        $0.image = UIImage(named: "exImage") // png
+        $0.image = UIImage(named: "InfoImage") // png
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .white
     }

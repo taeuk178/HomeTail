@@ -194,7 +194,6 @@
 		A9667803266A4AA9002684BC = {
 			isa = PBXGroup;
 			children = (
-				A9667982266E343C002684BC /* CockTailList.xcdatamodeld */,
 				A9667951266BCE09002684BC /* .swiftlint.yml */,
 				A966780E266A4AA9002684BC /* HomeTail */,
 				A9667825266A4AAB002684BC /* HomeTailTests */,
@@ -252,6 +251,7 @@
 		A9667928266BCB0E002684BC /* Configure */ = {
 			isa = PBXGroup;
 			children = (
+				A9667982266E343C002684BC /* CockTailList.xcdatamodeld */,
 				A9CD5FAB268B3CC900FE11B2 /* SourceHanSansHWK-Bold.otf */,
 				A9CD5FAC268B3CCA00FE11B2 /* SourceHanSansHWK-Regular.otf */,
 				A966780F266A4AA9002684BC /* AppDelegate.swift */,

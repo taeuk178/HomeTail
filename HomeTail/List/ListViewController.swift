@@ -151,13 +151,13 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
     // Present
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        guard let firstVC = presenting as? ListViewController,
-              let secondVC = presented as? RecipeViewController,
+        guard let listViewController = presenting as? ListViewController,
+              let recipeViewController = presented as? RecipeViewController,
               let selectedCellImageSnapshot = selectedCellImageViewSnapshot else { return nil}
         
         animator = CustomAnimator(type: .present,
-                                   firstViewController: firstVC,
-                                   secondViewController: secondVC,
+                                   listViewController: listViewController,
+                                   recipeViewController: recipeViewController,
                                    selectedCellImageViewSnapshot: selectedCellImageSnapshot)
         return animator
         
@@ -165,13 +165,13 @@ extension ListViewController: UIViewControllerTransitioningDelegate {
     
     // Dismiss
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let secondViewController = dismissed as? RecipeViewController,
+        guard let recipeViewController = dismissed as? RecipeViewController,
                 let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
                 else { return nil }
 
             animator = CustomAnimator(type: .dismiss,
-                                       firstViewController: self,
-                                       secondViewController: secondViewController,
+                                       listViewController: self,
+                                       recipeViewController: recipeViewController,
                                        selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
             return animator
     }

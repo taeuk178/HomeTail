@@ -30,20 +30,19 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let cellImageViewRect: CGRect
     
     init?(type: PresentationType,
-          firstViewController: ListViewController,
-          secondViewController: RecipeViewController,
+          listViewController: ListViewController,
+          recipeViewController: RecipeViewController,
           selectedCellImageViewSnapshot: UIView) {
         
         self.type = type
-        self.listViewController = firstViewController
-        self.recipeViewController = secondViewController
+        self.listViewController = listViewController
+        self.recipeViewController = recipeViewController
         self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         
-        guard let window = firstViewController.view.window ?? secondViewController.view.window,
-              let selectedCell = firstViewController.tableCell
+        guard let window = listViewController.view.window ?? recipeViewController.view.window,
+              let selectedCell = listViewController.tableCell
         else { return nil }
         
-        // B2 - 11
         self.cellImageViewRect = selectedCell.infoGraphicImage.convert(selectedCell.infoGraphicImage.bounds, to: window)
     }
     
