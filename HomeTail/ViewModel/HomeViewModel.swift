@@ -26,12 +26,18 @@ class HomeViewModel {
         
         switch connectCase.value {
         case .taste:
-            connectCase.value = .base
             selectedShared.taste = SelectedCases.taste.rawValues[index]
+            connectCase.value = .base
             print(SelectedCases.taste.rawValues[index])
         case .base:
-            connectCase.value = .alcohol
             selectedShared.base = SelectedCases.base.rawValues[index]
+            if SelectedCases.base.rawValues[index] == "무알콜" {
+                selectedShared.alcohol = "무알콜"
+                delegateCoordinator?.presenter()
+                print(selectedShared.taste, selectedShared.base, selectedShared.alcohol)
+                break
+            }
+            connectCase.value = .alcohol
             print(SelectedCases.base.rawValues[index])
         case .alcohol:
             selectedShared.alcohol = SelectedCases.alcohol.rawValues[index]
