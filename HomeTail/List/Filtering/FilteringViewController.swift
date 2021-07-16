@@ -12,11 +12,24 @@ class FilteringViewController: BaseViewController {
     
     // MARK: - Properties
     
+    var floatingPanel: FloatingPanelController?
+    
     private let filteringLabel: UILabel = create {
         $0.text = "필터링"
         $0.font = .appSansFont(.sansHWBold, size: 30)
         $0.textAlignment = .left
     }
+    
+    private let changedButton: UIButton = {
+        $0.setTitle("변경완료", for: .normal)
+        $0.setTitleColor(.appMainColor(.subOrangeColor), for: .normal)
+        $0.titleLabel?.font = .apphelveticaFont(.helveticaMedium, size: 16)
+        $0.layer.borderWidth = 2
+        $0.layer.borderColor = UIColor.appMainColor(.subOrangeColor).cgColor
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 15
+        return $0
+    }(UIButton(type: .system))
     
     let tableView: UITableView = create {
         $0.separatorStyle = .none
@@ -36,6 +49,13 @@ class FilteringViewController: BaseViewController {
         view.backgroundColor = .white
     }
 
+    @objc func changedAction(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.1) {
+            self.floatingPanel?.move(to: .tip, animated: true)
+        }
+        
+    }
 }
 
 extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
@@ -97,22 +117,29 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textShow(SelectedCases.taste.rawValues[indexPath.row])
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
+            cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
             return cell
         case 1:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
             cell.textShow(SelectedCases.base.rawValues[indexPath.row])
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
+            cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
             return cell
         case 2:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
             cell.textShow(SelectedCases.alcohol.rawValues[indexPath.row])
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
+            cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
             return cell
         default:
             return UITableViewCell()
         }
+    }
+    
+    @objc func touchesAction(_ sender: UIButton) {
+        
     }
 }
 
@@ -124,9 +151,16 @@ extension FilteringViewController {
         
         view.addSubview(tableView)
         view.addSubview(filteringLabel)
+        view.addSubview(changedButton)
+        
         tableView.registerCell(FilteringTableCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func setupProperties() {
+        
+        changedButton.addTarget(self, action: #selector(changedAction(_:)   ), for: .touchUpInside)
     }
     
     override func setupConstraints() {
@@ -140,6 +174,12 @@ extension FilteringViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(filteringLabel.snp.bottom).offset(40)
             $0.leading.trailing.bottom.equalTo(view)
+        }
+        
+        changedButton.snp.makeConstraints {
+            $0.centerY.equalTo(filteringLabel.snp.centerY)
+            $0.trailing.equalTo(view).offset(-20)
+            $0.width.equalTo(100)
         }
     }
 }

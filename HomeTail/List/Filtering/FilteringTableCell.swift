@@ -38,7 +38,7 @@ class FilteringTableCell: UITableViewCell {
         
         setConfigure()
         setConstraints()
-        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
+//        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
     }
     
     @objc func isCheckAction(_ sender: UIButton) {

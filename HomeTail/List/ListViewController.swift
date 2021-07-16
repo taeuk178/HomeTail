@@ -133,6 +133,7 @@ extension ListViewController {
         
         // Set a content view controller.
         let contentVC = FilteringViewController()
+        contentVC.floatingPanel = floatingPanelController
         floatingPanelController.set(contentViewController: contentVC)
 
         // Track a scroll view(or the siblings) in the content view controller.
