@@ -118,6 +118,8 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
             cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
+            cell.checkBox.isSelected = false
+            cell.selectItems(SelectedItems.shared)
             return cell
         case 1:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
@@ -125,6 +127,7 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
             cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
+            cell.selectItems(SelectedItems.shared)
             return cell
         case 2:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)
@@ -132,6 +135,7 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.checkBox.tag = indexPath.row
             cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
+            cell.selectItems(SelectedItems.shared)
             return cell
         default:
             return UITableViewCell()
@@ -139,6 +143,10 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func touchesAction(_ sender: UIButton) {
+        
+        tableView.reloadData()
+        
+        sender.isSelected = !sender.isSelected
         
     }
 }

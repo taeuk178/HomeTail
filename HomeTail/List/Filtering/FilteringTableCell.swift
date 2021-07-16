@@ -15,6 +15,8 @@ class FilteringTableCell: UITableViewCell {
         $0.textAlignment = .left
     }
     
+    var texlables: String?
+    
     private let selecteImage: String = "stop.fill"
     private let nonSelectImage: String = "stop"
     
@@ -38,12 +40,7 @@ class FilteringTableCell: UITableViewCell {
         
         setConfigure()
         setConstraints()
-//        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
-    }
-    
-    @objc func isCheckAction(_ sender: UIButton) {
-        
-        isSelectState = !isSelectState
+        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
         
     }
     
@@ -53,7 +50,22 @@ class FilteringTableCell: UITableViewCell {
 
     func textShow(_ text: String) {
         textureLabel.text = text
+        texlables = text
     }
+    
+    func selectItems(_ item: SelectedItems) {
+        guard let itemTaste = item.taste, let itemBase = item.base, let itemAlcohol = item.alcohol else { return }
+        if texlables == itemTaste || texlables == itemBase || texlables == itemAlcohol {
+            isSelectState = true
+        }
+    }
+    
+    @objc func isCheckAction(_ sender: UIButton) {
+        if let texlabels = texlables {
+            print(texlabels)
+        }
+    }
+    
 }
 
 extension FilteringTableCell {
