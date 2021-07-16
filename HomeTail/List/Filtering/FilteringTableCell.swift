@@ -57,6 +57,8 @@ class FilteringTableCell: UITableViewCell {
         guard let itemTaste = item.taste, let itemBase = item.base, let itemAlcohol = item.alcohol else { return }
         if texlables == itemTaste || texlables == itemBase || texlables == itemAlcohol {
             isSelectState = true
+        } else {
+            isSelectState = false
         }
     }
     
