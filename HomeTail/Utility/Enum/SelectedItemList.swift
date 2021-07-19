@@ -102,7 +102,6 @@ enum SelectedBase: String, CaseIterable {
 
 /// 도수 선택
 enum SelectedAlcohol: String, CaseIterable {
-    case nonAlcohol = "무알콜"
     case low = "낮은 도수"
     case medium = "중간 도수"
     case high = "높은 도수"

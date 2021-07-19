@@ -40,7 +40,7 @@ class HomeBottomCell: UICollectionViewCell {
         
         textLabel.snp.makeConstraints {
             $0.centerX.centerY.equalTo(contentView)
-            $0.width.lessThanOrEqualTo(50)
+            $0.width.greaterThanOrEqualTo(50)
         }
     }
 }
