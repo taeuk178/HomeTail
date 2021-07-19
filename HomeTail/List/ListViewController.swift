@@ -27,6 +27,8 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     
     let listViewModel = ListViewModel()
     
+    var homeViewModel: HomeViewModel?
+    
     // transition
     
     var tableCell: ListTableCell?
@@ -47,6 +49,12 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     @objc func dismissAction(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
+        homeViewModel?.connectCase.value = .taste
+        
+        SelectedItems.shared.taste = nil
+        SelectedItems.shared.base = nil
+        SelectedItems.shared.alcohol = nil
+
     }
 }
 

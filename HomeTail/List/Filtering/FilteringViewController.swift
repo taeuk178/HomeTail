@@ -120,6 +120,8 @@ extension FilteringViewController: UITableViewDelegate, UITableViewDataSource {
             cell.checkBox.addTarget(self, action: #selector(touchesAction(_:)), for: .touchUpInside)
             cell.checkBox.isSelected = false
             cell.selectItems(SelectedItems.shared)
+            
+            print(cell.checkBox.isSelected)
             return cell
         case 1:
             let cell: FilteringTableCell = tableView.dequeueTableCell(for: indexPath)

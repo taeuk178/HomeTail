@@ -41,6 +41,12 @@ class HomeBottomViewController: BaseViewController {
     override func didMove(toParent parent: UIViewController?) {
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,6 +191,7 @@ extension HomeBottomViewController: SubCoordinator {
 //        nav.modalPresentationStyle = .fullScreen
 //        self.present(nav, animated: true, completion: nil)
         listVC.modalPresentationStyle = .fullScreen
+        listVC.homeViewModel = customViewModel
         self.present(listVC, animated: true, completion: nil)
     }
 }

@@ -40,7 +40,7 @@ class FilteringTableCell: UITableViewCell {
         
         setConfigure()
         setConstraints()
-        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
+//        checkBox.addTarget(self, action: #selector(isCheckAction(_:)), for: .touchUpInside)
         
     }
     
@@ -65,6 +65,12 @@ class FilteringTableCell: UITableViewCell {
     @objc func isCheckAction(_ sender: UIButton) {
         if let texlabels = texlables {
             print(texlabels)
+        }
+        
+        if isSelectState {
+            isSelectState = false
+        } else {
+            
         }
     }
     
