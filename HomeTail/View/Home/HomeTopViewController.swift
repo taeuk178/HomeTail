@@ -15,6 +15,14 @@ class HomeTopViewController: BaseViewController {
     let selectHelpLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     var customViewModel: HomeViewModel?
 
+    lazy var customDrawView: CustomGlassView = {
+        $0.backgroundColor = .white
+        return $0
+    }(CustomGlassView(frame: CGRect(x: 0,
+                                    y: 0,
+                                    width: view.frame.size.width * 0.5,
+                                    height: view.frame.size.height * 0.25)))
+    
     // MARK: - LifeCycle
     
     override func didMove(toParent parent: UIViewController?) {
@@ -23,6 +31,16 @@ class HomeTopViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        customView.addSubview(customDrawView)
+        
+//        let animation = CABasicAnimation(keyPath: "opacity")
+//        animation.fromValue = 1
+//        animation.toValue = 0
+//        animation.duration = 1
+//        
+//        animation.repeatCount = .infinity
+//        customDrawView.layer.add(animation, forKey: "opacity")
         
         customViewModel?.name.bindAndFire(listener: { [weak self] test in
             self?.selectHelpLabel.text = test
@@ -57,7 +75,7 @@ extension HomeTopViewController {
         selectHelpLabel.textAlignment = .center
         selectHelpLabel.font = .systemFont(ofSize: 28)
 
-        customView.backgroundColor = .blue
+        customView.backgroundColor = .appMainColor(.subSkyBlueColor)
     }
     
     override func setupConstraints() {

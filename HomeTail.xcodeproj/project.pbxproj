@@ -14,6 +14,7 @@
 		A913A31626868DEE00D22236 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31526868DEE00D22236 /* ListViewController.swift */; };
 		A913A31826868E0200D22236 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31726868E0200D22236 /* ListTableCell.swift */; };
 		A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913A31A268705C300D22236 /* RecipeViewController.swift */; };
+		A93C99CA26A7E58E00156CF8 /* CustomGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C99C926A7E58E00156CF8 /* CustomGlassView.swift */; };
 		A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966780F266A4AA9002684BC /* AppDelegate.swift */; };
 		A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667811266A4AA9002684BC /* SceneDelegate.swift */; };
 		A9667814266A4AA9002684BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667813266A4AA9002684BC /* BaseViewController.swift */; };
@@ -86,6 +87,7 @@
 		A913A31526868DEE00D22236 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A913A31726868E0200D22236 /* ListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableCell.swift; sourceTree = "<group>"; };
 		A913A31A268705C300D22236 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		A93C99C926A7E58E00156CF8 /* CustomGlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGlassView.swift; sourceTree = "<group>"; };
 		A966780C266A4AA9002684BC /* HomeTail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A966780F266A4AA9002684BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9667811266A4AA9002684BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				A9C1AACC26752B6F00156AF6 /* HomeBottomViewController.swift */,
 				A913A30B267E053C00D22236 /* HomeBottomReusableView.swift */,
 				A9C1AADC26779C1500156AF6 /* HomeBottomCell.swift */,
+				A93C99C926A7E58E00156CF8 /* CustomGlassView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				A96679B2266F8677002684BC /* CockTailDataTestModel.swift in Sources */,
 				A96679B726710AFD002684BC /* Extension+UIcolor.swift in Sources */,
 				A9C1AACD26752B6F00156AF6 /* HomeBottomViewController.swift in Sources */,
+				A93C99CA26A7E58E00156CF8 /* CustomGlassView.swift in Sources */,
 				A9667997266E6526002684BC /* List+CoreDataProperties.swift in Sources */,
 				A9CD5FB0268E793100FE11B2 /* PersistenceManager.swift in Sources */,
 				A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */,
