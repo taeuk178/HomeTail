@@ -16,7 +16,7 @@ class HomeTopViewController: BaseViewController {
     var customViewModel: HomeViewModel?
 
     lazy var customDrawView: CustomGlassView = {
-        $0.backgroundColor = .white
+        $0.backgroundColor = .clear
         return $0
     }(CustomGlassView(frame: CGRect(x: 0,
                                     y: 0,
@@ -34,24 +34,25 @@ class HomeTopViewController: BaseViewController {
         
         customView.addSubview(customDrawView)
         
-//        let animation = CABasicAnimation(keyPath: "opacity")
-//        animation.fromValue = 1
-//        animation.toValue = 0
-//        animation.duration = 1
-//
-//        animation.repeatCount = .infinity
-//        customDrawView.layer.add(animation, forKey: "opacity")
-        
         customViewModel?.name.bindAndFire(listener: { [weak self] test in
             self?.selectHelpLabel.text = test
         })
         
         customViewModel?.connectCase.bindAndFire(listener: { [weak self] test in
+            guard let self = self else { return }
+            
             switch test {
             case .taste:
-                self?.selectHelpLabel.text = "\(test.texture)을 선택해 주세요."
-            case .base, .alcohol:
-                self?.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
+                self.selectHelpLabel.text = "\(test.texture)을 선택해 주세요."
+
+            case .base:
+                self.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
+                self.customDrawView.tasteGradient()
+                
+            case .alcohol:
+                
+                self.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
+                self.customDrawView.baseGradient()
             }
             
         })
@@ -87,7 +88,7 @@ extension HomeTopViewController {
         }
         
         selectHelpLabel.snp.makeConstraints {
-            $0.top.equalTo(view).offset(view.frame.size.height * 0.15)
+            $0.top.equalTo(view).offset(view.frame.size.height * 0.1)
             $0.centerX.equalTo(view)
             $0.width.greaterThanOrEqualTo(50)
         }

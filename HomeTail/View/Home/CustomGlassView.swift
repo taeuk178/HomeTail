@@ -9,21 +9,56 @@ import UIKit
 
 class CustomGlassView: UIView {
     
+    // MARK: - Properties
+    
+    private let path = UIBezierPath()
+    
+    // GradientLayer
+    private let alcoholGradientLayer = CAGradientLayer()
+    private let baseGradientLayer = CAGradientLayer()
+    private let tasteGradientLayer = CAGradientLayer()
+    
+    // Top Location
+    private let topStartLocations = [0, 0]
+    private let topEndLocations = [0.7, 0.7]
+    
+    // Middle, Bottom Location
+    private let startLocations = [-2, -2]
+    private let endLocations = [0.9, 0.9]
+    
+    private let duration = 1.0
+    
+    // MARK: - LifeCycle
+    
     override func draw(_ rect: CGRect) {
         
         print(rect)
         
-        let path = UIBezierPath()
+        // Drawing BezierPath
+        drawPath(rect: rect)
+        drawAllLayer()
+        
+    }
+    
+    // MARK: - BezierPath
+    
+    private func drawPath(rect: CGRect) {
         
         path.move(to: CGPoint(x: 40, y: 10))
         path.addLine(to: CGPoint(x: 40, y: rect.height - 40))
-        path.addQuadCurve(to: CGPoint(x: 60, y: rect.height - 20), controlPoint: CGPoint(x: 40, y: rect.height - 20))
+        path.addQuadCurve(to: CGPoint(x: 60, y: rect.height - 20),
+                          controlPoint: CGPoint(x: 40, y: rect.height - 20))
         path.addLine(to: CGPoint(x: rect.width - 60, y: rect.height - 20))
         path.addQuadCurve(to: CGPoint(x: rect.width - 40, y: rect.height - 40),
                           controlPoint: CGPoint(x: rect.width - 40, y: rect.height - 20))
         path.addLine(to: CGPoint(x: rect.width - 40, y: 10))
 
         path.lineCapStyle = .round
+    }
+    
+    // MARK: - Layer
+    
+    private func drawAllLayer() {
         
         let layer = CAShapeLayer()
         
@@ -33,110 +68,94 @@ class CustomGlassView: UIView {
         layer.fillColor = UIColor.clear.cgColor
         self.layer.addSublayer(layer)
         
-        let animation = CABasicAnimation(keyPath: "locations")
-        animation.fromValue = 0
-//        animation.toValue = layer.position.y - 10
-        animation.toValue = 1
-        animation.duration = 2
+        drawAlcoholGradientLayer()
+        drawBaseGradientLayer()
+        drawTasteGradientLayer()
+    }
+    
+    private func drawAlcoholGradientLayer() {
+        // 위에서 부터 첫 번째
         
-        animation.isRemovedOnCompletion = false
+        alcoholGradientLayer.colors = [UIColor.appMainColor(.subSkyBlueColor).cgColor, UIColor.white.cgColor]
+        alcoholGradientLayer.frame = path.bounds
+        alcoholGradientLayer.frame.size.height = path.bounds.size.height / 3 + 12
+        alcoholGradientLayer.frame.size.width = path.bounds.size.width - 4
+        alcoholGradientLayer.locations = topStartLocations as [NSNumber]
+        alcoholGradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        alcoholGradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        alcoholGradientLayer.anchorPoint = CGPoint(x: 0.48, y: 0.5)
         
-        animation.repeatCount = .infinity
-        layer.add(animation, forKey: "loc")
-        
-        
-        let gradientLayer = CAGradientLayer()
-        let startLocations = [0, 0]
-        let endLocations = [0.7, 0.7]
+        layer.insertSublayer(alcoholGradientLayer, at: 0)
 
-        gradientLayer.colors = [UIColor.appMainColor(.subSkyBlueColor).cgColor, UIColor.white.cgColor]
-        gradientLayer.frame = path.bounds
-        gradientLayer.frame.size.height = path.bounds.size.height / 3 + 10
-        gradientLayer.frame.size.width = path.bounds.size.width - 4
-        gradientLayer.locations = startLocations as [NSNumber]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
-        
-        
-        let shapeMask = CAShapeLayer()
-        shapeMask.path = path.cgPath
-        gradientLayer.mask = shapeMask.mask
+        alcoholGradientLayer.locations = topEndLocations as [NSNumber]
+    }
+    
+    private func drawBaseGradientLayer() {
+        // 위에서 부터 두 번째
 
-        gradientLayer.anchorPoint = CGPoint(x: 0.48, y: 0.5)
-        layer.insertSublayer(gradientLayer, at: 0)
+        baseGradientLayer.colors = [UIColor.appMainColor(.subYelloColor).cgColor, UIColor.white.cgColor]
+        baseGradientLayer.frame = path.bounds
+        baseGradientLayer.frame.size.height = path.bounds.size.height / 3
+        baseGradientLayer.frame.size.width = path.bounds.size.width - 4
+        baseGradientLayer.locations = startLocations as [NSNumber]
+        baseGradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        baseGradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        baseGradientLayer.anchorPoint = CGPoint(x: 0.48, y: -0.56)
+        
+        layer.insertSublayer(baseGradientLayer, at: 0)
+        
+        baseGradientLayer.locations = endLocations as [NSNumber]
+    }
+    
+    private func drawTasteGradientLayer() {
+        // 위에서 부터 세 번째
 
-        let anim = CABasicAnimation(keyPath: "locations")
-        anim.fromValue = startLocations
-        anim.toValue = endLocations
-        anim.duration = 1.0
+        tasteGradientLayer.colors = [UIColor.appMainColor(.subOrangeColor).cgColor, UIColor.white.cgColor]
+        tasteGradientLayer.frame = path.bounds
+        tasteGradientLayer.frame.size.height = path.bounds.size.height / 3
+        tasteGradientLayer.frame.size.width = path.bounds.size.width - 4
+        tasteGradientLayer.locations = startLocations as [NSNumber]
+        tasteGradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        tasteGradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        tasteGradientLayer.anchorPoint = CGPoint(x: 0.48, y: -1.46)
+        
+        // CorenerRadius
+        tasteGradientLayer.cornerRadius = 15
+        tasteGradientLayer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        layer.insertSublayer(tasteGradientLayer, at: 0)
+        
+        tasteGradientLayer.locations = endLocations as [NSNumber]
+    }
+    
+    // MARK: - GradientAction
+    
+    public func alcoholGradient() {
+        let alcoholAnimation = CABasicAnimation(keyPath: "locations")
+        alcoholAnimation.fromValue = topStartLocations
+        alcoholAnimation.toValue = topEndLocations
+        alcoholAnimation.duration = self.duration
 
-//        anim.repeatDuration = .infinity
-        gradientLayer.add(anim, forKey: "loc")
-        gradientLayer.locations = endLocations as [NSNumber]
-        
-        //
-        
-        let blueGradientLayer = CAGradientLayer()
-        let blueStartLocations = [-2, -2]
-        let blueEndLocations = [0.9, 0.9]
+        alcoholGradientLayer.add(alcoholAnimation, forKey: "toplocation")
+    }
+    
+    public func baseGradient() {
+        let baseAnimtation = CABasicAnimation(keyPath: "locations")
+        baseAnimtation.fromValue = startLocations
+        baseAnimtation.toValue = endLocations
+        baseAnimtation.duration = self.duration
 
-        blueGradientLayer.colors = [UIColor.appMainColor(.subYelloColor).cgColor, UIColor.white.cgColor]
-        blueGradientLayer.frame = path.bounds
-        blueGradientLayer.frame.size.height = path.bounds.size.height / 3
-        blueGradientLayer.frame.size.width = path.bounds.size.width - 4
-        blueGradientLayer.locations = blueStartLocations as [NSNumber]
-        blueGradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        blueGradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
-
-        let blueShapeMask = CAShapeLayer()
-        blueShapeMask.path = path.cgPath
-        blueGradientLayer.mask = blueShapeMask.mask
+        baseGradientLayer.add(baseAnimtation, forKey: "middlelocation")
+    }
+    
+    public func tasteGradient() {
         
-        blueGradientLayer.anchorPoint = CGPoint(x: 0.48, y: -0.55)
-        layer.insertSublayer(blueGradientLayer, at: 0)
+        let tasteAnimation = CABasicAnimation(keyPath: "locations")
+        tasteAnimation.fromValue = startLocations
+        tasteAnimation.toValue = endLocations
+        tasteAnimation.duration = self.duration
         
-        let blueAnim = CABasicAnimation(keyPath: "locations")
-        blueAnim.fromValue = blueStartLocations
-        blueAnim.toValue = blueEndLocations
-        blueAnim.duration = 3
-
-//        anim.repeatDuration = .infinity
-        blueGradientLayer.add(blueAnim, forKey: "location")
-        blueGradientLayer.locations = blueEndLocations as [NSNumber]
-        
-        //green
-        
-        let greenGradientLayer = CAGradientLayer()
-        let greenStartLocations = [-2, -2]
-        let greenEndLocations = [0.9, 0.9]
-
-        greenGradientLayer.colors = [UIColor.appMainColor(.subOrangeColor).cgColor, UIColor.white.cgColor]
-        greenGradientLayer.frame = path.bounds
-        greenGradientLayer.frame.size.height = path.bounds.size.height / 3
-        greenGradientLayer.frame.size.width = path.bounds.size.width - 4
-        
-        greenGradientLayer.locations = greenStartLocations as [NSNumber]
-        greenGradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
-        greenGradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
-
-        let greenShapeMask = CAShapeLayer()
-        greenShapeMask.path = path.cgPath
-        greenGradientLayer.mask = greenShapeMask.mask
-        
-        greenGradientLayer.anchorPoint = CGPoint(x: 0.48, y: -1.45)
-        greenGradientLayer.cornerRadius = 15
-        greenGradientLayer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        layer.insertSublayer(greenGradientLayer, at: 0)
-        
-        let greenAnim = CABasicAnimation(keyPath: "locations")
-        greenAnim.fromValue = greenStartLocations
-        greenAnim.toValue = greenEndLocations
-        greenAnim.duration = 3
-
-//        anim.repeatDuration = .infinity
-        greenGradientLayer.add(blueAnim, forKey: "location")
-        greenGradientLayer.locations = greenEndLocations as [NSNumber]
-        
+        tasteGradientLayer.add(tasteAnimation, forKey: "bottomlocation")
     }
     
 }
