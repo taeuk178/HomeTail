@@ -38,7 +38,7 @@ class HomeTopViewController: BaseViewController {
 //        animation.fromValue = 1
 //        animation.toValue = 0
 //        animation.duration = 1
-//        
+//
 //        animation.repeatCount = .infinity
 //        customDrawView.layer.add(animation, forKey: "opacity")
         
