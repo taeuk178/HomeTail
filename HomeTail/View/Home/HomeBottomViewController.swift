@@ -119,12 +119,10 @@ extension HomeBottomViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         customViewModel?.nextCase(index: indexPath.row)
-        
+        customViewModel?.showColors()
         collectionView.reloadData()
-        
-//        let vc = ListViewController()
-//        self.present(vc, animated: true, completion: nil)
         
     }
 }
@@ -186,9 +184,11 @@ extension HomeBottomViewController {
 extension HomeBottomViewController: SubCoordinator {
     
     func presenter() {
-        let listVC = ListViewController()
-        listVC.modalPresentationStyle = .fullScreen
-        listVC.homeViewModel = customViewModel
-        self.present(listVC, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            let listVC = ListViewController()
+            listVC.modalPresentationStyle = .fullScreen
+            listVC.homeViewModel = self.customViewModel
+            self.present(listVC, animated: true, completion: nil)
+        }
     }
 }

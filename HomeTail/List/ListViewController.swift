@@ -50,7 +50,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         
         self.dismiss(animated: true, completion: nil)
         homeViewModel?.connectCase.value = .taste
-        
+        homeViewModel?.showColor.value = .taste
         SelectedItems.shared.taste = nil
         SelectedItems.shared.base = nil
         SelectedItems.shared.alcohol = nil

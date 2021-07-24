@@ -17,11 +17,9 @@ class HomeTopViewController: BaseViewController {
 
     lazy var customDrawView: CustomGlassView = {
         $0.backgroundColor = .clear
+        $0.frame = CGRect(x: 0, y: 0, width: view.frame.size.width * 0.5, height: view.frame.size.height * 0.25)
         return $0
-    }(CustomGlassView(frame: CGRect(x: 0,
-                                    y: 0,
-                                    width: view.frame.size.width * 0.5,
-                                    height: view.frame.size.height * 0.25)))
+    }(CustomGlassView())
     
     // MARK: - LifeCycle
     
@@ -44,17 +42,32 @@ class HomeTopViewController: BaseViewController {
             switch test {
             case .taste:
                 self.selectHelpLabel.text = "\(test.texture)을 선택해 주세요."
+//                self.customDrawView.gradientColorInit()
 
             case .base:
                 self.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
-                self.customDrawView.tasteGradient()
+//                self.customDrawView.tasteGradient()
                 
             case .alcohol:
                 
                 self.selectHelpLabel.text = "\(test.texture)를 선택해 주세요."
-                self.customDrawView.baseGradient()
+//                self.customDrawView.baseGradient()
             }
+        })
+        
+        customViewModel?.showColor.bind(listener: { [weak self] color in
+            guard let self = self else { return }
             
+            switch color {
+            case .taste:
+                self.customDrawView.gradientColorInit()
+            case .base:
+                self.customDrawView.tasteGradient()
+            case .alcohol:
+                self.customDrawView.baseGradient()
+            case .none:
+                self.customDrawView.alcoholGradient()
+            }
         })
     }
     
@@ -76,7 +89,7 @@ extension HomeTopViewController {
         selectHelpLabel.textAlignment = .center
         selectHelpLabel.font = .systemFont(ofSize: 28)
 
-        customView.backgroundColor = .appMainColor(.subSkyBlueColor)
+        customView.backgroundColor = .white
     }
     
     override func setupConstraints() {

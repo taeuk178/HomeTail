@@ -19,7 +19,7 @@ class CustomGlassView: UIView {
     private let tasteGradientLayer = CAGradientLayer()
     
     // Top Location
-    private let topStartLocations = [0, 0]
+    private let topStartLocations = [-2, -2]
     private let topEndLocations = [0.7, 0.7]
     
     // Middle, Bottom Location
@@ -76,7 +76,6 @@ class CustomGlassView: UIView {
     private func drawAlcoholGradientLayer() {
         // 위에서 부터 첫 번째
         
-        alcoholGradientLayer.colors = [UIColor.appMainColor(.subSkyBlueColor).cgColor, UIColor.white.cgColor]
         alcoholGradientLayer.frame = path.bounds
         alcoholGradientLayer.frame.size.height = path.bounds.size.height / 3 + 12
         alcoholGradientLayer.frame.size.width = path.bounds.size.width - 4
@@ -93,7 +92,6 @@ class CustomGlassView: UIView {
     private func drawBaseGradientLayer() {
         // 위에서 부터 두 번째
 
-        baseGradientLayer.colors = [UIColor.appMainColor(.subYelloColor).cgColor, UIColor.white.cgColor]
         baseGradientLayer.frame = path.bounds
         baseGradientLayer.frame.size.height = path.bounds.size.height / 3
         baseGradientLayer.frame.size.width = path.bounds.size.width - 4
@@ -109,8 +107,7 @@ class CustomGlassView: UIView {
     
     private func drawTasteGradientLayer() {
         // 위에서 부터 세 번째
-
-        tasteGradientLayer.colors = [UIColor.appMainColor(.subOrangeColor).cgColor, UIColor.white.cgColor]
+        
         tasteGradientLayer.frame = path.bounds
         tasteGradientLayer.frame.size.height = path.bounds.size.height / 3
         tasteGradientLayer.frame.size.width = path.bounds.size.width - 4
@@ -130,7 +127,17 @@ class CustomGlassView: UIView {
     
     // MARK: - GradientAction
     
+    public func gradientColorInit() {
+        
+        alcoholGradientLayer.colors = []
+        baseGradientLayer.colors = []
+        tasteGradientLayer.colors = []
+    }
+    
     public func alcoholGradient() {
+        
+        alcoholGradientLayer.colors = [UIColor.appMainColor(.subSkyBlueColor).cgColor, UIColor.clear.cgColor]
+        
         let alcoholAnimation = CABasicAnimation(keyPath: "locations")
         alcoholAnimation.fromValue = topStartLocations
         alcoholAnimation.toValue = topEndLocations
@@ -140,6 +147,9 @@ class CustomGlassView: UIView {
     }
     
     public func baseGradient() {
+        
+        baseGradientLayer.colors = [UIColor.appMainColor(.subYelloColor).cgColor, UIColor.clear.cgColor]
+        
         let baseAnimtation = CABasicAnimation(keyPath: "locations")
         baseAnimtation.fromValue = startLocations
         baseAnimtation.toValue = endLocations
@@ -149,11 +159,15 @@ class CustomGlassView: UIView {
     }
     
     public func tasteGradient() {
+
+        tasteGradientLayer.colors = [UIColor.appMainColor(.subOrangeColor).cgColor, UIColor.clear.cgColor]
         
         let tasteAnimation = CABasicAnimation(keyPath: "locations")
         tasteAnimation.fromValue = startLocations
         tasteAnimation.toValue = endLocations
         tasteAnimation.duration = self.duration
+        // 미정
+        tasteAnimation.timingFunction = .init(name: .easeInEaseOut)
         
         tasteGradientLayer.add(tasteAnimation, forKey: "bottomlocation")
     }

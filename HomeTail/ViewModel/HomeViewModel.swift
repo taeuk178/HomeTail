@@ -7,12 +7,20 @@
 
 import Foundation
 
+enum ShowGradients {
+    case none
+    case taste
+    case base
+    case alcohol
+}
+
 class HomeViewModel {
     
     let selectedShared = SelectedItems.shared
     
     let name: Dynamic<String> = Dynamic("맛을 선택해 주세용")
     let connectCase: Dynamic<SelectedCases> = Dynamic(.taste)
+    let showColor: Dynamic<ShowGradients> = Dynamic(.taste)
     
     // 화면 전환
     weak var delegateCoordinator: SubCoordinator?
@@ -46,6 +54,21 @@ class HomeViewModel {
         }
     }
     
+    func showColors() {
+        switch showColor.value {
+        case .taste:
+            print("B")
+            showColor.value = .base
+        case .base:
+            print("C")
+            showColor.value = .alcohol
+        case .alcohol:
+            print("D")
+            showColor.value = .none
+        case .none:
+            print("NON")
+        }
+    }
     // service 삭제예정
     
     let service = CockTailService()
