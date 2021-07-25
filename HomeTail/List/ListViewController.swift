@@ -14,14 +14,16 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     // MARK: - Properties
     
     // 뒤로가기 버튼
-    private let dismissButton: UIButton = create {
+    private let dismissButton: UIButton = {
         $0.setImage(UIImage(named: "back"), for: .normal)
-    }
+        return $0
+    }(UIButton())
     
-    private let tableView: UITableView = create {
+    private let tableView: UITableView = {
         $0.separatorStyle = .none
         $0.backgroundColor = .appMainColor(.subSkyBlueColor)
-    }
+        return $0
+    }(UITableView())
     
     var floatingPanelController: FloatingPanelController!
     

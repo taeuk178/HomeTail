@@ -24,7 +24,6 @@
 		A9667832266A4AAB002684BC /* HomeTailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667831266A4AAB002684BC /* HomeTailUITests.swift */; };
 		A9667942266BCCA7002684BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667941266BCCA7002684BC /* HomeViewController.swift */; };
 		A9667952266BCE09002684BC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9667951266BCE09002684BC /* .swiftlint.yml */; };
-		A966795C266BD737002684BC /* SetUpClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966795B266BD737002684BC /* SetUpClosure.swift */; };
 		A9667961266BEE43002684BC /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667960266BEE43002684BC /* Extension+UITableView.swift */; };
 		A9667969266BEFA4002684BC /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */; };
 		A966796F266BF047002684BC /* Protocol+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966796E266BF047002684BC /* Protocol+ReusableCell.swift */; };
@@ -103,7 +102,6 @@
 		A9667833266A4AAB002684BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9667941266BCCA7002684BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9667951266BCE09002684BC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		A966795B266BD737002684BC /* SetUpClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpClosure.swift; sourceTree = "<group>"; };
 		A9667960266BEE43002684BC /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		A9667968266BEFA4002684BC /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
 		A966796E266BF047002684BC /* Protocol+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+ReusableCell.swift"; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 		A966793D266BCC6A002684BC /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A966795B266BD737002684BC /* SetUpClosure.swift */,
 				A9667813266A4AA9002684BC /* BaseViewController.swift */,
 				A913A307267A4C7700D22236 /* Dynamic.swift */,
 			);
@@ -673,7 +670,6 @@
 				A9CD5FA82689393900FE11B2 /* FilteringViewController.swift in Sources */,
 				A9667961266BEE43002684BC /* Extension+UITableView.swift in Sources */,
 				A9667996266E6526002684BC /* List+CoreDataClass.swift in Sources */,
-				A966795C266BD737002684BC /* SetUpClosure.swift in Sources */,
 				A9667810266A4AA9002684BC /* AppDelegate.swift in Sources */,
 				A9CD5FAA2689F50D00FE11B2 /* FilteringTableCell.swift in Sources */,
 				A913A308267A4C7700D22236 /* Dynamic.swift in Sources */,

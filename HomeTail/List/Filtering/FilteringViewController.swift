@@ -14,11 +14,12 @@ class FilteringViewController: BaseViewController {
     
     var floatingPanel: FloatingPanelController?
     
-    private let filteringLabel: UILabel = create {
+    private let filteringLabel: UILabel = {
         $0.text = "필터링"
         $0.font = .appSansFont(.sansHWBold, size: 30)
         $0.textAlignment = .left
-    }
+        return $0
+    }(UILabel())
     
     private let changedButton: UIButton = {
         $0.setTitle("변경완료", for: .normal)
@@ -31,9 +32,10 @@ class FilteringViewController: BaseViewController {
         return $0
     }(UIButton(type: .system))
     
-    let tableView: UITableView = create {
+    let tableView: UITableView = {
         $0.separatorStyle = .none
-    }
+        return $0
+    }(UITableView())
     
     // MARK: - LifeCycle
     

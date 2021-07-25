@@ -12,10 +12,11 @@ class HomeBottomCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private let textLabel: UILabel = create {
+    private let textLabel: UILabel = {
         $0.textAlignment = .center
         $0.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-    }
+        return $0
+    }(UILabel())
     
     // MARK: - LifeCycle
     

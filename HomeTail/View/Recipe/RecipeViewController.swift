@@ -13,25 +13,28 @@ class RecipeViewController: BaseViewController {
     // MARK: - Properties
     
     // 스크롤 뷰
-    private let scrollView: UIScrollView = create {
+    private let scrollView: UIScrollView = {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .white
         $0.isScrollEnabled = true
-    }
+        return $0
+    }(UIScrollView())
     
     // 레시피 뷰
-    private let recipeView: UIView = create {
+    private let recipeView: UIView = {
         $0.backgroundColor = .white
-    }
+        return $0
+    }(UIView())
     
     // 뒤로가기 버튼
-    private let dismissButton: UIButton = create {
+    private let dismissButton: UIButton = {
         $0.setImage(UIImage(named: "back"), for: .normal)
-    }
+        return $0
+    }(UIButton())
     
     // 라벨스택뷰, 출처, 텍스트뷰
-    private lazy var recipeStackView: UIStackView = create {
+    private lazy var recipeStackView: UIStackView = {
         $0.addArrangedSubview(labelStackView)
         $0.addArrangedSubview(resourceLabel)
         $0.addArrangedSubview(descriptionTextView)
@@ -39,47 +42,53 @@ class RecipeViewController: BaseViewController {
         $0.distribution = .fill
         $0.axis = .vertical
         $0.spacing = 10
-    }
+        return $0
+    }(UIStackView())
     
     // 칵테일 이름라벨, 영어이름 라벨
-    private lazy var labelStackView: UIStackView = create {
+    private lazy var labelStackView: UIStackView = {
         $0.addArrangedSubview(cockNameLabel)
         $0.addArrangedSubview(cockSubnameLabel)
         $0.alignment = .fill
         $0.distribution = .fillProportionally
         $0.axis = .vertical
         $0.spacing = 3
-    }
+        return $0
+    }(UIStackView())
     
     // 칵테일 인포그래픽이미지
-    let infoGraphicImage: UIImageView = create {
+    let infoGraphicImage: UIImageView = {
 //        $0.image = UIImage(named: "exImage") // png
         $0.image = UIImage(named: "InfoImage") // png
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .white
-    }
+        return $0
+    }(UIImageView())
     
     // 한글이름
-    private let cockNameLabel: UILabel = create {
+    private let cockNameLabel: UILabel = {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 20)
-    }
+        return $0
+    }(UILabel())
     
     // 영어이름
-    private let cockSubnameLabel: UILabel = create {
+    private let cockSubnameLabel: UILabel = {
         $0.textAlignment = .left
         $0.textColor = .lightGray
         $0.font = .apphelveticaFont(.helveticaLight, size: 14)
-    }
+        return $0
+    }(UILabel())
     
     // 출처
-    private let resourceLabel: UILabel = create {
+    private let resourceLabel: UILabel = {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 12)
-    }
+        return $0
+    }(UILabel())
     
     // 설명
-    private let descriptionTextView: UITextView = create {
+    private let descriptionTextView: UITextView = {
         $0.backgroundColor = .appMainColor(.subWhiteColor)
         $0.isEditable = false
         $0.isScrollEnabled = false
@@ -88,14 +97,16 @@ class RecipeViewController: BaseViewController {
         $0.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
         $0.setContentHuggingPriority(.defaultLow - 1, for: .horizontal)
         $0.setContentCompressionResistancePriority(.defaultHigh - 1, for: .vertical)
-    }
+        return $0
+    }(UITextView())
     
     // 도수
-    private let alcoholLabel: UILabel = create {
+    private let alcoholLabel: UILabel = {
         $0.textColor = .customRGB(red: 40, green: 180, blue: 180, alpha: 1)
         $0.font = .apphelveticaFont(.helveticaLight, size: 18)
         $0.textAlignment = .center
-    }
+        return $0
+    }(UILabel())
     
     let recipeViewModel = RecipeViewModel()
     

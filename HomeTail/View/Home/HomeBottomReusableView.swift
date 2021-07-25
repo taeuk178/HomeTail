@@ -12,14 +12,16 @@ class HomeBottomReusableView: UICollectionReusableView {
     
     // MARK: - properties
     
-    private let headerView: UIView = create {
+    private let headerView: UIView = {
         $0.backgroundColor = .white
-    }
+        return $0
+    }(UIView())
     
-    private let headerLabel: UILabel = create {
+    private let headerLabel: UILabel = {
         $0.textAlignment = .center
         $0.font = .appSansFont(.sansHWBold, size: 28)
-    }
+        return $0
+    }(UILabel())
     
     // MARK: - LifeCycle
     
@@ -39,6 +41,7 @@ class HomeBottomReusableView: UICollectionReusableView {
     }
     
     func setConfigure() {
+        
         addSubview(headerView)
         addSubview(headerLabel)
         

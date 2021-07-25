@@ -10,10 +10,11 @@ import SnapKit
 
 class FilteringTableCell: UITableViewCell {
 
-    private let textureLabel: UILabel = create {
+    private let textureLabel: UILabel = {
         $0.font = .appSansFont(.sansHWRegular, size: 17)
         $0.textAlignment = .left
-    }
+        return $0
+    }(UILabel())
     
     var texlables: String?
     
@@ -28,12 +29,13 @@ class FilteringTableCell: UITableViewCell {
         }
     }
     
-    let checkBox: UIButton = create {
+    let checkBox: UIButton = {
         $0.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let symbolConfigure = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .default)
         let buttonSymbol = UIImage(systemName: "stop", withConfiguration: symbolConfigure)
         $0.setImage(buttonSymbol, for: .normal)
-    }
+        return $0
+    }(UIButton())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

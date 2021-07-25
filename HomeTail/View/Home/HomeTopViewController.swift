@@ -11,8 +11,18 @@ class HomeTopViewController: BaseViewController {
 
     // MARK: - Properties
     
-    let customView = UIView()
-    let selectHelpLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    private let customView: UIView = {
+        $0.backgroundColor = .white
+        return $0
+    }(UIView())
+    
+    private let selectHelpLabel: UILabel = {
+        $0.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        $0.textAlignment = .center
+        $0.font = .systemFont(ofSize: 28)
+        return $0
+    }(UILabel())
+    
     var customViewModel: HomeViewModel?
 
     lazy var customDrawView: CustomGlassView = {
@@ -82,14 +92,6 @@ extension HomeTopViewController {
         view.addSubview(selectHelpLabel)
         view.addSubview(customView)
         
-    }
-    
-    override func setupProperties() {
-        
-        selectHelpLabel.textAlignment = .center
-        selectHelpLabel.font = .systemFont(ofSize: 28)
-
-        customView.backgroundColor = .white
     }
     
     override func setupConstraints() {

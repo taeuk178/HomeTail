@@ -30,18 +30,21 @@ class HomeViewController: BaseViewController {
     
     let homeVM = HomeViewModel()
     
-    let topView: UIView = create {
+    let topView: UIView = {
         $0.backgroundColor = .white
-    }
+        return $0
+    }(UIView())
     
-    let bottomView: UIView = create {
+    let bottomView: UIView = {
         $0.backgroundColor = .white
-    }
+        return $0
+    }(UIView())
     
-    let textLabel: UILabel = create {
+    let textLabel: UILabel = {
         $0.text = "Home Tail"
         $0.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
-    }
+        return $0
+    }(UILabel())
     /*
     # 0619 Data 수정예정
      논알콜 = 1000

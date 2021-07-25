@@ -12,11 +12,12 @@ class ListTableCell: UITableViewCell {
 
     // MARK: - Properties
     
-    let infoGraphicImage: UIImageView = create {
+    let infoGraphicImage: UIImageView = {
 //        $0.image = UIImage(named: "exImage")
         $0.image = UIImage(named: "InfoImage")
         $0.contentMode = .scaleAspectFill
-    }
+        return $0
+    }(UIImageView())
     
     private let abvLabel: UILabel = {
         $0.font = .apphelveticaFont(.helveticaMedium, size: 14)
@@ -24,22 +25,25 @@ class ListTableCell: UITableViewCell {
         return $0
     }(UILabel())
     
-    private let nameLabel: UILabel = create {
+    private let nameLabel: UILabel = {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 16)
-    }
+        return $0
+    }(UILabel())
     
-    private let subNameLabel: UILabel = create {
+    private let subNameLabel: UILabel = {
         $0.textAlignment = .left
         $0.font = .apphelveticaFont(.helveticaLight, size: 12)
-    }
+        return $0
+    }(UILabel())
     
-    private let labelStack: UIStackView = create {
+    private let labelStack: UIStackView = {
         $0.alignment = .fill
         $0.distribution = .fill
         $0.axis = .vertical
         $0.spacing = 3
-    }
+        return $0
+    }(UIStackView())
     
     // MARK: - LifeCycle
     
