@@ -11,7 +11,7 @@ class ListViewModel {
     
     let service = CockTailService()
     
-    var cockList: [CockTailModel]?
+    var cockList: [CockTailListModel]?
     
     func readCockTailList() {
         service.fetchFiltering { [weak self] model in

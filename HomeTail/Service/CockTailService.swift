@@ -25,9 +25,9 @@ class CockTailService {
     }
     
     var objectData: [NSManagedObject]?
-    var listData: [CockTailModel]? = [CockTailModel]()
+    var listData: [CockTailListModel]? = [CockTailListModel]()
     
-    func fetchFiltering(onCompleted: @escaping ([CockTailModel]) -> Void) {
+    func fetchFiltering(onCompleted: @escaping ([CockTailListModel]) -> Void) {
         
         repository.fetchList { [weak self] object in
             
@@ -42,9 +42,10 @@ class CockTailService {
             
             self?.objectData?.forEach({
                 
-                let cockTailList = CockTailModel(cocktailImage: $0.value(forKey: "base") as? String ?? "",
+                let cockTailList = CockTailListModel(cocktailImage: $0.value(forKey: "base") as? String ?? "",
                                        name: $0.value(forKey: "name") as? String ?? "",
-                                       subName: $0.value(forKey: "subname") as? String ?? "")
+                                       subName: $0.value(forKey: "subname") as? String ?? "",
+                                       alcohol: $0.value(forKey: "alcohol") as? String ?? "")
                 
                 self?.listData?.append(cockTailList)
             })

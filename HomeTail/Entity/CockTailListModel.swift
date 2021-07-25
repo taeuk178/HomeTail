@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CockTailListModel {
+struct CockTailDataModel {
     
     let cockID: Int16
     let name: String

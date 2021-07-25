@@ -11,8 +11,9 @@ struct CockTailDataTestModel {
     var base: String
 }
 
-struct CockTailModel {
+struct CockTailListModel {
     let cocktailImage: String
     let name: String
     let subName: String
+    let alcohol: String
 }

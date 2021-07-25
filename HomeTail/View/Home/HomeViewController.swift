@@ -58,7 +58,7 @@ class HomeViewController: BaseViewController {
      source = "출처" -> 변수명 변경 필요
      */
     // test
-    let cockList = CockTailListModel(cockID: 3000,
+    let cockList = CockTailDataModel(cockID: 3000,
                                      name: "스크류 드라이버",
                                      subname: "Screw Driver",
                                      source: "IBA", // source -> 다른 변수명 변경필요

@@ -18,6 +18,12 @@ class ListTableCell: UITableViewCell {
         $0.contentMode = .scaleAspectFill
     }
     
+    private let abvLabel: UILabel = {
+        $0.font = .apphelveticaFont(.helveticaMedium, size: 14)
+        $0.textColor = .appMainColor(.subOrangeColor)
+        return $0
+    }(UILabel())
+    
     private let nameLabel: UILabel = create {
         $0.textAlignment = .left
         $0.font = .appSansFont(.sansHWRegular, size: 16)
@@ -54,9 +60,10 @@ class ListTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpCell(mainString name: String, subString sub: String) {
+    func setUpCell(mainString name: String, subString sub: String, alchol abv: String) {
         nameLabel.text = name
         subNameLabel.text = sub
+        abvLabel.text = "ABV: \(abv)"
     }
 }
 
@@ -71,6 +78,7 @@ extension ListTableCell {
         backgroundColor = .appMainColor(.subSkyBlueColor)
         infoGraphicImage.layer.cornerRadius = 8
         
+        labelStack.addArrangedSubview(abvLabel)
         labelStack.addArrangedSubview(nameLabel)
         labelStack.addArrangedSubview(subNameLabel)
         

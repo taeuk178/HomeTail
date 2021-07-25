@@ -75,7 +75,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let datas = listViewModel.cockList?[indexPath.row] else { fatalError() }
         
-        cell.setUpCell(mainString: datas.name, subString: datas.subName)
+        cell.setUpCell(mainString: datas.name, subString: datas.subName, alchol: datas.alcohol)
         cell.selectionStyle = .none
         
         return cell

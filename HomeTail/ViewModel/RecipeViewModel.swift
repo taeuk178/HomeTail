@@ -12,12 +12,12 @@ class RecipeViewModel {
     var service: CockTailService?
     
     var cockTailIndex: Dynamic<Int> = Dynamic(0)
-    var cockRecipe: CockTailListModel?
+    var cockRecipe: CockTailDataModel?
     
     func showList() {
         guard let recipeDatas = service?.objectData?[cockTailIndex.value] else { return }
         
-        cockRecipe = CockTailListModel(cockID: recipeDatas.value(forKey: "cockID") as? Int16 ?? 0,
+        cockRecipe = CockTailDataModel(cockID: recipeDatas.value(forKey: "cockID") as? Int16 ?? 0,
                           name: recipeDatas.value(forKey: "name") as? String ?? "",
                           subname: recipeDatas.value(forKey: "subname") as? String ?? "",
                           source: recipeDatas.value(forKey: "source") as? String ?? "",
