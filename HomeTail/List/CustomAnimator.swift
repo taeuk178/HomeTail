@@ -21,7 +21,7 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     var selectedCellImage: UIView?
     
-    static let duration: TimeInterval = 0.8
+    static let duration: TimeInterval = 0.6
     
     private let type: PresentationType
     private let listViewController: ListViewController
