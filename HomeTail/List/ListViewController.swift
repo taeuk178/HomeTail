@@ -22,6 +22,7 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
     private let tableView: UITableView = {
         $0.separatorStyle = .none
         $0.backgroundColor = .appMainColor(.subSkyBlueColor)
+        $0.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
         return $0
     }(UITableView())
     
@@ -127,8 +128,9 @@ extension ListViewController {
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(dismissButton.snp.bottom).offset(20)
-            $0.leading.trailing.bottom.equalTo(view)
+            $0.top.equalTo(view)
+            $0.leading.trailing.equalTo(view)
+            $0.bottom.equalTo(view).offset(-100)
         }
     }
     

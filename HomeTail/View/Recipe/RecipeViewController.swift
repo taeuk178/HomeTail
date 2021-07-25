@@ -149,9 +149,10 @@ extension RecipeViewController {
     
     override func setupConfiguration() {
         
+        view.backgroundColor = .black
         view.addSubview(scrollView)
+        view.addSubview(dismissButton)
         scrollView.addSubview(recipeView)
-        recipeView.addSubview(dismissButton)
         recipeView.addSubview(infoGraphicImage)
         recipeView.addSubview(recipeStackView)
         recipeView.addSubview(alcoholLabel)
@@ -175,14 +176,14 @@ extension RecipeViewController {
         
         // 뒤로가기 버튼
         dismissButton.snp.makeConstraints {
-            $0.top.equalTo(recipeView.safeAreaLayoutGuide).offset(20)
-            $0.leading.equalTo(recipeView).offset(20)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.leading.equalTo(view).offset(20)
             $0.width.equalTo(40)
         }
         
         // 칵테일 이미지
         infoGraphicImage.snp.makeConstraints {
-            $0.top.equalTo(dismissButton.snp.bottom).offset(20)
+            $0.top.equalTo(recipeView).offset(20)
             $0.leading.trailing.equalTo(recipeView)
             $0.height.equalTo(view.frame.size.height / 2)
         }
