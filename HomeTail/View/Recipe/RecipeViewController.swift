@@ -113,11 +113,14 @@ class RecipeViewController: BaseViewController {
     }
     
     func setRecipe() {
-        cockNameLabel.text = recipeViewModel.cockRecipe?.name
-        cockSubnameLabel.text = recipeViewModel.cockRecipe?.subname
-        resourceLabel.text = "출처: \(recipeViewModel.cockRecipe?.source ?? "")"
-        descriptionTextView.text = recipeViewModel.cockRecipe?.explain
-        alcoholLabel.text = "도수: \(recipeViewModel.cockRecipe?.alcohol ?? "")%"
+        guard let cockRecipe = recipeViewModel.cockRecipe else { return }
+        
+        cockNameLabel.text = cockRecipe.name
+        cockSubnameLabel.text = cockRecipe.subname
+        resourceLabel.text = "출처: \(cockRecipe.source)"
+        descriptionTextView.text = recipeViewModel.convertRecipe()
+        alcoholLabel.text = "도수: \(cockRecipe.alcohol)%"
+        
     }
     
     @objc func dismissAction(_ sender: UIButton) {

@@ -29,4 +29,13 @@ class RecipeViewModel {
                           recipe: recipeDatas.value(forKey: "recipe") as? [String] ?? [],
                           cocktailimageurl: recipeDatas.value(forKey: "cocktailimageurl") as? String ?? "")
     }
+    
+    func convertRecipe() -> String {
+        guard let explain = cockRecipe?.explain else { return "" }
+        var description: String = ""
+        for separ in explain.components(separatedBy: "\\n") {
+            description += String(separ)+"\n"
+        }
+        return description
+    }
 }
