@@ -63,7 +63,7 @@ class CustomGlassView: UIView {
         let layer = CAShapeLayer()
         
         layer.path = path.cgPath
-        layer.strokeColor = UIColor.blue.cgColor
+        layer.strokeColor = UIColor.gray.cgColor
         layer.lineWidth = 5
         layer.fillColor = UIColor.clear.cgColor
         self.layer.addSublayer(layer)
@@ -143,6 +143,8 @@ class CustomGlassView: UIView {
         alcoholAnimation.toValue = topEndLocations
         alcoholAnimation.duration = self.duration
 
+        alcoholAnimation.timingFunction = .init(name: .easeOut)
+        
         alcoholGradientLayer.add(alcoholAnimation, forKey: "toplocation")
     }
     
@@ -155,6 +157,8 @@ class CustomGlassView: UIView {
         baseAnimtation.toValue = endLocations
         baseAnimtation.duration = self.duration
 
+        baseAnimtation.timingFunction = .init(name: .easeOut)
+        
         baseGradientLayer.add(baseAnimtation, forKey: "middlelocation")
     }
     
@@ -167,7 +171,7 @@ class CustomGlassView: UIView {
         tasteAnimation.toValue = endLocations
         tasteAnimation.duration = self.duration
         // 미정
-        tasteAnimation.timingFunction = .init(name: .easeInEaseOut)
+        tasteAnimation.timingFunction = .init(name: .easeOut)
         
         tasteGradientLayer.add(tasteAnimation, forKey: "bottomlocation")
     }
