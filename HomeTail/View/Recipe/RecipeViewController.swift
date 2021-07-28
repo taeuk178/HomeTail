@@ -59,7 +59,8 @@ class RecipeViewController: BaseViewController {
     // 칵테일 인포그래픽이미지
     let infoGraphicImage: UIImageView = {
 //        $0.image = UIImage(named: "exImage") // png
-        $0.image = UIImage(named: "InfoImage") // png
+//        $0.image = UIImage(named: "InfoImage") // png
+        $0.image = UIImage(named: "MojitoRecipe") // png
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .white
         return $0
@@ -149,7 +150,7 @@ extension RecipeViewController {
     
     override func setupConfiguration() {
         
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         view.addSubview(scrollView)
         view.addSubview(dismissButton)
         scrollView.addSubview(recipeView)

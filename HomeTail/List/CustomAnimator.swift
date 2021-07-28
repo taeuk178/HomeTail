@@ -26,7 +26,7 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let type: PresentationType
     private let listViewController: ListViewController
     private let recipeViewController: RecipeViewController
-    private let selectedCellImageViewSnapshot: UIView
+    private var selectedCellImageViewSnapshot: UIView
     private let cellImageViewRect: CGRect
     
     init?(type: PresentationType,
@@ -73,34 +73,57 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let isPresenting = type.isPresenting
         
-        let infoImageViewSnapshot: UIView
+        let backgroundView: UIView
+        let fadeView = UIView(frame: containerView.bounds)
+        fadeView.backgroundColor = recipeViewController.view.backgroundColor
         
         if isPresenting {
-            infoImageViewSnapshot = cellImageSnapshot
+            selectedCellImageViewSnapshot = cellImageSnapshot
+            
+            backgroundView = UIView(frame: containerView.bounds)
+            backgroundView.addSubview(fadeView)
+            fadeView.alpha = 0
         } else {
-            infoImageViewSnapshot = recipeInfoImageSnapshot
+            backgroundView = listViewController.view.snapshotView(afterScreenUpdates: true) ?? fadeView
+            backgroundView.addSubview(fadeView)
         }
         
         toView.alpha = 0
         
-        [infoImageViewSnapshot].forEach {
+        [backgroundView, selectedCellImageViewSnapshot, recipeInfoImageSnapshot].forEach {
             containerView.addSubview($0)
         }
         
         let controllerImageViewRect = recipeViewController.infoGraphicImage.convert(recipeViewController.infoGraphicImage.bounds, to: window)
         
-        [infoImageViewSnapshot].forEach {
+        [selectedCellImageViewSnapshot, recipeInfoImageSnapshot].forEach {
             $0.frame = isPresenting ? cellImageViewRect : controllerImageViewRect
         }
+        
+        recipeInfoImageSnapshot.alpha = isPresenting ? 0 : 1
+        
+        selectedCellImageViewSnapshot.alpha = isPresenting ? 1 : 0
         
         UIView.animateKeyframes(withDuration: Self.duration,
                                 delay: 0,
                                 options: .calculationModeCubic) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                infoImageViewSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
+                self.selectedCellImageViewSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
+                recipeInfoImageSnapshot.frame = isPresenting ? controllerImageViewRect : self.cellImageViewRect
+                
+                fadeView.alpha = isPresenting ? 1 : 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6) {
+                self.selectedCellImageViewSnapshot.alpha = isPresenting ? 0 : 1
+                recipeInfoImageSnapshot.alpha = isPresenting ? 1 : 0
             }
         } completion: { _ in
-            infoImageViewSnapshot.removeFromSuperview()
+            
+            self.selectedCellImageViewSnapshot.removeFromSuperview()
+            recipeInfoImageSnapshot.removeFromSuperview()
+            
+            backgroundView.removeFromSuperview()
             
             toView.alpha = 1
             
