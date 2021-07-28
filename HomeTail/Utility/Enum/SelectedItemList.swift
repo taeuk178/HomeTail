@@ -59,7 +59,10 @@ enum SelectedTaste: String, CaseIterable {
     case sour = "새콤"
     case dry = "담백"
     case all = "모두"
-    
+    // Sweet = 빨강느낌의 주황
+    // Sour = 레몬색
+    // Dry = 커피색 갈색
+    // 모두 = 잔 색
 }
 
 /*
@@ -90,6 +93,10 @@ enum SelectedBase: String, CaseIterable {
     case brandy = "브랜디"
     case others = "기타"
     case all = "모두 선택"
+    
+    // 무알콜 = 흰색
+    // 나머지 투명
+    // 모두 = 잔색
 }
 
 /*
@@ -106,4 +113,9 @@ enum SelectedAlcohol: String, CaseIterable {
     case medium = "중간 도수"
     case high = "높은 도수"
     case all = "모두 선택"
+    
+    // 낮은 = 연한색
+    // 중간 = 조금 짙은
+    // 높은 = 짙은
+    // 모두 = 잔
 }

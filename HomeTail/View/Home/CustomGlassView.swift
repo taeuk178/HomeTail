@@ -128,7 +128,7 @@ class CustomGlassView: UIView {
     // MARK: - GradientAction
     
     public func gradientColorInit() {
-        
+            
         alcoholGradientLayer.colors = []
         baseGradientLayer.colors = []
         tasteGradientLayer.colors = []
