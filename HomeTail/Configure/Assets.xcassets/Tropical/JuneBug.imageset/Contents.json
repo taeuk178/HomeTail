@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "JuneBug.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
