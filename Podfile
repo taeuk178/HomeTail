@@ -9,6 +9,10 @@ target 'HomeTail' do
 pod 'SnapKit', '~> 5.0.0'
 pod 'SwiftLint'
 pod 'FloatingPanel'
+pod 'Firebase/Analytics'
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
+ 
 
   target 'HomeTailTests' do
     inherit! :search_paths

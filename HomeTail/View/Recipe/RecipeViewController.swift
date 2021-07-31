@@ -60,7 +60,7 @@ class RecipeViewController: BaseViewController {
     let infoGraphicImage: UIImageView = {
 //        $0.image = UIImage(named: "exImage") // png
 //        $0.image = UIImage(named: "InfoImage") // png
-        $0.image = UIImage(named: "MojitoRecipe") // png
+        $0.image = UIImage(named: "LongIIRecipe") // png
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .white
         return $0

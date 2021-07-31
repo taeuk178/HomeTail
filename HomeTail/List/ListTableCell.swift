@@ -15,7 +15,7 @@ class ListTableCell: UITableViewCell {
     let infoGraphicImage: UIImageView = {
 //        $0.image = UIImage(named: "exImage")
 //        $0.image = UIImage(named: "InfoImage")
-        $0.image = UIImage(named: "Mojito") // png
+        $0.image = UIImage(named: "InfoImage") // png
         $0.contentMode = .scaleAspectFill
         return $0
     }(UIImageView())
