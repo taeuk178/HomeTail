@@ -8,6 +8,8 @@
 import SnapKit
 import UIKit
 import CoreData
+import Firebase
+import FirebaseFirestoreSwift
 
 /*
  진 = 1000
@@ -80,6 +82,39 @@ class HomeViewController: BaseViewController {
         
         homeVM.readService()
         
+        let list = FireCockTailModel(cockID: 2008,
+                                     name: "롱 아일랜드 아이스티",
+                                     subName: "LongIslandIcedTea",
+                                     taste: ["달콤"],
+                                     base: ["진", "럼", "데킬라", "보드카"],
+                                     alcohol: 15.6,
+                                     ingredient: "드라이 진 15ml$보드카 15ml$화이트 럼 15ml$데킬라 15ml$트리플 섹 15ml$스윗 앤 사워 믹스 45ml$콜라",
+                                     description: "1. 잔에 얼음을 채우세요.$2. 잔에 콜라를 제외한 모든 재료를 넣으세요.$3. 그 후 콜라를 잔의 80%까지 채우세요.")
+        
+        let ref = Firestore.firestore().collection("CockData").document("LongIslandIcedTea")
+//        do {
+//            try ref.setData(from: list)
+//            print("Success Data")
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+        
+        let dal = "달콤"
+        
+        var read = Firestore.firestore().collection("CockData")
+            .whereField("taste", arrayContainsAny: ["달콤"])
+//            read.whereField("base", arrayContainsAny: ["보드카"])
+            read.whereField("alcohol", isLessThan: 20.0)
+            .getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        read.whereField("ky.\(dal)", isEqualTo: dal)
     }
     
     override func viewDidLoad() {

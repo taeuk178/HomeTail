@@ -78,4 +78,11 @@ class HomeViewModel {
             print(model)
         }
     }
+    let repository = CockTailRepository()
+    
+    func readFireStore() {
+        repository.fetchAllList { [weak self] model in
+            print(model[0].values)
+        }
+    }
 }

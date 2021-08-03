@@ -51,6 +51,7 @@
 		A9CD5FB4268E864800FE11B2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */; };
 		A9CD5FB6268E88B600FE11B2 /* SubCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD5FB5268E88B600FE11B2 /* SubCoordinator.swift */; };
 		A9E15C4026B534CD00120F35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E15C3F26B534CD00120F35 /* GoogleService-Info.plist */; };
+		A9E15C4226B544AA00120F35 /* CockTailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E15C4126B544AA00120F35 /* CockTailDataModel.swift */; };
 		AC5E88CC9A045FDCC47FF3AE /* Pods_HomeTailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CADCC710FF7F35B73F5A65D /* Pods_HomeTailTests.framework */; };
 		BFBCF29C84947E98DA230E9B /* Pods_HomeTail_HomeTailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204515A219A92C001285227 /* Pods_HomeTail_HomeTailUITests.framework */; };
 		C9066DF0C41777016B625074 /* Pods_HomeTail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */; };
@@ -130,6 +131,7 @@
 		A9CD5FB3268E864800FE11B2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		A9CD5FB5268E88B600FE11B2 /* SubCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCoordinator.swift; sourceTree = "<group>"; };
 		A9E15C3F26B534CD00120F35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9E15C4126B544AA00120F35 /* CockTailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailDataModel.swift; sourceTree = "<group>"; };
 		B2818C89D86E58AD02BA97F9 /* Pods-HomeTail-HomeTailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail-HomeTailUITests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTail-HomeTailUITests/Pods-HomeTail-HomeTailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE8232DE894D82AF60ECE7B /* Pods_HomeTail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E835456B82D671ED625814 /* Pods-HomeTail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTail.release.xcconfig"; path = "Target Support Files/Pods-HomeTail/Pods-HomeTail.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				A9667994266E6526002684BC /* List+CoreDataClass.swift */,
 				A9667995266E6526002684BC /* List+CoreDataProperties.swift */,
 				A9667988266E5A0F002684BC /* CockTailListModel.swift */,
+				A9E15C4126B544AA00120F35 /* CockTailDataModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				A9CD5FB0268E793100FE11B2 /* PersistenceManager.swift in Sources */,
 				A913A31B268705C300D22236 /* RecipeViewController.swift in Sources */,
 				A9C1AADD26779C1500156AF6 /* HomeBottomCell.swift in Sources */,
+				A9E15C4226B544AA00120F35 /* CockTailDataModel.swift in Sources */,
 				A9C1AAC52674FF8E00156AF6 /* NSError+CoreData.swift in Sources */,
 				A9667812266A4AA9002684BC /* SceneDelegate.swift in Sources */,
 				A913A31826868E0200D22236 /* ListTableCell.swift in Sources */,

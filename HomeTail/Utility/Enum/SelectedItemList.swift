@@ -87,7 +87,7 @@ enum SelectedBase: String, CaseIterable {
     case gin = "진"
     case vodka = "보드카"
     case rum = "럼"
-    case tequila = "데낄라"
+    case tequila = "데킬라"
     case liqueur = "리큐르"
     case whisky = "위스키"
     case brandy = "브랜디"
