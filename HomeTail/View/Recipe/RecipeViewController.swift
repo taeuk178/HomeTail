@@ -33,11 +33,11 @@ class RecipeViewController: BaseViewController {
         return $0
     }(UIButton())
     
-    // 라벨스택뷰, 출처, 텍스트뷰
+    // 라벨스택뷰, 텍스트뷰
     private lazy var recipeStackView: UIStackView = {
         $0.addArrangedSubview(labelStackView)
-        $0.addArrangedSubview(resourceLabel)
-        $0.addArrangedSubview(descriptionTextView)
+        $0.addArrangedSubview(ingredientStackView)
+        $0.addArrangedSubview(descriptionStackView)
         $0.alignment = .fill
         $0.distribution = .fill
         $0.axis = .vertical
@@ -78,10 +78,21 @@ class RecipeViewController: BaseViewController {
         return $0
     }(UILabel())
     
-    // 출처
-    private let resourceLabel: UILabel = {
+    private lazy var descriptionStackView: UIStackView = {
+        $0.addArrangedSubview(descriptionLabel)
+        $0.addArrangedSubview(descriptionTextView)
+        $0.alignment = .fill
+        $0.distribution = .fillProportionally
+        $0.axis = .vertical
+        $0.spacing = 5
+        return $0
+    }(UIStackView())
+    
+    // 설명라벨
+    private let descriptionLabel: UILabel = {
+        $0.text = "제조방법"
+        $0.font = .appSansFont(.sansHWRegular, size: 20)
         $0.textAlignment = .left
-        $0.font = .appSansFont(.sansHWRegular, size: 12)
         return $0
     }(UILabel())
     
@@ -106,6 +117,37 @@ class RecipeViewController: BaseViewController {
         return $0
     }(UILabel())
     
+    // 재료라벨
+    private let ingredientLabel: UILabel = {
+        $0.text = "재료"
+        $0.font = .appSansFont(.sansHWRegular, size: 20)
+        $0.textAlignment = .left
+        return $0
+    }(UILabel())
+    
+    // 재료 텍스트뷰
+    private let ingredientTextView: UITextView = {
+        $0.backgroundColor = .appMainColor(.subWhiteColor)
+        $0.isEditable = false
+        $0.isScrollEnabled = false
+        $0.sizeToFit()
+        $0.font = .appSansFont(.sansHWRegular, size: 16)
+        $0.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
+        $0.setContentHuggingPriority(.defaultLow - 1, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultHigh - 1, for: .vertical)
+        return $0
+    }(UITextView())
+    
+    private lazy var ingredientStackView: UIStackView = {
+        $0.addArrangedSubview(ingredientLabel)
+        $0.addArrangedSubview(ingredientTextView)
+        $0.alignment = .fill
+        $0.distribution = .fillProportionally
+        $0.axis = .vertical
+        $0.spacing = 5
+        return $0
+    }(UIStackView())
+    
     let recipeViewModel = RecipeViewModel()
     
     var cockTailListIndex = 0
@@ -124,10 +166,11 @@ class RecipeViewController: BaseViewController {
     func setRecipe() {
         guard let cockRecipe = recipeViewModel.cockTailRecipe else { return }
         
+        infoGraphicImage.image = UIImage(named: cockRecipe.subName)
         cockNameLabel.text = cockRecipe.name
         cockSubnameLabel.text = cockRecipe.subName
-        infoGraphicImage.image = UIImage(named: cockRecipe.subName)
-        descriptionTextView.text = recipeViewModel.convertRecipe()
+        ingredientTextView.text = recipeViewModel.convertRecipe(convert: cockRecipe.ingredient)
+        descriptionTextView.text = recipeViewModel.convertRecipe(convert: cockRecipe.description)
         alcoholLabel.text = "도수: \(cockRecipe.alcohol)%"
         
     }

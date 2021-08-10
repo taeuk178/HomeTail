@@ -30,10 +30,10 @@ class RecipeViewModel {
                           cocktailimageurl: recipeDatas.value(forKey: "cocktailimageurl") as? String ?? "")
     }
     
-    func convertRecipe() -> String {
-        guard let explain = cockTailRecipe?.description else { return "" }
+    func convertRecipe(convert: String) -> String {
+        
         var description: String = ""
-        for separ in explain.components(separatedBy: "$") {
+        for separ in convert.components(separatedBy: "$") {
             description += String(separ)+"\n"
         }
         return description
