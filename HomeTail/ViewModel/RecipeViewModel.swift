@@ -31,11 +31,32 @@ class RecipeViewModel {
     }
     
     func convertRecipe() -> String {
-        guard let explain = cockRecipe?.explain else { return "" }
+        guard let explain = cockTailRecipe?.description else { return "" }
         var description: String = ""
-        for separ in explain.components(separatedBy: "\\n") {
+        for separ in explain.components(separatedBy: "$") {
             description += String(separ)+"\n"
         }
         return description
+    }
+    
+    var cockTailRecipe: CockTailRecipeModel?
+    
+    func fireStoreRecipe() {
+        
+        guard let recipeData = service?.cockAllData?[cockTailIndex.value] else { return }
+        
+        if  let name = recipeData["name"] as? String,
+            let subName = recipeData["subName"] as? String,
+            let alcohol = recipeData["alcohol"] as? Double,
+            let ingredient = recipeData["ingredient"] as? String,
+            let description = recipeData["description"] as? String {
+         
+            cockTailRecipe = CockTailRecipeModel(name: name,
+                                                  subName: subName,
+                                                  alcohol: alcohol,
+                                                  ingredient: ingredient,
+                                                  description: description)
+            
+        }
     }
 }

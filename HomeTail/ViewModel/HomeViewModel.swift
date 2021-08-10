@@ -69,20 +69,16 @@ class HomeViewModel {
             print("NON")
         }
     }
-    // service 삭제예정
     
     let service = CockTailService()
     
-    func readService() {
-        service.fetchRepository { [weak self] model in
-            print(model)
-        }
-    }
-    let repository = CockTailRepository()
-    
     func readFireStore() {
-        repository.fetchAllList { [weak self] model in
-            print(model[0].values)
+        
+        service.fetchFireStoreData { model in
+            model.forEach {
+                print($0.name)
+            }
+            print(model.count)
         }
     }
 }

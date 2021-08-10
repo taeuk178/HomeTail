@@ -13,9 +13,6 @@ class ListTableCell: UITableViewCell {
     // MARK: - Properties
     
     let infoGraphicImage: UIImageView = {
-//        $0.image = UIImage(named: "exImage")
-//        $0.image = UIImage(named: "InfoImage")
-        $0.image = UIImage(named: "InfoImage") // png
         $0.contentMode = .scaleAspectFill
         return $0
     }(UIImageView())
@@ -65,10 +62,11 @@ class ListTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpCell(mainString name: String, subString sub: String, alchol abv: String) {
+    func setUpCell(mainString name: String, subString sub: String, alchol abv: Double) {
         nameLabel.text = name
         subNameLabel.text = sub
         abvLabel.text = "ABV: \(abv)"
+        infoGraphicImage.image = UIImage(named: sub)
     }
 }
 

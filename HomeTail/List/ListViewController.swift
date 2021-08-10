@@ -45,7 +45,9 @@ class ListViewController: BaseViewController, FloatingPanelControllerDelegate {
         super.viewDidLoad()
         
         setUpFloatingPanel()
-        listViewModel.readCockTailList()
+        listViewModel.readCockTailFireStoreData {
+            self.tableView.reloadData()
+        }
         
     }
     
@@ -70,13 +72,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listViewModel.cockList?.count ?? 0
+        return listViewModel.cockTailList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableCell = tableView.dequeueTableCell(for: indexPath)
         
-        guard let datas = listViewModel.cockList?[indexPath.row] else { fatalError() }
+        guard let datas = listViewModel.cockTailList?[indexPath.row] else { fatalError() }
         
         cell.setUpCell(mainString: datas.name, subString: datas.subName, alchol: datas.alcohol)
         cell.selectionStyle = .none

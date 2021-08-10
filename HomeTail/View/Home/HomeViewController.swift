@@ -62,25 +62,11 @@ class HomeViewController: BaseViewController {
      
      source = "출처" -> 변수명 변경 필요
      */
-    // test
-    let cockList = CockTailDataModel(cockID: 3000,
-                                     name: "스크류 드라이버",
-                                     subname: "Screw Driver",
-                                     source: "IBA", // source -> 다른 변수명 변경필요
-                                     taste: "달콤",
-                                     base: "보드카",
-                                     alcohol: "5.6",
-                                     alcoholkind: "낮은 도수",
-                                     explain: "스크류 드라이버 설명.",
-                                     recipe: ["보드카", "오렌지 주스"],
-                                     cocktailimageurl: "https://image")
     
     // MARK: - LifeCycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        homeVM.readService()
         
         let list = FireCockTailModel(cockID: 2008,
                                      name: "롱 아일랜드 아이스티",
@@ -99,55 +85,29 @@ class HomeViewController: BaseViewController {
 //            print(error.localizedDescription)
 //        }
         
-        let dal = "달콤"
+//        let dal = "달콤"
+//
+//        var read = Firestore.firestore().collection("CockData")
+//            .whereField("taste", arrayContainsAny: ["달콤"])
+////            read.whereField("base", arrayContainsAny: ["보드카"])
+//            read.whereField("alcohol", isLessThan: 20.0)
+//            .getDocuments { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                }
+//            }
+//        }
+//        read.whereField("ky.\(dal)", isEqualTo: dal)
         
-        var read = Firestore.firestore().collection("CockData")
-            .whereField("taste", arrayContainsAny: ["달콤"])
-//            read.whereField("base", arrayContainsAny: ["보드카"])
-            read.whereField("alcohol", isLessThan: 20.0)
-            .getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-        read.whereField("ky.\(dal)", isEqualTo: dal)
+//        homeVM.readFireStore()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // test
-        let context = PersistenceManager.shared.context
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "CockTailList", in: context) else { return }
-        
-        let person = NSManagedObject(entity: entity,
-                                     insertInto: context)
-        
-        // 3
-        person.setValue(cockList.cockID, forKey: "cockID")
-        person.setValue(cockList.name, forKey: "name")
-        person.setValue(cockList.subname, forKey: "subname")
-        person.setValue(cockList.source, forKey: "source")
-        person.setValue(cockList.base, forKey: "base")
-        person.setValue(cockList.taste, forKey: "taste")
-        person.setValue(cockList.alcohol, forKey: "alcohol")
-        person.setValue(cockList.alcoholkind, forKey: "alcoholkind")
-        person.setValue(cockList.explain, forKey: "explain")
-        person.setValue(cockList.recipe, forKey: "recipe")
-        person.setValue(cockList.cocktailimageurl, forKey: "cocktailimageurl")
-        
-//        do {
-//            try context.save()
-//
-//        } catch {
-//            print(error.localizedDescription)
-//
-//        }
     }
 }
 

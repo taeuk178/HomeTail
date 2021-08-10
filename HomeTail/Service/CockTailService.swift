@@ -55,5 +55,25 @@ class CockTailService {
             }
         }
     }
+    
+    var cockListData: [CockTailListFireStoreModel] = []
+    var cockAllData: [[String: Any]]?
+    // firestore
+    func fetchFireStoreData(completion: @escaping ([CockTailListFireStoreModel]) -> Void) {
+        
+        repository.fetchAllList { model in
+            
+            model.forEach { data in
+                guard let name = data["name"] as? String,
+                      let subName = data["subName"] as? String,
+                      let alcohol = data["alcohol"] as? Double else { return }
+                
+                let listData = CockTailListFireStoreModel(name: name, subName: subName, alcohol: alcohol)
+                self.cockListData.append(listData)
+            }
+            self.cockAllData = model
+            completion(self.cockListData)
+        }
+    }
 
 }

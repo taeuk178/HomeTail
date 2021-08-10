@@ -17,3 +17,19 @@ struct CockTailListModel {
     let subName: String
     let alcohol: String
 }
+
+// FiresStore
+
+struct CockTailListFireStoreModel {
+    let name: String
+    let subName: String
+    let alcohol: Double    
+}
+
+struct CockTailRecipeModel {
+    let name: String
+    let subName: String
+    let alcohol: Double
+    let ingredient: String
+    let description: String
+}

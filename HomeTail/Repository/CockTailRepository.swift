@@ -38,6 +38,7 @@ class CockTailRepository {
                     print(document.documentID)
                     allData.append(document.data())
                 }
+                allData.remove(at: 0)
                 completion(allData)
             }
         }

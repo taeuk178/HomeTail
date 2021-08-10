@@ -58,9 +58,6 @@ class RecipeViewController: BaseViewController {
     
     // 칵테일 인포그래픽이미지
     let infoGraphicImage: UIImageView = {
-//        $0.image = UIImage(named: "exImage") // png
-//        $0.image = UIImage(named: "InfoImage") // png
-        $0.image = UIImage(named: "LongIIRecipe") // png
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .white
         return $0
@@ -118,18 +115,18 @@ class RecipeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        recipeViewModel.showList()
+        recipeViewModel.fireStoreRecipe()
         setRecipe()
         
         dismissButton.addTarget(self, action: #selector(dismissAction(_:)), for: .touchUpInside)
     }
     
     func setRecipe() {
-        guard let cockRecipe = recipeViewModel.cockRecipe else { return }
+        guard let cockRecipe = recipeViewModel.cockTailRecipe else { return }
         
         cockNameLabel.text = cockRecipe.name
-        cockSubnameLabel.text = cockRecipe.subname
-        resourceLabel.text = "출처: \(cockRecipe.source)"
+        cockSubnameLabel.text = cockRecipe.subName
+        infoGraphicImage.image = UIImage(named: cockRecipe.subName)
         descriptionTextView.text = recipeViewModel.convertRecipe()
         alcoholLabel.text = "도수: \(cockRecipe.alcohol)%"
         
