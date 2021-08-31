@@ -15,3 +15,4 @@
 - Deployment Target: iOS13+
 - Architecture: MVVM
 - Code Base ( No Story board, No Xib )
+- Library: Firebase, SwiftLint, FloatingPanel, Snapkit
