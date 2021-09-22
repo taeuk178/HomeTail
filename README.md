@@ -6,6 +6,11 @@
 
 ## 상세내용
 
+<img src="https://user-images.githubusercontent.com/56478641/134358992-955d23c3-1280-4eec-8cd0-247b362494cd.jpg"  width="700" height="500">
+
+<img src="https://user-images.githubusercontent.com/56478641/134360666-7b07a341-3653-4109-a93f-d65c58aac438.gif"  width="250" height="500"> <img src="https://user-images.githubusercontent.com/56478641/134360771-78e8d2a2-cdbb-4cfa-9f45-cbba9205c5d1.gif"  width="250" height="500">
+
+
 ## Commit Convention
 - feat: 기능 추가
 - fix: 버그 수정
